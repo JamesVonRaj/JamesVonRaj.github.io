@@ -3,28 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Career Trajectory Presentation</title>
+    <title>James - Physics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body, html {
+        :root {
+            --deep-blue: #0081a7;
+            --teal: #00afb9;
+            --cream: #fdfcdc;
+            --peach: #fed9b7;
+            --coral: #f07167;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--cream);
+            color: var(--deep-blue);
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            height: 100%;
-            overflow: hidden;
         }
-        iframe {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            background-color: var(--deep-blue);
+            color: var(--cream);
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+            color: var(--peach);
+        }
+        h2 {
+            color: var(--teal);
+            font-size: 1.8rem;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--coral);
+            padding-bottom: 10px;
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        a {
+            color: var(--deep-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--coral);
+        }
+        .posts {
+            margin-top: 20px;
+        }
+        .post {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: var(--peach);
+            border-left: 5px solid var(--coral);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .post:hover {
+            transform: translateX(5px);
+            border-left-color: var(--teal);
+            background-color: var(--cream);
+        }
+        .post-title {
+            flex-grow: 1;
+            font-weight: 600;
+            color: var(--deep-blue);
+        }
+        .post-date {
+            color: var(--teal);
+            font-size: 0.9rem;
+        }
+        .social-links {
+            margin-top: 40px;
+            display: flex;
+            gap: 15px;
+        }
+        .social-links a {
+            padding: 10px 20px;
+            background-color: var(--teal);
+            color: var(--cream);
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            background-color: var(--coral);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .spotify-embed {
+            margin-top: 20px;
+            display: flex;
+            justify-content: left;
         }
     </style>
 </head>
 <body>
-    <iframe 
-        src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FIqQ4Rb8ETAmQuihv2SyD4D%2FCareer-Trajectory%3Ftype%3Ddesign%26node-id%3D1-2%26t%3DbMnKQ4lNfzvGDxhU-1%26scaling%3Dcontain%26page-id%3D0%253A1%26starting-point-node-id%3D1%253A2"
-        allowfullscreen
-    ></iframe>
+    <div class="container">
+        <header>
+            <h1>James Raj</h1>
+            <p>Physics PhD student at UCLA, exploring hyperuniform networks and their applications in materials science. Passionate about complex systems, network theory, and statistical physics.</p>
+        </header>
+
+        <section>
+            <h2>About Me</h2>
+            <p>Researcher with a keen interest in the intersection of physics and network science. Currently investigating how hyperuniformity manifests in complex networks and its implications for material properties.</p>
+            <p>This is my academic blog where I share insights, research updates, and thoughts on physics and network theory.</p>
+            <p>For more details about my research or to collaborate, please check my <a href="#">publications</a> or contact me directly via any of my provided channels.</p>
+        </section>
+
+        <section>
+            <h2>Current Projects</h2>
+            <div class="posts">
+                <div class="post">
+                    <span class="post-title">★ Modelling crowd shyness in trees with topological data analysis.</span>
+                    <span class="post-date">Aug 3, 2024</span>
+                </div>
+                <div class="post">
+                    <span class="post-title">Developing theory for Hyperuniform Networks (HUNs)</span>
+                    <span class="post-date">Aug 3, 2024</span>
+                </div>
+                <div class="post">
+                    <span class="post-title">Characteristics of networks generated from hyperuniform point clouds.</span>
+                    <span class="post-date">May 9, 2024</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="social-links">
+            <a href="https://github.com/JamesVonRaj">GitHub</a>
+            <a href="#">Twitter</a>
+            <a href="#">RSS</a>
+        </div>
+
+        <div class="spotify-embed">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6i5aXpYzgLYuBmT94udGBY?utm_source=generator" width="36.2%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+    </div>
 </body>
 </html>
