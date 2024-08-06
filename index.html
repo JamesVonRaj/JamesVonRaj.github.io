@@ -109,7 +109,24 @@
         .spotify-embed {
             margin-top: 20px;
             display: flex;
-            justify-content: left;
+            justify-content: center;
+        }
+        .underlined-dash {
+          text-decoration: none;
+          background-image: conic-gradient(
+            from 0deg,
+            currentColor 0deg 180deg,
+            transparent 180deg 360deg
+          );
+          background-position: 0 100%;
+          background-size: 8px 2px;
+          background-repeat: repeat-x;
+          padding-bottom: 3px;
+        }
+        .solid {
+            text-decoration-line: underline;
+            text-decoration-style: solid;
+            text-decoration-color: var(--coral);
         }
     </style>
 </head>
@@ -124,14 +141,14 @@
             <h2>About Me</h2>
             <p>Researcher with a keen interest in the intersection of physics and network science. Currently investigating how hyperuniformity manifests in complex networks and its implications for material properties.</p>
             <p>This is my academic blog where I share insights, research updates, and thoughts on physics and network theory.</p>
-            <p>For more details about my research or to collaborate, please check my <a href="#">publications</a> or contact me directly via any of my provided channels.</p>
+            <p>For more details about my research or to collaborate, please check my <span class="solid"><a href="https://scholar.google.com/citations?hl=en&user=wvoc6yIAAAAJ">publications</a></span> or contact me directly via any of my provided channels.</p>
         </section>
 
         <section>
             <h2>Current Projects</h2>
             <div class="posts">
                 <div class="post">
-                    <span class="post-title">★ Modelling crowd shyness in trees with topological data analysis.</span>
+                    <span class="post-title">Modelling crowd shyness in trees with topological data analysis.</span>
                     <span class="post-date">Aug 3, 2024</span>
                 </div>
                 <div class="post">
@@ -152,7 +169,7 @@
         </div>
 
         <div class="spotify-embed">
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6i5aXpYzgLYuBmT94udGBY?utm_source=generator" width="36.2%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6i5aXpYzgLYuBmT94udGBY?utm_source=generator" width="50%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
     </div>
 </body>
