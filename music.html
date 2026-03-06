@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music - James Raj</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-blue: #0081a7;
+            --teal: #00afb9;
+            --cream: #fdfcdc;
+            --peach: #fed9b7;
+            --coral: #f07167;
+        }
+        body.accessible {
+            --deep-blue: #1a1a2e;
+            --teal: #0f4c75;
+            --cream: #ffffff;
+            --peach: #e8e8e8;
+            --coral: #d4700a;
+        }
+        body.accessible *,
+        body.accessible *::before,
+        body.accessible *::after {
+            transition: none !important;
+            animation: none !important;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--cream);
+            color: var(--deep-blue);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        a {
+            color: var(--deep-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--coral);
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--teal);
+        }
+        .back-link:hover {
+            color: var(--coral);
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: var(--deep-blue);
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+        h2 {
+            color: var(--teal);
+            font-size: 1.5rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--coral);
+            padding-bottom: 8px;
+        }
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        /* Track list */
+        .track-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        /* Track row */
+        .track {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 10px;
+            border-radius: 10px;
+            background: var(--peach);
+            transition: background 0.2s ease;
+            cursor: default;
+        }
+        .track:hover {
+            background: color-mix(in srgb, var(--peach) 70%, var(--coral) 30%);
+        }
+        .track-num {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--teal);
+            min-width: 22px;
+            text-align: right;
+        }
+        .track-art {
+            width: 48px;
+            height: 48px;
+            border-radius: 6px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .track-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .track-name {
+            font-weight: 600;
+            font-size: 0.92rem;
+            color: var(--deep-blue);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .track-artist {
+            font-size: 0.8rem;
+            color: var(--teal);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .track-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+        .play-btn {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: none;
+            background: var(--teal);
+            color: var(--cream);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease, transform 0.15s ease;
+            padding: 0;
+        }
+        .play-btn:hover {
+            background: var(--deep-blue);
+            transform: scale(1.1);
+        }
+        .play-btn.playing {
+            background: var(--coral);
+        }
+        .play-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+        .spotify-link {
+            width: 20px;
+            height: 20px;
+            opacity: 0.5;
+            transition: opacity 0.2s ease;
+            flex-shrink: 0;
+        }
+        .spotify-link:hover {
+            opacity: 1;
+        }
+        .spotify-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Progress bar */
+        .progress-wrap {
+            width: 60px;
+            height: 4px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 2px;
+            cursor: pointer;
+            position: relative;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--coral);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* Now playing bar */
+        .now-playing {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--deep-blue);
+            color: var(--cream);
+            padding: 10px 20px;
+            display: none;
+            align-items: center;
+            gap: 12px;
+            z-index: 50;
+            box-shadow: 0 -2px 12px rgba(0,0,0,0.2);
+        }
+        .now-playing.visible {
+            display: flex;
+        }
+        .now-playing .np-art {
+            width: 42px;
+            height: 42px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+        .now-playing .np-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .now-playing .np-name {
+            font-weight: 600;
+            font-size: 0.88rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .now-playing .np-artist {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .now-playing .np-progress {
+            flex: 0 0 120px;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .now-playing .np-progress-bar {
+            height: 100%;
+            background: var(--coral);
+            border-radius: 2px;
+            width: 0%;
+        }
+        .now-playing .np-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: var(--coral);
+            color: var(--cream);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            flex-shrink: 0;
+        }
+        .now-playing .np-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+        .now-playing .np-close {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: none;
+            background: transparent;
+            color: var(--cream);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            opacity: 0.6;
+            font-size: 1.1rem;
+        }
+        .now-playing .np-close:hover {
+            opacity: 1;
+        }
+
+        .accessibility-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #003044;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 0.85rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            z-index: 100;
+        }
+        .accessibility-toggle:hover {
+            transform: scale(1.05);
+            background-color: #005f66;
+        }
+        .accessibility-toggle svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* Shift accessibility button up when now-playing is visible */
+        .now-playing.visible ~ .accessibility-toggle {
+            bottom: 80px;
+        }
+
+        .no-preview {
+            font-size: 0.7rem;
+            color: var(--coral);
+            opacity: 0.7;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .track { padding: 6px 8px; gap: 8px; }
+            .track-art { width: 40px; height: 40px; }
+            .track-name { font-size: 0.85rem; }
+            .progress-wrap { width: 40px; }
+            .now-playing .np-progress { flex: 0 0 80px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html#personal" class="back-link">&larr; Back to main page</a>
+        <h1>Music</h1>
+        <h2>Top Artists</h2>
+        <p>My most listened to track from each of my most listened to artists, according to Spotify data. This is roughly correct, I love all of these artists, but in the future I'd like to curate this more personally to better reflect what I actually consider my favorites.</p>
+        <div class="track-list" id="list-artists"></div>
+    </div>
+
+    <!-- Now Playing Bar -->
+    <div class="now-playing" id="now-playing">
+        <img class="np-art" id="np-art" src="" alt="">
+        <div class="np-info">
+            <div class="np-name" id="np-name"></div>
+            <div class="np-artist" id="np-artist"></div>
+        </div>
+        <div class="np-progress" id="np-progress">
+            <div class="np-progress-bar" id="np-progress-bar"></div>
+        </div>
+        <button class="np-btn" id="np-btn" aria-label="Play/Pause">
+            <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+        </button>
+        <button class="np-close" id="np-close" aria-label="Close">&times;</button>
+    </div>
+
+    <button class="accessibility-toggle" aria-label="Toggle accessible view" title="Toggle accessible view">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 7h-6l-1.41 7.41L16 22h-2l-2-5-2 5H8l2.41-5.59L9 9H3V7h18v2z"/></svg>
+        Accessibility
+    </button>
+
+    <script>
+    (function() {
+        var TRACKS = {
+            "22DaMb0Q6nde3ozb2qMDYl":{"n":"Your Desire in Food","a":"Superfan","s":"https://open.spotify.com/track/22DaMb0Q6nde3ozb2qMDYl","mp3":true},
+            "7rKQhma9umlgAQYBodO76a":{"n":"Same Mistakes","a":"fakemink","s":"https://open.spotify.com/track/7rKQhma9umlgAQYBodO76a","mp3":true},
+            "54aR7u5xGxfH3vdaCkVjfy":{"n":"In The Morning","a":"Long Beard","s":"https://open.spotify.com/track/54aR7u5xGxfH3vdaCkVjfy","mp3":true},
+            "4bGWL6Z9f9BCmgJtLpnX6Y":{"n":"PillowFight","a":"fakemink","s":"https://open.spotify.com/track/4bGWL6Z9f9BCmgJtLpnX6Y","mp3":true},
+            "4gmhjAsvL6c7se2PBh7dHw":{"n":"Spring 1 - 2012","a":"Max Richter","s":"https://open.spotify.com/track/4gmhjAsvL6c7se2PBh7dHw","mp3":true},
+            "067vXqdd8ogZlEXxGxP7cg":{"n":"Cage Girl","a":"Jane Remover","s":"https://open.spotify.com/track/067vXqdd8ogZlEXxGxP7cg","mp3":true},
+            "5pEvOi9iZyERMdxOLavv3J":{"n":"Scattered","a":"Flawed Mangoes","s":"https://open.spotify.com/track/5pEvOi9iZyERMdxOLavv3J","mp3":true},
+            "7xCNNGCjueh2oU9k31Cesu":{"n":"If You Care","a":"akiaura","s":"https://open.spotify.com/track/7xCNNGCjueh2oU9k31Cesu","mp3":true},
+            "13VNbW9gblZQVVM2a7ZQf5":{"n":"MONDAY","a":"Quadeca","s":"https://open.spotify.com/track/13VNbW9gblZQVVM2a7ZQf5","mp3":true},
+            "61iJknbAXSuBflDz3vSQ0b":{"n":"U Weren't Here I Really Miss You","a":"Cult Member","s":"https://open.spotify.com/track/61iJknbAXSuBflDz3vSQ0b","mp3":true},
+            "3hblhLukQEvoHDMBNTNIz8":{"n":"Mesh","a":"Ollie Lewin","s":"https://open.spotify.com/track/3hblhLukQEvoHDMBNTNIz8","mp3":true},
+            "4dG9lShANrhEuybenH3rB6":{"n":"wish u would","a":"worm","s":"https://open.spotify.com/track/4dG9lShANrhEuybenH3rB6","mp3":true},
+            "5bhTUxSNkAZ4H3uFjSJRTY":{"n":"LOVE YOU LESS","a":"Joji","s":"https://open.spotify.com/track/5bhTUxSNkAZ4H3uFjSJRTY","mp3":true},
+            "4UQEO2qie20yQZezxZvsAy":{"n":"rotten","a":"anna luna","s":"https://open.spotify.com/track/4UQEO2qie20yQZezxZvsAy","mp3":true},
+            "0E4bYC2Gwi65NCM87iZ403":{"n":"Sleeping in","a":"The Radio Dept.","s":"https://open.spotify.com/track/0E4bYC2Gwi65NCM87iZ403","mp3":true},
+            "5XhoZDDG7oUXq1wearM1Dt":{"n":"i think ily (but you don't)","a":"bimby1 cats","s":"https://open.spotify.com/track/5XhoZDDG7oUXq1wearM1Dt","mp3":true},
+            "7jwvbTOcB3HZhfjkSorgIM":{"n":"Uppercut","a":"Arthur Fabbro","s":"https://open.spotify.com/track/7jwvbTOcB3HZhfjkSorgIM","mp3":true},
+            "1ZUnkBd8RgXxaWkpci5jmh":{"n":"TELL ME WHAT I DID","a":"Tiffany Day","s":"https://open.spotify.com/track/1ZUnkBd8RgXxaWkpci5jmh","mp3":true},
+            "5XD08ZPXrYSnc5xRPQ0gu4":{"n":"eldest child","a":"2hollis","s":"https://open.spotify.com/track/5XD08ZPXrYSnc5xRPQ0gu4","mp3":true},
+            "1g9GiiPPaL7KcDHlDzu7lT":{"n":"Au Pays du Cocaine","a":"Geese","s":"https://open.spotify.com/track/1g9GiiPPaL7KcDHlDzu7lT","mp3":true},
+            "7KgDOM5HxdG5CvGqVgOezs":{"n":"Mesh","a":"Oliver Lewin","s":"https://open.spotify.com/track/7KgDOM5HxdG5CvGqVgOezs","mp3":true},
+            "4eFV1LfWlYCVJnPTuSo3db":{"n":"LOVE YOU LESS","a":"Joji","s":"https://open.spotify.com/track/4eFV1LfWlYCVJnPTuSo3db","mp3":true},
+            "6M5CaROqGljfkKfHeyfC8f":{"n":"dullscythe","a":"Porter Robinson","s":"https://open.spotify.com/track/6M5CaROqGljfkKfHeyfC8f","mp3":true},
+            "0XpxBV69JUDfqyzrJbndsw":{"n":"PIXELATED KISSES","a":"Joji","s":"https://open.spotify.com/track/0XpxBV69JUDfqyzrJbndsw","mp3":true},
+            "4JJ9khvBUTVzobxf3TzkSE":{"n":"On Your Side","a":"The Radio Dept.","s":"https://open.spotify.com/track/4JJ9khvBUTVzobxf3TzkSE","mp3":true},
+            "3J44gxX4AcRApFyympWPIB":{"n":"Past Won't Leave My Bed","a":"Joji","s":"https://open.spotify.com/track/3J44gxX4AcRApFyympWPIB","mp3":true},
+            "3Gdb4inHtK8UT1MyswIXla":{"n":"Always a Relief","a":"The Radio Dept.","s":"https://open.spotify.com/track/3Gdb4inHtK8UT1MyswIXla","mp3":true},
+            "0t5EGxGtcu4voodQuS9me4":{"n":"Half Real","a":"Geese","s":"https://open.spotify.com/track/0t5EGxGtcu4voodQuS9me4","mp3":true},
+            "5RRIO4JSQyAEdiivATnXUq":{"n":"I Don't Care...","a":"LUCKI","s":"https://open.spotify.com/track/5RRIO4JSQyAEdiivATnXUq","mp3":true},
+            "596IkZP89HvFYdgOb3lNvP":{"n":"smile again","a":"she's green","s":"https://open.spotify.com/track/596IkZP89HvFYdgOb3lNvP","mp3":true},
+            "25Qo5HjLMPN0F3ncayVHuX":{"n":"Joel.","a":"Perry Maysun","s":"https://open.spotify.com/track/25Qo5HjLMPN0F3ncayVHuX","mp3":true},
+            "0EnW9nWUsYdfnQ7AN7d7Tl":{"n":"to the dust we shall return","a":"Perry Maysun","s":"https://open.spotify.com/track/0EnW9nWUsYdfnQ7AN7d7Tl","mp3":true},
+            "3PK4Xc1Suw09k3HX6IeQHM":{"n":"im not your man","a":"Junior Mesa","s":"https://open.spotify.com/track/3PK4Xc1Suw09k3HX6IeQHM","mp3":true},
+            "5TSQSCzywyKzV67fgnnkyT":{"n":"breathe","a":"Yandere","s":"https://open.spotify.com/track/5TSQSCzywyKzV67fgnnkyT","mp3":true},
+            "04qyKjpUh7TqSOR0lwvY25":{"n":"Bruiseboy","a":"Jean Dawson","s":"https://open.spotify.com/track/04qyKjpUh7TqSOR0lwvY25","mp3":true},
+            "7zxikeAavSLQVGocbK2nau":{"n":"I'll Believe in Anything","a":"Wolf Parade","s":"https://open.spotify.com/track/7zxikeAavSLQVGocbK2nau","mp3":true},
+            "5dTMurOIMcflfNIy6BeJ4b":{"n":"Play Pretend","a":"nomu.","s":"https://open.spotify.com/track/5dTMurOIMcflfNIy6BeJ4b","mp3":true},
+            "2ofArIiQf7MQV68BPCW2Z1":{"n":"Waste","a":"nomu.","s":"https://open.spotify.com/track/2ofArIiQf7MQV68BPCW2Z1","mp3":true},
+            "1gCpf5jhAqegPJeXG0BCn5":{"n":"i love u. - slowed + reverb","a":"wiv","s":"https://open.spotify.com/track/1gCpf5jhAqegPJeXG0BCn5","mp3":true},
+            "0TT5fYtMNU07WMrW9cbRpL":{"n":"veil","a":"svn4vr","s":"https://open.spotify.com/track/0TT5fYtMNU07WMrW9cbRpL","mp3":true},
+            "5dMe53CXI7bE2wPTNPGMNp":{"n":"Spring 1 - 2012","a":"Max Richter","s":"https://open.spotify.com/track/5dMe53CXI7bE2wPTNPGMNp","mp3":true},
+            "0VVB6YQSAnISrJZrIfL1Ex":{"n":"The Moon","a":"Dom Jr.","s":"https://open.spotify.com/track/0VVB6YQSAnISrJZrIfL1Ex","mp3":true},
+            "5m54DFc9YdqHe2yrXpbqly":{"n":"John Doe Song","a":"Jane Remover","s":"https://open.spotify.com/track/5m54DFc9YdqHe2yrXpbqly","mp3":true},
+            "1z4TEXMpfmi9xXhHjbSXMp":{"n":"maybe","a":"Dom Jr.","s":"https://open.spotify.com/track/1z4TEXMpfmi9xXhHjbSXMp","mp3":true},
+            "2FZsOypXRoYIrGI6s8C3Zm":{"n":"$0","a":"Cameron Winter","s":"https://open.spotify.com/track/2FZsOypXRoYIrGI6s8C3Zm","mp3":true},
+            "4BlQMDkzx09E9wr1Gg8af8":{"n":"m0numental","a":"Asian Glow","s":"https://open.spotify.com/track/4BlQMDkzx09E9wr1Gg8af8","mp3":true},
+            "79OEy2h6jCUPyz0YNxDNxf":{"n":"Evoke","a":"Viznode","s":"https://open.spotify.com/track/79OEy2h6jCUPyz0YNxDNxf","mp3":true},
+            "4ZxjpVTJfPfPr40IqbCOPj":{"n":"tenk(e)i","a":"\u30d1\u30bd\u30b3\u30f3\u97f3\u697d\u30af\u30e9\u30d6","s":"https://open.spotify.com/track/4ZxjpVTJfPfPr40IqbCOPj","mp3":true},
+            "28oSjVeTIM8v1LrXmoo2GA":{"n":"\u30b5\u30de\u30fc\u30b9\u30af\u30fc\u30eb","a":"SEAPOOL","s":"https://open.spotify.com/track/28oSjVeTIM8v1LrXmoo2GA","mp3":true},
+            "3nwJjTphObeWha3DY3BpNy":{"n":"iii. accordion's remorse","a":"Quadeca","s":"https://open.spotify.com/track/3nwJjTphObeWha3DY3BpNy","mp3":true},
+            "5pSUjdZs1w7k6o44ej11Sa":{"n":"Not In Love","a":"Crystal Castles","s":"https://open.spotify.com/track/5pSUjdZs1w7k6o44ej11Sa","mp3":true},
+            "6nUPcVDYjCrnNMaXAJ9eO3":{"n":"Drinking Age","a":"Cameron Winter","s":"https://open.spotify.com/track/6nUPcVDYjCrnNMaXAJ9eO3","mp3":true},
+            "69iwMMslHM1UbAezNA4n8z":{"n":"gum!","a":"torr","s":"https://open.spotify.com/track/69iwMMslHM1UbAezNA4n8z","mp3":true},
+            "1WnVwuWYq9Paa1P6IOlr7S":{"n":"Fucking Your Girl","a":"Devon Hendryx","s":"https://open.spotify.com/track/1WnVwuWYq9Paa1P6IOlr7S","mp3":true},
+            "28cnXtME493VX9NOw9cIUh":{"n":"Hurt","a":"Johnny Cash","s":"https://open.spotify.com/track/28cnXtME493VX9NOw9cIUh","mp3":true},
+            "3LRDyb0D7xn2L9Yl8ZcDoV":{"n":"software update","a":"yeule","s":"https://open.spotify.com/track/3LRDyb0D7xn2L9Yl8ZcDoV","mp3":true},
+            "37UGL2kOEpr72bu5wGILms":{"n":"You Fear the Wrong Thing Baby","a":"The Radio Dept.","s":"https://open.spotify.com/track/37UGL2kOEpr72bu5wGILms","mp3":true},
+            "2iapoJmhpXu3QdKJ80V1rd":{"n":"PRETTY PRIVILEGE","a":"Quadeca","s":"https://open.spotify.com/track/2iapoJmhpXu3QdKJ80V1rd","mp3":true},
+            "01iMj24ADbxjoOob3TBJfq":{"n":"YUKON (INTERLUDE)","a":"Joji","s":"https://open.spotify.com/track/01iMj24ADbxjoOob3TBJfq","mp3":true},
+            "5vb9LSvVKxPTrbY5Cm5rk7":{"n":"i saw it flash before me","a":"2hollis","s":"https://open.spotify.com/track/5vb9LSvVKxPTrbY5Cm5rk7","mp3":true},
+            "3eE6IderHf7lnqOorqiNVK":{"n":"Is There Really No Happiness?","a":"Porter Robinson","s":"https://open.spotify.com/track/3eE6IderHf7lnqOorqiNVK","mp3":true},
+            "69kRf3P6QDiK0ZAFw70KUR":{"n":"Soren - Bedroom Session","a":"beabadoobee","s":"https://open.spotify.com/track/69kRf3P6QDiK0ZAFw70KUR","mp3":true},
+            "3XUqkTZBYQr3Nj0nifAW2S":{"n":"Harvey","a":"Alex G","s":"https://open.spotify.com/track/3XUqkTZBYQr3Nj0nifAW2S","mp3":true},
+            "1a0WdI4TM2RLeXL3MAk8Pb":{"n":"Realist Alive","a":"Lil B","s":"https://open.spotify.com/track/1a0WdI4TM2RLeXL3MAk8Pb","mp3":true},
+            "6UumK9cxNHOXOLu9p1zGGR":{"n":"PillowFight","a":"fakemink","s":"https://open.spotify.com/track/6UumK9cxNHOXOLu9p1zGGR","mp3":true},
+            "73uJybGAhwGRD9MZYrOmTY":{"n":"Death with Dignity","a":"Sufjan Stevens","s":"https://open.spotify.com/track/73uJybGAhwGRD9MZYrOmTY","mp3":true}
+        };
+
+        var SECTIONS = {
+            alltime: ["22DaMb0Q6nde3ozb2qMDYl","7rKQhma9umlgAQYBodO76a","54aR7u5xGxfH3vdaCkVjfy","4bGWL6Z9f9BCmgJtLpnX6Y","4gmhjAsvL6c7se2PBh7dHw","067vXqdd8ogZlEXxGxP7cg","5pEvOi9iZyERMdxOLavv3J","7xCNNGCjueh2oU9k31Cesu","13VNbW9gblZQVVM2a7ZQf5","61iJknbAXSuBflDz3vSQ0b","3hblhLukQEvoHDMBNTNIz8","4dG9lShANrhEuybenH3rB6","5bhTUxSNkAZ4H3uFjSJRTY","4UQEO2qie20yQZezxZvsAy","0E4bYC2Gwi65NCM87iZ403","5XhoZDDG7oUXq1wearM1Dt","7jwvbTOcB3HZhfjkSorgIM","1ZUnkBd8RgXxaWkpci5jmh","5XD08ZPXrYSnc5xRPQ0gu4","1g9GiiPPaL7KcDHlDzu7lT"],
+            "6months": ["7rKQhma9umlgAQYBodO76a","7KgDOM5HxdG5CvGqVgOezs","4eFV1LfWlYCVJnPTuSo3db","6M5CaROqGljfkKfHeyfC8f","0E4bYC2Gwi65NCM87iZ403","0XpxBV69JUDfqyzrJbndsw","1ZUnkBd8RgXxaWkpci5jmh","1g9GiiPPaL7KcDHlDzu7lT","4JJ9khvBUTVzobxf3TzkSE","3J44gxX4AcRApFyympWPIB","3Gdb4inHtK8UT1MyswIXla","0t5EGxGtcu4voodQuS9me4","5RRIO4JSQyAEdiivATnXUq","596IkZP89HvFYdgOb3lNvP","25Qo5HjLMPN0F3ncayVHuX","0EnW9nWUsYdfnQ7AN7d7Tl","3PK4Xc1Suw09k3HX6IeQHM","5TSQSCzywyKzV67fgnnkyT","7jwvbTOcB3HZhfjkSorgIM","04qyKjpUh7TqSOR0lwvY25"],
+            "4weeks": ["7zxikeAavSLQVGocbK2nau","5dTMurOIMcflfNIy6BeJ4b","2ofArIiQf7MQV68BPCW2Z1","1gCpf5jhAqegPJeXG0BCn5","0TT5fYtMNU07WMrW9cbRpL","5dMe53CXI7bE2wPTNPGMNp","0VVB6YQSAnISrJZrIfL1Ex","5m54DFc9YdqHe2yrXpbqly","1z4TEXMpfmi9xXhHjbSXMp","2FZsOypXRoYIrGI6s8C3Zm","4BlQMDkzx09E9wr1Gg8af8","79OEy2h6jCUPyz0YNxDNxf","4ZxjpVTJfPfPr40IqbCOPj","28oSjVeTIM8v1LrXmoo2GA","3nwJjTphObeWha3DY3BpNy","5pSUjdZs1w7k6o44ej11Sa","6nUPcVDYjCrnNMaXAJ9eO3","69iwMMslHM1UbAezNA4n8z","1WnVwuWYq9Paa1P6IOlr7S","28cnXtME493VX9NOw9cIUh"],
+            artists: ["73uJybGAhwGRD9MZYrOmTY","3LRDyb0D7xn2L9Yl8ZcDoV","37UGL2kOEpr72bu5wGILms","2iapoJmhpXu3QdKJ80V1rd","01iMj24ADbxjoOob3TBJfq","5vb9LSvVKxPTrbY5Cm5rk7","067vXqdd8ogZlEXxGxP7cg","3eE6IderHf7lnqOorqiNVK","69kRf3P6QDiK0ZAFw70KUR","3XUqkTZBYQr3Nj0nifAW2S","1a0WdI4TM2RLeXL3MAk8Pb","6UumK9cxNHOXOLu9p1zGGR"]
+        };
+
+        var PLAY_SVG = '<svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>';
+        var PAUSE_SVG = '<svg viewBox="0 0 24 24"><rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/></svg>';
+        var SPOTIFY_SVG = '<svg viewBox="0 0 24 24" fill="#1DB954"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>';
+
+        var audio = new Audio();
+        var currentTrackId = null;
+        var isPlaying = false;
+
+        var npBar = document.getElementById('now-playing');
+        var npArt = document.getElementById('np-art');
+        var npName = document.getElementById('np-name');
+        var npArtist = document.getElementById('np-artist');
+        var npBtn = document.getElementById('np-btn');
+        var npProgressWrap = document.getElementById('np-progress');
+        var npProgressBar = document.getElementById('np-progress-bar');
+        var npClose = document.getElementById('np-close');
+
+        function escHtml(s) {
+            var d = document.createElement('div');
+            d.textContent = s;
+            return d.innerHTML;
+        }
+
+        function buildTrackRow(tid, idx, showNum) {
+            var t = TRACKS[tid];
+            if (!t) return '';
+            var artSrc = 'music/art_' + tid + '.jpg';
+            var hasPreview = t.mp3;
+            var numHtml = showNum ? '<span class="track-num">' + idx + '</span>' : '';
+
+            var playBtnHtml = hasPreview
+                ? '<button class="play-btn" data-tid="' + tid + '" aria-label="Play ' + escHtml(t.n) + '">' + PLAY_SVG + '</button>'
+                : '<span class="no-preview">no preview</span>';
+
+            return '<div class="track" data-tid="' + tid + '">'
+                + numHtml
+                + '<img class="track-art" src="' + artSrc + '" alt="' + escHtml(t.n) + '" loading="lazy">'
+                + '<div class="track-info">'
+                + '<div class="track-name">' + escHtml(t.n) + '</div>'
+                + '<div class="track-artist">' + escHtml(t.a) + '</div>'
+                + '</div>'
+                + '<div class="track-controls">'
+                + playBtnHtml
+                + '<a class="spotify-link" href="' + t.s + '" target="_blank" rel="noopener" title="Open in Spotify">' + SPOTIFY_SVG + '</a>'
+                + '</div>'
+                + '</div>';
+        }
+
+        function renderSection(containerId, sectionKey, showNum) {
+            var el = document.getElementById(containerId);
+            var ids = SECTIONS[sectionKey];
+            var html = '';
+            for (var i = 0; i < ids.length; i++) {
+                html += buildTrackRow(ids[i], i + 1, showNum);
+            }
+            el.innerHTML = html;
+        }
+
+        renderSection('list-artists', 'artists', false);
+
+        function playTrack(tid) {
+            var t = TRACKS[tid];
+            if (!t || !t.mp3) return;
+
+            if (currentTrackId === tid && isPlaying) {
+                audio.pause();
+                isPlaying = false;
+                updatePlayButtons();
+                updateNowPlaying();
+                return;
+            }
+
+            if (currentTrackId !== tid) {
+                audio.src = 'music/preview_' + tid + '.mp3';
+                currentTrackId = tid;
+            }
+
+            audio.play();
+            isPlaying = true;
+
+            npArt.src = 'music/art_' + tid + '.jpg';
+            npName.textContent = t.n;
+            npArtist.textContent = t.a;
+            npBar.classList.add('visible');
+
+            updatePlayButtons();
+            updateNowPlaying();
+        }
+
+        function updatePlayButtons() {
+            var btns = document.querySelectorAll('.play-btn[data-tid]');
+            for (var i = 0; i < btns.length; i++) {
+                var btn = btns[i];
+                if (btn.dataset.tid === currentTrackId && isPlaying) {
+                    btn.innerHTML = PAUSE_SVG;
+                    btn.classList.add('playing');
+                } else {
+                    btn.innerHTML = PLAY_SVG;
+                    btn.classList.remove('playing');
+                }
+            }
+        }
+
+        function updateNowPlaying() {
+            if (isPlaying) {
+                npBtn.innerHTML = PAUSE_SVG;
+            } else {
+                npBtn.innerHTML = PLAY_SVG;
+            }
+        }
+
+        // Click handlers via delegation
+        document.addEventListener('click', function(e) {
+            var playBtn = e.target.closest('.play-btn[data-tid]');
+            if (playBtn) {
+                e.preventDefault();
+                playTrack(playBtn.dataset.tid);
+                return;
+            }
+        });
+
+        npBtn.addEventListener('click', function() {
+            if (!currentTrackId) return;
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+            } else {
+                audio.play();
+                isPlaying = true;
+            }
+            updatePlayButtons();
+            updateNowPlaying();
+        });
+
+        npClose.addEventListener('click', function() {
+            audio.pause();
+            isPlaying = false;
+            currentTrackId = null;
+            npBar.classList.remove('visible');
+            updatePlayButtons();
+        });
+
+        // Progress bar updates
+        audio.addEventListener('timeupdate', function() {
+            if (audio.duration) {
+                var pct = (audio.currentTime / audio.duration) * 100;
+                npProgressBar.style.width = pct + '%';
+            }
+        });
+
+        audio.addEventListener('ended', function() {
+            isPlaying = false;
+            updatePlayButtons();
+            updateNowPlaying();
+            npProgressBar.style.width = '0%';
+        });
+
+        // Seek on progress bar click
+        npProgressWrap.addEventListener('click', function(e) {
+            if (!audio.duration) return;
+            var rect = npProgressWrap.getBoundingClientRect();
+            var pct = (e.clientX - rect.left) / rect.width;
+            audio.currentTime = pct * audio.duration;
+        });
+
+        // Accessibility toggle (synced with main page)
+        var toggle = document.querySelector('.accessibility-toggle');
+        if (localStorage.getItem('accessible') === 'true') {
+            document.body.classList.add('accessible');
+        }
+        toggle.addEventListener('click', function() {
+            var isAccessible = document.body.classList.toggle('accessible');
+            localStorage.setItem('accessible', isAccessible);
+        });
+    })();
+    </script>
+</body>
+</html>
