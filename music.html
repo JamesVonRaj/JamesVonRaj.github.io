@@ -335,37 +335,6 @@
             opacity: 0.7;
         }
 
-        /* Favorite songs */
-        .fav-songs {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .fav-song {
-            background: var(--peach);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .fav-song-embed {
-            width: 100%;
-        }
-        .fav-song-info {
-            padding: 10px 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-        .fav-song-name {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--deep-blue);
-        }
-        .fav-song-artist {
-            font-size: 0.82rem;
-            color: var(--teal);
-        }
-
         @media (max-width: 600px) {
             h1 { font-size: 2rem; }
             .track { padding: 6px 8px; gap: 8px; }
@@ -386,17 +355,7 @@
 
         <h2>Favorite Songs</h2>
         <p>Songs I keep coming back to. I'll add more over time.</p>
-        <div class="fav-songs">
-            <div class="fav-song">
-                <div class="fav-song-embed">
-                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/dKXD9ifn7y8" title="yeule - Don't Be So Hard On Your Own Beauty" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
-                </div>
-                <div class="fav-song-info">
-                    <span class="fav-song-name">Don't Be So Hard On Your Own Beauty</span>
-                    <span class="fav-song-artist">yeule</span>
-                </div>
-            </div>
-        </div>
+        <div class="track-list" id="list-favorites"></div>
     </div>
 
     <!-- Now Playing Bar -->
@@ -488,14 +447,16 @@
             "3XUqkTZBYQr3Nj0nifAW2S":{"n":"Harvey","a":"Alex G","s":"https://open.spotify.com/track/3XUqkTZBYQr3Nj0nifAW2S","mp3":true},
             "1a0WdI4TM2RLeXL3MAk8Pb":{"n":"Realist Alive","a":"Lil B","s":"https://open.spotify.com/track/1a0WdI4TM2RLeXL3MAk8Pb","mp3":true},
             "6UumK9cxNHOXOLu9p1zGGR":{"n":"PillowFight","a":"fakemink","s":"https://open.spotify.com/track/6UumK9cxNHOXOLu9p1zGGR","mp3":true},
-            "73uJybGAhwGRD9MZYrOmTY":{"n":"Death with Dignity","a":"Sufjan Stevens","s":"https://open.spotify.com/track/73uJybGAhwGRD9MZYrOmTY","mp3":true}
+            "73uJybGAhwGRD9MZYrOmTY":{"n":"Death with Dignity","a":"Sufjan Stevens","s":"https://open.spotify.com/track/73uJybGAhwGRD9MZYrOmTY","mp3":true},
+            "2X2Qqr7oRqkRwNZfwFbcRL":{"n":"Don't Be So Hard on Your Own Beauty","a":"yeule","s":"https://open.spotify.com/track/2X2Qqr7oRqkRwNZfwFbcRL","mp3":true}
         };
 
         var SECTIONS = {
             alltime: ["22DaMb0Q6nde3ozb2qMDYl","7rKQhma9umlgAQYBodO76a","54aR7u5xGxfH3vdaCkVjfy","4bGWL6Z9f9BCmgJtLpnX6Y","4gmhjAsvL6c7se2PBh7dHw","067vXqdd8ogZlEXxGxP7cg","5pEvOi9iZyERMdxOLavv3J","7xCNNGCjueh2oU9k31Cesu","13VNbW9gblZQVVM2a7ZQf5","61iJknbAXSuBflDz3vSQ0b","3hblhLukQEvoHDMBNTNIz8","4dG9lShANrhEuybenH3rB6","5bhTUxSNkAZ4H3uFjSJRTY","4UQEO2qie20yQZezxZvsAy","0E4bYC2Gwi65NCM87iZ403","5XhoZDDG7oUXq1wearM1Dt","7jwvbTOcB3HZhfjkSorgIM","1ZUnkBd8RgXxaWkpci5jmh","5XD08ZPXrYSnc5xRPQ0gu4","1g9GiiPPaL7KcDHlDzu7lT"],
             "6months": ["7rKQhma9umlgAQYBodO76a","7KgDOM5HxdG5CvGqVgOezs","4eFV1LfWlYCVJnPTuSo3db","6M5CaROqGljfkKfHeyfC8f","0E4bYC2Gwi65NCM87iZ403","0XpxBV69JUDfqyzrJbndsw","1ZUnkBd8RgXxaWkpci5jmh","1g9GiiPPaL7KcDHlDzu7lT","4JJ9khvBUTVzobxf3TzkSE","3J44gxX4AcRApFyympWPIB","3Gdb4inHtK8UT1MyswIXla","0t5EGxGtcu4voodQuS9me4","5RRIO4JSQyAEdiivATnXUq","596IkZP89HvFYdgOb3lNvP","25Qo5HjLMPN0F3ncayVHuX","0EnW9nWUsYdfnQ7AN7d7Tl","3PK4Xc1Suw09k3HX6IeQHM","5TSQSCzywyKzV67fgnnkyT","7jwvbTOcB3HZhfjkSorgIM","04qyKjpUh7TqSOR0lwvY25"],
             "4weeks": ["7zxikeAavSLQVGocbK2nau","5dTMurOIMcflfNIy6BeJ4b","2ofArIiQf7MQV68BPCW2Z1","1gCpf5jhAqegPJeXG0BCn5","0TT5fYtMNU07WMrW9cbRpL","5dMe53CXI7bE2wPTNPGMNp","0VVB6YQSAnISrJZrIfL1Ex","5m54DFc9YdqHe2yrXpbqly","1z4TEXMpfmi9xXhHjbSXMp","2FZsOypXRoYIrGI6s8C3Zm","4BlQMDkzx09E9wr1Gg8af8","79OEy2h6jCUPyz0YNxDNxf","4ZxjpVTJfPfPr40IqbCOPj","28oSjVeTIM8v1LrXmoo2GA","3nwJjTphObeWha3DY3BpNy","5pSUjdZs1w7k6o44ej11Sa","6nUPcVDYjCrnNMaXAJ9eO3","69iwMMslHM1UbAezNA4n8z","1WnVwuWYq9Paa1P6IOlr7S","28cnXtME493VX9NOw9cIUh"],
-            artists: ["73uJybGAhwGRD9MZYrOmTY","3LRDyb0D7xn2L9Yl8ZcDoV","37UGL2kOEpr72bu5wGILms","2iapoJmhpXu3QdKJ80V1rd","01iMj24ADbxjoOob3TBJfq","5vb9LSvVKxPTrbY5Cm5rk7","067vXqdd8ogZlEXxGxP7cg","3eE6IderHf7lnqOorqiNVK","69kRf3P6QDiK0ZAFw70KUR","3XUqkTZBYQr3Nj0nifAW2S","1a0WdI4TM2RLeXL3MAk8Pb","6UumK9cxNHOXOLu9p1zGGR"]
+            artists: ["73uJybGAhwGRD9MZYrOmTY","3LRDyb0D7xn2L9Yl8ZcDoV","37UGL2kOEpr72bu5wGILms","2iapoJmhpXu3QdKJ80V1rd","01iMj24ADbxjoOob3TBJfq","5vb9LSvVKxPTrbY5Cm5rk7","067vXqdd8ogZlEXxGxP7cg","3eE6IderHf7lnqOorqiNVK","69kRf3P6QDiK0ZAFw70KUR","3XUqkTZBYQr3Nj0nifAW2S","1a0WdI4TM2RLeXL3MAk8Pb","6UumK9cxNHOXOLu9p1zGGR"],
+            favorites: ["2X2Qqr7oRqkRwNZfwFbcRL"]
         };
 
         var PLAY_SVG = '<svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>';
@@ -557,6 +518,7 @@
         }
 
         renderSection('list-artists', 'artists', false);
+        renderSection('list-favorites', 'favorites', false);
 
         function playTrack(tid) {
             var t = TRACKS[tid];
