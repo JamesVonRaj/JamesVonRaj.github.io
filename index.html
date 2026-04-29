@@ -420,6 +420,17 @@
         <section id="research">
             <h2>Current Research</h2>
             <div class="research-card">
+                <img src="images/physical_learning_card.png" data-normal="images/physical_learning_card.png" data-accessible="images/physical_learning_card_accessible.png" alt="Trained conductances in a random geometric network showing learned edge weights" class="research-card-image">
+                <div class="research-card-body">
+                    <div class="research-card-title">Network structure shapes accessible solutions in physical learning</div>
+                    <div class="research-card-details">
+                        <p>Many network-based physical systems, from spring networks to electrical circuits, can adapt themselves through purely local interactions, with no centralized control and no global signal indicating the desired output. We study how the underlying network topology shapes what such local rules can achieve. As a concrete case, we consider opening a phononic band gap on a disordered mass-spring network using a strictly local update rule. Whether the system succeeds depends heavily on the network. Spatial Delaunay and Watts-Strogatz networks typically succeed, while Erdős-Rényi networks mostly fail. These results point to network structure as a fundamental determinant of what local-rule physical learning can achieve.</p>
+                        <img src="images/physical_learning_detail.png" data-normal="images/physical_learning_detail.png" data-accessible="images/physical_learning_detail_accessible.png" alt="Eigenfrequency histograms before and after training for four network topologies, with target band-gap window highlighted" class="research-detail-figure">
+                        <p class="figure-caption">Eigenfrequency distributions before and after training for one representative run on each of four network families, with the target band-gap window highlighted. The diagram beside each histogram shows the corresponding trained network, with edge thickness proportional to the learned weight.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="research-card">
                 <img src="images/sr_cells.png" alt="Scale-rich metamaterial tessellation" class="research-card-image">
                 <div class="research-card-body">
                     <div class="research-card-title">Understanding Network Properties of Scale-Rich Metamaterials</div>
@@ -438,17 +449,6 @@
                         <p>Topological data analysis (TDA) applies ideas from algebraic topology and computational geometry to study the shape of data. We use TDA to detect clustering at multiple scales in spatial point patterns, such as distinguishing tightly packed clumps from loosely spread ones, and connect these topological signatures to classical statistical physics measures of correlation and connectivity.</p>
                         <img src="images/tda_simplicial.png" data-normal="images/tda_simplicial.png" data-accessible="images/tda_simplicial_accessible.png" alt="Simplicial complexes on a clustered point pattern at three filtration scales" class="research-detail-figure">
                         <p class="figure-caption">A clustered point pattern and its Vietoris-Rips simplicial complex at increasing filtration radius ε. As ε grows, local clusters connect and topological features (loops, voids) appear and disappear. Persistent homology tracks these changes.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="research-card">
-                <img src="images/physical_learning_card.png" data-normal="images/physical_learning_card.png" data-accessible="images/physical_learning_card_accessible.png" alt="Trained conductances in a random geometric network showing learned edge weights" class="research-card-image">
-                <div class="research-card-body">
-                    <div class="research-card-title">The Role of Network Structure in Physical Learning</div>
-                    <div class="research-card-details">
-                        <p>Physical learning asks: can a physical system (like a network of resistors) learn to perform a task by adjusting itself locally, without a central controller? We study how the topology of the network affects its ability to learn, with the goal of connecting spectral and structural properties of the graph to learning performance. Ultimately, we want to understand whether the learning capacity of a network can be characterized by its topology alone, without ever training it.</p>
-                        <img src="images/physical_learning_detail.png" data-normal="images/physical_learning_detail.png" data-accessible="images/physical_learning_detail_accessible.png" alt="Three network topologies and their training loss curves: random geometric, scale-free, and small-world" class="research-detail-figure">
-                        <p class="figure-caption">Trained conductances (top) and learning curves (bottom) for three network topologies. Source nodes (coral squares) supply input voltages; target nodes (gold triangles) are where the network's output is read. Edge colors show trained conductance values, with low-conductance (effectively pruned) edges in coral. All three topologies converge, but at different rates.</p>
                     </div>
                 </div>
             </div>
