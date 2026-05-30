@@ -9,6 +9,11 @@
     <meta name="author" content="James Raj">
     <link rel="canonical" href="https://jamesraj.io/">
 
+    <!-- Favicon (cookie) -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
     <!-- Open Graph -->
     <meta property="og:title" content="James Raj - Physics PhD at UCLA">
     <meta property="og:description" content="Physics PhD student at UCLA advised by Mason Porter. Research in network science, hyperuniform point patterns, topological data analysis, and physical learning.">
@@ -99,6 +104,27 @@
             border-radius: 10px;
             margin-bottom: 40px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            margin: -6px 0 16px;
+        }
+        .header-contact svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--peach);
+            flex-shrink: 0;
+        }
+        .header-contact a {
+            color: var(--cream);
+            text-decoration: underline;
+            text-decoration-color: var(--coral);
+        }
+        .header-contact a:hover {
+            color: var(--coral);
         }
         h1 {
             font-size: 3rem;
@@ -397,6 +423,10 @@
         <header>
             <h1>Hi, I'm James Raj!</h1>
             <p>Physics PhD student at UCLA, advised by <a href="https://www.math.ucla.edu/~mason/" style="color: var(--cream); text-decoration: underline; text-decoration-color: var(--coral);">Mason Porter</a>.</p>
+            <p class="header-contact">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.2.5 7.8 5.6L19.8 6H4.2ZM20 7.3l-7.4 5.3a1 1 0 0 1-1.2 0L4 7.3v11h16v-11Z"/></svg>
+                <a href="mailto:james@physics.ucla.edu">james@physics.ucla.edu</a>
+            </p>
             <nav>
                 <a href="#about">About</a>
                 <a href="#research">Research</a>
