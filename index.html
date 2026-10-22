@@ -7,7 +7,6 @@
     <meta name="description" content="James Raj is a physics PhD student at UCLA, advised by Mason Porter. He studies how the structure of a network shapes what it can learn by local rules, in physical learning, complex networks, and statistical physics.">
     <meta name="keywords" content="James Raj, UCLA, physics, PhD, physical learning, local learning rules, complex systems, network science, statistical physics, topological data analysis, Mason Porter">
     <meta name="author" content="James Raj">
-    <meta name="theme-color" content="#007ca0">
     <link rel="canonical" href="https://jamesraj.me/">
 
     <!-- Favicon (cookie) -->
@@ -28,47 +27,27 @@
     <meta name="twitter:description" content="Physics PhD student at UCLA advised by Mason Porter. Physical learning, complex networks, and statistical physics.">
     <meta name="twitter:image" content="https://jamesraj.me/images/me.jpg">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Palette: cerulean, teal, cream, peach, coral (the Life Planner palette), with ink for text.
-           Coral and teal fail contrast as text colours, so they only ever decorate; text that must be
-           cerulean or coral uses the darker -ink variants. */
+        /* Life Planner palette. Variable names are roles: --deep-blue is the ink for text,
+           --teal the dark cerulean for headings, --band the cerulean header. */
         :root {
-            --cerulean: #0081a7;      /* brand */
-            --band: #007ca0;          /* top bar background: the brand hue, deep enough for white text (4.8:1) */
-            --cerulean-ink: #005f7d;  /* headings and links on light backgrounds (6.9:1 on cream) */
-            --teal: #00afb9;          /* active state, accent rules */
-            --cream: #fdfcdc;         /* page background */
-            --peach: #fed9b7;         /* soft fills, the name in the top bar */
-            --coral: #f07167;         /* accent rules, link underlines */
-            --coral-ink: #b8433a;     /* coral as text (hover) */
-            --ink: #1a2332;           /* body text */
-            --ink-2: #4d5d6e;         /* secondary text (6.5:1 on cream) */
-            --surface: #ffffff;       /* figure panels, publication cards */
-            --border: #e8d5c4;
-            --radius: 10px;
-            --radius-lg: 14px;
-            --radius-full: 9999px;
-            --shadow: 0 2px 4px rgba(26, 35, 50, 0.08);
-            --shadow-md: 0 4px 10px rgba(26, 35, 50, 0.12);
-        }
-        /* Accessible mode: the same roles, deepened, on pure white, with no motion. */
-        body.accessible {
-            --cerulean: #005f7d;
-            --band: #004a63;
-            --cerulean-ink: #003f55;
-            --teal: #7fd6dc;
-            --cream: #ffffff;
+            --deep-blue: #1a2332;
+            --teal: #005f7d;
+            --cream: #fdfcdc;
             --peach: #fed9b7;
+            --coral: #f07167;
+            --band: #007ca0;
+            --coral-ink: #b8433a;
+        }
+        body.accessible {
+            --deep-blue: #0f1722;
+            --teal: #003f55;
+            --cream: #ffffff;
+            --peach: #fde6d2;
             --coral: #b8433a;
+            --band: #004a63;
             --coral-ink: #9a3029;
-            --ink: #0f1722;
-            --ink-2: #1a2332;
-            --border: #4d5d6e;
-            --shadow: none;
-            --shadow-md: none;
         }
         body.accessible *,
         body.accessible *::before,
@@ -76,611 +55,476 @@
             transition: none !important;
             animation: none !important;
         }
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto !important; }
-            *, *::before, *::after {
-                transition: none !important;
-                animation: none !important;
-            }
+        body.accessible .post:hover,
+        body.accessible .research-card:hover,
+        body.accessible .social-links a:hover,
+        body.accessible nav a:hover,
+        body.accessible .accessibility-toggle:hover {
+            transform: none !important;
+            box-shadow: none !important;
         }
-
-        *, *::before, *::after { box-sizing: border-box; }
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 76px;
+        body.accessible .post:hover {
+            background-color: var(--peach);
+            border-left-color: var(--coral);
+        }
+        body.accessible a:hover {
+            text-decoration: underline;
         }
         body {
-            margin: 0;
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-size: 1.0625rem;
-            line-height: 1.7;
-            color: var(--ink);
+            font-family: 'Poppins', sans-serif;
             background-color: var(--cream);
-            -webkit-font-smoothing: antialiased;
-        }
-        img { max-width: 100%; }
-        .wrap {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        a {
-            color: var(--cerulean-ink);
-            text-decoration: underline;
-            text-decoration-color: var(--coral);
-            text-decoration-thickness: 2px;
-            text-underline-offset: 3px;
-            transition: color 0.2s ease;
-        }
-        a:hover { color: var(--coral-ink); }
-        :focus-visible {
-            outline: 3px solid var(--cerulean-ink);
-            outline-offset: 3px;
-            border-radius: 4px;
-        }
-        .skip-link {
-            position: absolute;
-            left: 16px;
-            top: -60px;
-            z-index: 200;
-            background: var(--surface);
-            color: var(--ink);
-            padding: 8px 14px;
-            border-radius: var(--radius);
-            font-weight: 600;
-        }
-        .skip-link:focus { top: 12px; }
-
-        /* Top bar: name and section pills, as in the Life Planner header */
-        .topbar {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background-color: var(--band);
-            box-shadow: var(--shadow-md);
-        }
-        .topbar-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            padding-top: 12px;
-            padding-bottom: 12px;
-        }
-        .brand {
-            color: var(--peach);
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-        .brand:hover { color: #ffffff; }
-        .topbar :focus-visible { outline-color: var(--peach); }
-        .nav {
-            display: flex;
-            gap: 4px;
-            padding: 3px;
-            background: rgba(0, 0, 0, 0.18);
-            border-radius: var(--radius-full);
-            overflow-x: auto;
-            scrollbar-width: none;
-        }
-        .nav::-webkit-scrollbar { display: none; }
-        .nav a {
-            padding: 6px 16px;
-            border-radius: var(--radius-full);
-            color: #ffffff;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-decoration: none;
-            white-space: nowrap;
-            transition: background-color 0.2s ease, color 0.2s ease;
-        }
-        .nav a:hover { background: rgba(255, 255, 255, 0.14); color: #ffffff; }
-        .nav a[aria-current="location"] {
-            background: var(--teal);
-            color: var(--ink);
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-        }
-
-        .pill-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            color: var(--deep-blue);
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            list-style: none;
         }
-        .pill-links a {
-            display: inline-block;
-            padding: 7px 18px;
-            border-radius: var(--radius-full);
-            font-size: 0.95rem;
-            font-weight: 500;
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        nav a {
+            color: var(--cream);
             text-decoration: none;
-            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 2px solid var(--coral);
+            transition: all 0.3s ease;
         }
-        /* About: photo, name and links beside a prose bio */
-        .intro {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 40px;
-            align-items: start;
+        nav a:hover {
+            background-color: var(--coral);
+            color: var(--deep-blue);
+        }
+        header {
+            background-color: var(--band);
+            color: var(--cream);
+            padding: 7px 40px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            margin: -6px 0 16px;
+        }
+        .header-contact svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--peach);
+            flex-shrink: 0;
+        }
+        .header-contact a {
+            color: var(--cream);
+            text-decoration: underline;
+            text-decoration-color: var(--coral);
+        }
+        .header-contact a:hover {
+            color: var(--peach);
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+            color: var(--peach);
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: var(--teal);
+            font-size: 1.8rem;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--coral);
+            padding-bottom: 10px;
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        a {
+            color: var(--deep-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--coral-ink);
+        }
+        .research-card-details a,
+        .about-text a,
+        section p a {
+            text-decoration: underline;
+            text-decoration-color: var(--coral);
+        }
+        .posts {
+            margin-top: 20px;
+        }
+        .post {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: var(--peach);
+            border-left: 5px solid var(--coral);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .post:hover {
+            transform: translateX(5px);
+            border-left-color: var(--teal);
+            background-color: var(--cream);
+        }
+        .post-title {
+            font-weight: 600;
+            color: var(--deep-blue);
+        }
+        .post-date {
+            color: var(--teal);
+            font-size: 0.9rem;
+        }
+        .social-links {
+            margin-top: 40px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .social-links a {
+            padding: 10px 20px;
+            background-color: var(--teal);
+            color: var(--cream);
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            background-color: var(--coral);
+            color: var(--deep-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .spotify-embed {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
         }
         .headshot-wrapper {
-            width: 200px;
-            height: 200px;
-            border-radius: var(--radius-lg);
+            width: 220px;
+            height: 220px;
+            border-radius: 12px;
+            float: left;
+            margin: 5px 25px 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
             overflow: hidden;
-            box-shadow: var(--shadow-md);
-            background: var(--peach);
         }
         .headshot {
-            display: block;
             width: 100%;
             height: auto;
             transform: scale(1.3);
             transform-origin: top center;
         }
-        .intro h1 {
-            margin: 18px 0 2px;
-            color: var(--ink);
-            font-size: 1.5rem;
-            font-weight: 700;
-            line-height: 1.25;
+        @media (max-width: 600px) {
+            .headshot-wrapper {
+                float: none;
+                display: block;
+                margin: 0 auto 20px auto;
+            }
         }
-        .role {
-            margin: 0 0 14px;
-            color: var(--ink-2);
-            font-size: 0.95rem;
-            line-height: 1.45;
-        }
-        .intro .pill-links { gap: 8px; }
-        .intro .pill-links a,
-        .contact .pill-links a {
-            color: var(--cerulean-ink);
-            border: 1.5px solid var(--cerulean);
-            background: var(--surface);
-        }
-        .intro .pill-links a { padding: 4px 14px; font-size: 0.88rem; }
-        .intro .pill-links a:hover,
-        .contact .pill-links a:hover {
-            background: var(--cerulean);
-            color: #ffffff;
-        }
-        .bio p:last-child { margin-bottom: 0; }
-
-        /* Sections */
-        main section { padding: 56px 0 8px; }
-        h2 {
-            margin: 0 0 24px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid var(--coral);
-            color: var(--cerulean-ink);
-            font-size: 1.875rem;
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -0.01em;
-        }
-        h3 {
-            margin: 0 0 6px;
-            color: var(--ink);
-            font-size: 1.375rem;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-        h4 {
-            margin: 0 0 6px;
-            color: var(--ink);
-            font-size: 1.125rem;
-            font-weight: 600;
-            line-height: 1.35;
-        }
-        p { margin: 0 0 18px; }
-        .byline {
-            margin-bottom: 16px;
-            color: var(--ink-2);
-            font-size: 0.95rem;
+        .solid {
+            text-decoration-line: underline;
+            text-decoration-style: solid;
+            text-decoration-color: var(--coral);
         }
 
-        /* Figures sit on white panels; every image is drawn on white */
-        .figure {
-            margin: 28px 0;
-            padding: 16px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
+        /* Research cards with images */
+        .research-card {
+            margin-bottom: 20px;
+            background-color: var(--peach);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
-        .figure img {
-            display: block;
+        .research-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .research-card-image {
             width: 100%;
-            height: auto;
-        }
-        .figure-link { display: block; cursor: zoom-in; }
-        .figure figcaption {
-            margin-top: 12px;
-            color: var(--ink-2);
-            font-size: 0.9rem;
-            line-height: 1.55;
-        }
-        .figure-wide {
-            position: relative;
-            left: 50%;
-            width: min(960px, calc(100vw - 32px));
-            transform: translateX(-50%);
-        }
-
-        /* Other projects: thumbnail beside a short description; the figure opens below */
-        .projects-head { margin-top: 48px; }
-        .project {
-            display: grid;
-            grid-template-columns: 160px 1fr;
-            gap: 24px;
-            padding: 24px 0;
-            border-top: 1px solid var(--border);
-        }
-        .projects-head + .project { border-top: none; }
-        .project-thumb {
-            display: block;
-            width: 160px;
-            height: 160px;
+            height: 200px;
             object-fit: cover;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border);
-            background: var(--surface);
         }
-        .project p { font-size: 1rem; margin-bottom: 12px; }
-        .more summary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--cerulean-ink);
-            font-size: 0.95rem;
+        .research-card-body {
+            padding: 15px;
+        }
+        .research-card-title {
             font-weight: 600;
-            cursor: pointer;
-            list-style: none;
-            border-radius: 4px;
-        }
-        .more summary::-webkit-details-marker { display: none; }
-        .more summary::before {
-            content: "";
-            width: 7px;
-            height: 7px;
-            border-right: 2px solid var(--coral);
-            border-bottom: 2px solid var(--coral);
-            transform: rotate(-45deg);
-            transition: transform 0.2s ease;
-        }
-        .more[open] summary::before { transform: rotate(45deg); }
-        .more summary:hover { color: var(--coral-ink); }
-        .project .more .figure {
-            margin: 16px 0 4px calc(-160px - 24px);
-            width: calc(100% + 160px + 24px);
-        }
-
-        /* Publications and talks */
-        .pubs {
-            display: grid;
-            gap: 14px;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-        .pub {
-            padding: 16px 20px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--coral);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-        .pub-title {
-            margin: 0 0 4px;
-            font-size: 1.02rem;
-            font-weight: 600;
-            line-height: 1.45;
-        }
-        .pub-title a { color: var(--ink); text-decoration: none; }
-        .pub-title a:hover { color: var(--coral-ink); text-decoration: underline; text-decoration-color: var(--coral); }
-        .pub-meta {
-            margin: 0 0 8px;
-            color: var(--ink-2);
-            font-size: 0.92rem;
-            line-height: 1.55;
-        }
-        .pub-meta .me { color: var(--ink); font-weight: 600; }
-        .pub-links {
+            font-size: 1.1rem;
+            color: var(--deep-blue);
             display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 6px 16px;
-            font-size: 0.92rem;
-        }
-        .pub-links > a { font-weight: 600; }
-        .toggle {
-            display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 0;
-            border: none;
-            background: none;
-            color: var(--cerulean-ink);
-            font-family: inherit;
-            font-size: 0.92rem;
-            font-weight: 600;
-            cursor: pointer;
         }
-        .toggle::before {
-            content: "";
-            width: 7px;
-            height: 7px;
-            border-right: 2px solid var(--coral);
-            border-bottom: 2px solid var(--coral);
-            transform: rotate(-45deg);
-            transition: transform 0.2s ease;
+        .research-card-title::before {
+            content: '\25B6';
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
         }
-        .toggle[aria-expanded="true"]::before { transform: rotate(45deg); }
-        .toggle:hover { color: var(--coral-ink); }
-        .pub-abstract {
-            margin: 10px 0 0;
-            padding: 12px 14px;
-            background: var(--cream);
-            border-left: 3px solid var(--teal);
-            border-radius: 6px;
-            font-size: 0.92rem;
-            line-height: 1.6;
+        .research-card.expanded .research-card-title::before {
+            transform: rotate(90deg);
         }
-        .pubs-note {
-            margin-top: 14px;
-            color: var(--ink-2);
+        .research-card-details {
+            display: none;
+            margin-top: 10px;
             font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--deep-blue);
         }
-        .talks-head { margin-top: 36px; margin-bottom: 12px; }
-        .talks {
-            margin: 0;
-            padding: 0;
-            list-style: none;
+        .research-card.expanded .research-card-details {
+            display: block;
         }
-        .talks li {
-            display: grid;
-            grid-template-columns: 96px 1fr;
-            gap: 16px;
-            padding: 12px 0;
-            border-top: 1px solid var(--border);
-            font-size: 0.97rem;
-            line-height: 1.55;
+        .research-detail-figure {
+            width: 100%;
+            max-width: 800px;
+            margin: 15px auto 8px;
+            display: block;
+            border-radius: 8px;
+            border: 2px solid var(--deep-blue);
         }
-        .talks li:first-child { border-top: none; }
-        .talk-date {
-            color: var(--ink-2);
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding-top: 1px;
+        .figure-caption {
+            font-size: 0.85rem;
+            color: var(--deep-blue);
+            opacity: 0.8;
+            text-align: center;
+            margin: 4px auto 10px;
+            max-width: 800px;
         }
-        .talk-title { font-weight: 600; }
 
-        /* Personal */
+        /* Personal section */
         .personal-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 22px;
-            margin-top: 8px;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 20px;
         }
         .personal-item {
-            padding: 18px 20px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-top: 4px solid var(--peach);
-            border-radius: var(--radius-lg);
+            padding: 15px;
+            background-color: var(--peach);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .personal-item h3 {
-            margin-bottom: 6px;
-            color: var(--cerulean-ink);
-            font-size: 1.05rem;
+            margin: 0 0 8px 0;
+            font-size: 1rem;
+            color: var(--teal);
         }
         .personal-item p {
             margin: 0;
-            font-size: 0.97rem;
-            line-height: 1.65;
+            font-size: 0.95rem;
+        }
+        /* About figure */
+        .about-figure {
+            margin: 25px 0 10px 0;
+            clear: both;
+        }
+        .about-figure-img {
+            width: 100%;
+            border-radius: 4px;
+            border: 2px solid var(--deep-blue);
+        }
+        .about-figure figcaption {
+            font-size: 0.85rem;
+            color: var(--teal);
+            margin-top: 8px;
+            line-height: 1.4;
+            font-style: italic;
         }
 
-        /* Contact */
-        .contact-list {
-            display: grid;
-            grid-template-columns: max-content 1fr;
-            gap: 6px 20px;
-            margin: 0 0 24px;
+        /* Publication abstracts */
+        .pub-authors {
+            font-weight: 400;
+            font-size: 0.9rem;
+            color: var(--deep-blue);
+            margin-top: 5px;
         }
-        .contact-list dt { color: var(--ink-2); font-weight: 500; }
-        .contact-list dd { margin: 0; }
-        footer {
-            margin-top: 56px;
-            padding: 22px 0 80px;
-            border-top: 1px solid var(--border);
-            color: var(--ink-2);
-            font-size: 0.875rem;
+        .pub-abstract-toggle {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--teal);
+            cursor: pointer;
+            margin-top: 8px;
+            display: inline-block;
+        }
+        .pub-abstract-toggle:hover {
+            color: var(--coral-ink);
+        }
+        .pub-abstract {
+            display: none;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--deep-blue);
+            padding: 12px;
+            background-color: var(--cream);
+            border-radius: 5px;
+            border-left: 3px solid var(--teal);
+        }
+        .publication.show-abstract .pub-abstract {
+            display: block;
+        }
+        .publication.show-abstract .pub-abstract-toggle {
+            color: var(--coral-ink);
         }
 
-        /* Accessibility toggle */
         .accessibility-toggle {
             position: fixed;
-            right: 20px;
             bottom: 20px;
-            z-index: 100;
+            right: 20px;
+            background-color: #1a2332;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 0.85rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 6px;
-            padding: 8px 14px;
-            background-color: var(--ink);
-            color: #ffffff;
-            border: 2px solid #ffffff;
-            border-radius: var(--radius);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-            font-family: inherit;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
+            z-index: 100;
         }
-        .accessibility-toggle:hover { background-color: var(--cerulean-ink); }
+        .accessibility-toggle:hover {
+            transform: scale(1.05);
+            background-color: #005f7d;
+        }
         .accessibility-toggle svg {
             width: 18px;
             height: 18px;
             fill: currentColor;
         }
-        .accessibility-toggle[aria-pressed="true"] { background-color: var(--cerulean-ink); }
-
-        @media (max-width: 760px) {
-            .personal-grid { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 640px) {
-            body { font-size: 1rem; }
-            .wrap { padding: 0 16px; }
-            .topbar-inner { padding-top: 8px; padding-bottom: 8px; }
-            .brand { display: none; }
-            .nav { flex: 1; justify-content: space-between; }
-            .nav a { padding: 5px 12px; font-size: 0.85rem; }
-            html { scroll-padding-top: 64px; }
-            .intro { grid-template-columns: 1fr; gap: 24px; }
-            .headshot-wrapper { width: 140px; height: 140px; }
-            h2 { font-size: 1.6rem; }
-            .figure { padding: 10px; }
-            .project { grid-template-columns: 1fr; gap: 14px; }
-            .project-thumb { width: 100%; height: 140px; }
-            .project .more .figure { margin-left: 0; width: 100%; }
-            .talks li { grid-template-columns: 1fr; gap: 2px; }
-            .contact-list { grid-template-columns: 1fr; gap: 0; }
-            .contact-list dd { margin-bottom: 8px; }
-            .accessibility-toggle { right: 12px; bottom: 12px; }
+        @media (max-width: 600px) {
+            .personal-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <a class="skip-link" href="#about">Skip to content</a>
-    <header class="topbar">
-        <div class="wrap topbar-inner">
-            <a class="brand" href="#about">James Raj</a>
-            <nav class="nav" aria-label="Sections">
+    <div class="container">
+        <header>
+            <h1>Hi, I'm James Raj!</h1>
+            <p>Physics PhD student at UCLA, advised by <a href="https://www.math.ucla.edu/~mason/" style="color: var(--cream); text-decoration: underline; text-decoration-color: var(--coral);">Mason Porter</a>.</p>
+            <p class="header-contact">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.2.5 7.8 5.6L19.8 6H4.2ZM20 7.3l-7.4 5.3a1 1 0 0 1-1.2 0L4 7.3v11h16v-11Z"/></svg>
+                <a href="mailto:james@physics.ucla.edu">james@physics.ucla.edu</a>
+            </p>
+            <nav>
                 <a href="#about">About</a>
                 <a href="#research">Research</a>
                 <a href="#publications">Publications</a>
+                <a href="#personal">Personal</a>
                 <a href="#contact">Contact</a>
             </nav>
-        </div>
-    </header>
+        </header>
 
-    <main class="wrap">
-        <section id="about" class="intro">
-            <div>
-                <div class="headshot-wrapper"><img src="images/me.jpg" alt="James Raj" class="headshot" width="440" height="440"></div>
-                <h1>James Raj</h1>
-                <p class="role">Physics PhD candidate, UCLA</p>
-                <ul class="pill-links">
-                    <li><a href="mailto:james@physics.ucla.edu">Email</a></li>
-                    <li><a href="cv.pdf">CV</a></li>
-                    <li><a href="https://scholar.google.com/citations?hl=en&amp;user=wvoc6yIAAAAJ">Scholar</a></li>
-                    <li><a href="https://github.com/JamesVonRaj">GitHub</a></li>
-                </ul>
-            </div>
-            <div class="bio">
-                <h2>About Me</h2>
-                <p>I am a fifth-year physics PhD student at UCLA, advised by <a href="https://www.math.ucla.edu/~mason/">Mason Porter</a>. My research is in complex systems and statistical physics, and most of it concerns networks. I am most interested in physical learning, in which networks of springs or resistors learn a task through local rules (each edge adjusts itself using only what it can measure), and in how the structure of a network limits what such rules can learn and how quickly.</p>
-                <p>I am also interested in living networks that adapt by similar local rules, such as slime molds and blood vessels that reorganize around the flow that they carry, and synapses that change with neural activity. Alongside physical learning, I work on topological data analysis and its connections to the statistical physics of clustering, and on spatial networks, including disordered metamaterials that our experimental collaborators 3D-print.</p>
-                <p>Before UCLA, I studied physics at Cal Poly, San Luis Obispo, where I worked on memory in sheared suspensions with Hilary Jacks and Nathan Keim, and I spent a year in Glenn Fredrickson's group at UC Santa Barbara simulating reactive polymer blending. I expect to finish my PhD in June 2027 and am looking for postdoctoral positions.</p>
-            </div>
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="headshot-wrapper"><img src="images/me.jpg" alt="James Raj" class="headshot"></div>
+            <p>I am a fifth-year physics PhD student at UCLA, advised by <a href="https://www.math.ucla.edu/~mason/">Mason Porter</a>. My research is in complex systems and statistical physics, and most of it concerns networks. I am most interested in physical learning, in which networks of springs or resistors learn a task through local rules (each edge adjusts itself using only what it can measure), and in how the structure of a network limits what such rules can learn and how quickly.</p>
+            <p>I am also interested in living networks that adapt by similar local rules, such as slime molds and blood vessels that reorganize around the flow that they carry, and synapses that change with neural activity. Alongside physical learning, I work on topological data analysis and its connections to the statistical physics of clustering, and on spatial networks, including disordered metamaterials that our experimental collaborators 3D-print.</p>
+            <p>Before UCLA, I studied physics at Cal Poly, San Luis Obispo, where I worked on memory in sheared suspensions with Hilary Jacks and Nathan Keim, and I spent a year in Glenn Fredrickson's group at UC Santa Barbara simulating reactive polymer blending. I expect to finish my PhD in June 2027 and am looking for postdoctoral positions.</p>
         </section>
 
         <section id="research">
-            <h2>Research</h2>
-            <article class="feature">
-                <h3>Network structure shapes accessible solutions in physical learning</h3>
-                <p class="byline">With Pola Pietrzkowski, Linnéa Gyllingberg, Menachem Stern, and Mason Porter. Presented at the Conference on Complex Systems (CCS 2026).</p>
-                <p>To compare structures fairly, we use a task that is defined on the whole network, with no source or target nodes to choose: clearing a window of vibrational frequencies in a disordered spring network, so that none of its eigenfrequencies lies inside the window. In our local rule, random forces at frequencies inside the window drive the network, and each spring changes its stiffness using only the motion of its own two nodes. No step computes an eigenfrequency, so the same rule can train materials far too large for centralized design.</p>
-                <p>Whether the rule succeeds, and how quickly, depends strongly on the structure of the network. Delaunay and Watts-Strogatz networks typically clear the window, whereas many runs on Erdős-Rényi networks never do. Even rewiring a Watts-Strogatz network so that every node keeps its number of edges more than doubles the time that it takes to learn.</p>
-                <figure class="figure figure-wide">
-                    <a class="figure-link" href="images/physical_learning_detail.png"><img src="images/physical_learning_detail.png" data-normal="images/physical_learning_detail.png" data-accessible="images/physical_learning_detail_accessible.png" alt="For Delaunay, Watts-Strogatz, Barabási-Albert, and Erdős-Rényi networks: a trained network beside its eigenfrequency histogram before and after training, with the target window shaded" loading="lazy"></a>
-                    <figcaption>Eigenfrequency distributions before and after training for one representative run on each of four network families, with the target window shaded. Beside each histogram is the corresponding trained network, with each edge coloured by its learned weight.</figcaption>
-                </figure>
-            </article>
-
-            <h3 class="projects-head">Other projects</h3>
-            <article class="project">
-                <img class="project-thumb" src="images/sr_cells.png" data-normal="images/sr_cells.png" data-accessible="images/sr_cells_accessible.png" alt="" loading="lazy">
-                <div>
-                    <h4>Network models of scale-rich metamaterials</h4>
-                    <p>In the <a href="https://arxiv.org/abs/2511.18108">scale-rich metamaterials</a> of Both et al. (2025), ligament thicknesses span orders of magnitude. With Charles Emmett Maher, Katherine Newhall, and Mason Porter, I model these materials as spatially embedded networks of beams that can be printed directly. A graph conductance on the network predicts how the stiffness depends on the direction of loading (though not its magnitude), without a mechanical simulation for each direction.</p>
-                    <details class="more">
-                        <summary>Show figure</summary>
-                        <figure class="figure">
-                            <a class="figure-link" href="images/sr_anisotropy.png"><img src="images/sr_anisotropy.png" data-normal="images/sr_anisotropy.png" data-accessible="images/sr_anisotropy_accessible.png" alt="A scale-rich network, a polar plot of its directional effective resistance, and the anisotropy ratio against the heterogeneity parameter alpha" loading="lazy"></a>
-                            <figcaption>Directional effective resistance R<sub>eff</sub> becomes more anisotropic as the heterogeneity parameter α grows. Left: an illustrative scale-rich network with α = 1. Middle: R<sub>eff</sub> along different directions for one realization with α = 1, whose largest and smallest values differ by a factor of about 15. Right: the ratio of the largest to the smallest R<sub>eff</sub>, averaged over 5,000 realizations for each α.</figcaption>
-                        </figure>
-                    </details>
+            <h2>Current Research</h2>
+            <div class="research-card">
+                <img src="images/physical_learning_card.png" data-normal="images/physical_learning_card.png" data-accessible="images/physical_learning_card_accessible.png" alt="Trained conductances in a random geometric network showing learned edge weights" class="research-card-image">
+                <div class="research-card-body">
+                    <div class="research-card-title">Network structure shapes accessible solutions in physical learning</div>
+                    <div class="research-card-details">
+                        <p>To compare structures fairly, we use a task that is defined on the whole network, with no source or target nodes to choose: clearing a window of vibrational frequencies in a disordered spring network, so that none of its eigenfrequencies lies inside the window. In our local rule, random forces at frequencies inside the window drive the network, and each spring changes its stiffness using only the motion of its own two nodes. No step computes an eigenfrequency, so the same rule can train materials far too large for centralized design.</p>
+                        <p>Whether the rule succeeds, and how quickly, depends strongly on the structure of the network. Delaunay and Watts-Strogatz networks typically clear the window, whereas many runs on Erdős-Rényi networks never do. Even rewiring a Watts-Strogatz network so that every node keeps its number of edges more than doubles the time that it takes to learn.</p>
+                        <img src="images/physical_learning_detail.png" data-normal="images/physical_learning_detail.png" data-accessible="images/physical_learning_detail_accessible.png" alt="For Delaunay, Watts-Strogatz, Barabási-Albert, and Erdős-Rényi networks: a trained network beside its eigenfrequency histogram before and after training, with the target window shaded" class="research-detail-figure">
+                        <p class="figure-caption">Eigenfrequency distributions before and after training for one representative run on each of four network families, with the target window shaded. Beside each histogram is the corresponding trained network, with each edge coloured by its learned weight.</p>
+                    </div>
                 </div>
-            </article>
-            <article class="project">
-                <img class="project-thumb" src="images/tda_card.png" data-normal="images/tda_card.png" data-accessible="images/tda_card_accessible.png" alt="" loading="lazy">
-                <div>
-                    <h4>Topology of clustering in point patterns</h4>
-                    <p>Persistent homology, a tool from topological data analysis, records the scales at which clusters of points merge, but the observables of statistical physics depend on the sizes of the merging clusters. Charles Emmett Maher, Katherine Newhall, Mason Porter, and I are developing a size-resolved persistent homology that records these sizes, which links topological data analysis directly to the statistical physics of clustering.</p>
-                    <details class="more">
-                        <summary>Show figure</summary>
-                        <figure class="figure">
-                            <a class="figure-link" href="images/tda_simplicial.png"><img src="images/tda_simplicial.png" data-normal="images/tda_simplicial.png" data-accessible="images/tda_simplicial_accessible.png" alt="Vietoris-Rips simplicial complexes of a clustered point pattern at three filtration scales" loading="lazy"></a>
-                            <figcaption>A clustered pattern of 92 points and its Vietoris-Rips simplicial complex at three values of the filtration radius ε (points within 2ε of each other are joined). As ε grows, the six clusters connect into a loop, which then fills in. Persistent homology tracks when such features appear and disappear.</figcaption>
-                        </figure>
-                    </details>
+            </div>
+            <div class="research-card">
+                <img src="images/sr_cells.png" data-normal="images/sr_cells.png" data-accessible="images/sr_cells_accessible.png" alt="Scale-rich metamaterial tessellation" class="research-card-image">
+                <div class="research-card-body">
+                    <div class="research-card-title">Understanding Network Properties of Scale-Rich Metamaterials</div>
+                    <div class="research-card-details">
+                        <p>In the <a href="https://arxiv.org/abs/2511.18108">scale-rich metamaterials</a> of Both et al. (2025), ligament thicknesses span orders of magnitude. With Charles Emmett Maher, Katherine Newhall, and Mason Porter, I model these materials as spatially embedded networks of beams that can be printed directly. A graph conductance on the network predicts how the stiffness depends on the direction of loading (though not its magnitude), without a mechanical simulation for each direction.</p>
+                        <img src="images/sr_anisotropy.png" data-normal="images/sr_anisotropy.png" data-accessible="images/sr_anisotropy_accessible.png" alt="A scale-rich network, a polar plot of its directional effective resistance, and the anisotropy ratio against the heterogeneity parameter alpha" class="research-detail-figure">
+                        <p class="figure-caption">Directional effective resistance R<sub>eff</sub> becomes more anisotropic as the heterogeneity parameter α grows. Left: an illustrative scale-rich network with α = 1. Middle: R<sub>eff</sub> along different directions for one realization with α = 1, whose largest and smallest values differ by a factor of about 15. Right: the ratio of the largest to the smallest R<sub>eff</sub>, averaged over 5,000 realizations for each α.</p>
+                    </div>
                 </div>
-            </article>
-            <article class="project">
-                <img class="project-thumb" src="images/huppi_card.png" data-normal="images/huppi_card.png" data-accessible="images/huppi_card_accessible.png" alt="" loading="lazy">
-                <div>
-                    <h4>Disordered networks from hyperuniform point patterns</h4>
-                    <p>Hyperuniform point patterns are disordered but suppress density fluctuations at large length scales, and they appear in settings from <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.133.028401">leaf vein networks</a> to the <a href="https://doi.org/10.1103/PhysRevX.13.011038">large-scale distribution of galaxies</a>. With Xiaohan Sun, Charles Emmett Maher, Katherine Newhall, and Mason Porter, I showed that, for three of the four ways of building networks that we compared, networks from hyperuniform patterns have smaller total effective resistances than networks from Poisson patterns. In an NSF DMREF collaboration, the groups of Karen Daniels and Christopher Rock at NC State 3D-print networks that I design, and we are working out why their specific modulus depends on how a network is built.</p>
-                    <details class="more">
-                        <summary>Show figure</summary>
-                        <figure class="figure">
-                            <a class="figure-link" href="images/huppi_comparison.png"><img src="images/huppi_comparison.png" data-normal="images/huppi_comparison.png" data-accessible="images/huppi_comparison_accessible.png" alt="Poisson and hyperuniform point patterns, their Delaunay networks, and their structure factors" loading="lazy"></a>
-                            <figcaption>Poisson (top) and hyperuniform (bottom) point patterns, their Delaunay networks, and their structure factors S(k). Hyperuniform patterns suppress long-wavelength density fluctuations, so S(k) → 0 as k → 0.</figcaption>
-                        </figure>
-                    </details>
+            </div>
+            <div class="research-card">
+                <img src="images/tda_card.png" data-normal="images/tda_card.png" data-accessible="images/tda_card_accessible.png" alt="Simplicial complex on a clustered point pattern" class="research-card-image">
+                <div class="research-card-body">
+                    <div class="research-card-title">TDA for Clustering Detection</div>
+                    <div class="research-card-details">
+                        <p>Persistent homology, a tool from topological data analysis, records the scales at which clusters of points merge, but the observables of statistical physics depend on the sizes of the merging clusters. Charles Emmett Maher, Katherine Newhall, Mason Porter, and I are developing a size-resolved persistent homology that records these sizes, which links topological data analysis directly to the statistical physics of clustering.</p>
+                        <img src="images/tda_simplicial.png" data-normal="images/tda_simplicial.png" data-accessible="images/tda_simplicial_accessible.png" alt="Vietoris-Rips simplicial complexes of a clustered point pattern at three filtration scales" class="research-detail-figure">
+                        <p class="figure-caption">A clustered pattern of 92 points and its Vietoris-Rips simplicial complex at three values of the filtration radius ε (points within 2ε of each other are joined). As ε grows, the six clusters connect into a loop, which then fills in. Persistent homology tracks when such features appear and disappear.</p>
+                    </div>
                 </div>
-            </article>
+            </div>
+            <div class="research-card">
+                <img src="images/huppi_card.png" data-normal="images/huppi_card.png" data-accessible="images/huppi_card_accessible.png" alt="Delaunay network of a hyperuniform point pattern" class="research-card-image">
+                <div class="research-card-body">
+                    <div class="research-card-title">Disordered networks from hyperuniform point patterns</div>
+                    <div class="research-card-details">
+                        <p>Hyperuniform point patterns are disordered but suppress density fluctuations at large length scales, and they appear in settings from <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.133.028401">leaf vein networks</a> to the <a href="https://doi.org/10.1103/PhysRevX.13.011038">large-scale distribution of galaxies</a>. With Xiaohan Sun, Charles Emmett Maher, Katherine Newhall, and Mason Porter, I showed that, for three of the four ways of building networks that we compared, networks from hyperuniform patterns have smaller total effective resistances than networks from Poisson patterns. In an NSF DMREF collaboration, the groups of Karen Daniels and Christopher Rock at NC State 3D-print networks that I design, and we are working out why their specific modulus depends on how a network is built.</p>
+                        <img src="images/huppi_comparison.png" data-normal="images/huppi_comparison.png" data-accessible="images/huppi_comparison_accessible.png" alt="Poisson and hyperuniform point patterns, their Delaunay networks, and their structure factors" class="research-detail-figure">
+                        <p class="figure-caption">Poisson (top) and hyperuniform (bottom) point patterns, their Delaunay networks, and their structure factors S(k). Hyperuniform patterns suppress long-wavelength density fluctuations, so S(k) → 0 as k → 0.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="publications">
             <h2>Publications</h2>
-            <ol class="pubs">
-                <li class="pub">
-                    <p class="pub-title"><a href="https://arxiv.org/abs/2511.21082">Local geometric and transport properties of networks that are generated from hyperuniform point patterns</a></p>
-                    <p class="pub-meta"><span class="me">J. V. Raj</span>, X. Sun, C. E. Maher, K. A. Newhall, and M. A. Porter. arXiv:2511.21082 (2025); resubmitted to <i>Physical Review E</i>.</p>
-                    <div class="pub-links">
-                        <a href="https://arxiv.org/abs/2511.21082">arXiv</a>
-                        <a href="https://github.com/DMREF-networks/HuPPI-Network-Analysis">Code</a>
-                        <button class="toggle" type="button" aria-expanded="false" aria-controls="abstract-1">Abstract</button>
+            <div class="posts">
+                <div class="post publication">
+                    <div>
+                        <span class="post-title">
+                            <a href="https://arxiv.org/abs/2511.21082" onclick="event.stopPropagation();">Local Geometric and Transport Properties of Networks that are Generated from Hyperuniform Point Patterns</a>
+                        </span>
+                        <div class="pub-authors">J. V. Raj, X. Sun, C. E. Maher, K. A. Newhall, M. A. Porter. arXiv:2511.21082 (2025); resubmitted to <i>Physical Review E</i>.</div>
+                        <div class="pub-abstract-toggle">Abstract &#9660;</div>
+                        <div class="pub-abstract">Hyperuniformity, which is a type of long-range order that is characterized by the suppression of long-range density fluctuations in comparison to the fluctuations in standard disordered systems, has emerged as a powerful concept to aid in the understanding of diverse natural and engineered phenomena. In the present paper, we harness hyperuniform point patterns to generate a class of disordered, spatially embedded networks that are distinct from both perfectly ordered lattices and uniformly random geometric graphs. We refer to these networks as hyperuniform-point-pattern-induced (HuPPI) networks, and we compare them to their counterpart Poisson-point-pattern-induced (PoPPI) networks. By computing the local geometric and transport properties of HuPPI networks, we demonstrate how hyperuniformity imparts advantages in both transport efficiency and robustness. Specifically, we show that HuPPI networks have systematically smaller total effective resistances, slightly faster random-walk mixing times, and fewer extreme-curvature edges than PoPPI networks. Counterintuitively, we also find that HuPPI networks simultaneously have more negative mean Ollivier&ndash;Ricci curvatures and smaller total effective resistances than PoPPI networks, indicating that edges with moderately negative curvatures need not create severe bottlenecks to transport. Moreover, HuPPI networks are consistently more robust under both random edge removals and curvature-based targeted edge removals, maintaining larger connected components for larger fractions of removed edges than their PoPPI counterparts. We also demonstrate that the network-generation method strongly influences these properties and in particular that it often overshadows differences that arise from underlying point patterns.</div>
                     </div>
-                    <p class="pub-abstract" id="abstract-1" hidden>Hyperuniformity, which is a type of long-range order that is characterized by the suppression of long-range density fluctuations in comparison to the fluctuations in standard disordered systems, has emerged as a powerful concept to aid in the understanding of diverse natural and engineered phenomena. In the present paper, we harness hyperuniform point patterns to generate a class of disordered, spatially embedded networks that are distinct from both perfectly ordered lattices and uniformly random geometric graphs. We refer to these networks as hyperuniform-point-pattern-induced (HuPPI) networks, and we compare them to their counterpart Poisson-point-pattern-induced (PoPPI) networks. By computing the local geometric and transport properties of HuPPI networks, we demonstrate how hyperuniformity imparts advantages in both transport efficiency and robustness. Specifically, we show that HuPPI networks have systematically smaller total effective resistances, slightly faster random-walk mixing times, and fewer extreme-curvature edges than PoPPI networks. Counterintuitively, we also find that HuPPI networks simultaneously have more negative mean Ollivier&ndash;Ricci curvatures and smaller total effective resistances than PoPPI networks, indicating that edges with moderately negative curvatures need not create severe bottlenecks to transport. Moreover, HuPPI networks are consistently more robust under both random edge removals and curvature-based targeted edge removals, maintaining larger connected components for larger fractions of removed edges than their PoPPI counterparts. We also demonstrate that the network-generation method strongly influences these properties and in particular that it often overshadows differences that arise from underlying point patterns.</p>
-                </li>
-                <li class="pub">
-                    <p class="pub-title"><a href="https://doi.org/10.1122/8.0000523">Phase-field simulations of morphology development in reactive polymer blending</a></p>
-                    <p class="pub-meta">R. Sengupta, M. D. Tikekar, <span class="me">J. V. Raj</span>, K. T. Delaney, M. C. Villet, and G. H. Fredrickson. <i>Journal of Rheology</i> 67, 1 (2023).</p>
-                    <div class="pub-links">
-                        <a href="https://doi.org/10.1122/8.0000523">Journal</a>
-                        <button class="toggle" type="button" aria-expanded="false" aria-controls="abstract-2">Abstract</button>
+                </div>
+                <div class="post publication">
+                    <div>
+                        <span class="post-title">
+                            <a href="https://doi.org/10.1122/8.0000523" onclick="event.stopPropagation();">Phase-field simulations of morphology development in reactive polymer blending</a>
+                        </span>
+                        <div class="pub-authors">R. Sengupta, M. D. Tikekar, J. V. Raj, K. T. Delaney, M. C. Villet, G. H. Fredrickson. Journal of Rheology 67(1), 1-14 (2023).</div>
+                        <div class="pub-abstract-toggle">Abstract &#9660;</div>
+                        <div class="pub-abstract">Reactive blending is an efficient method for synthesizing polymer blends. Industrially, this process is carried out in extruders where reacting polymers and generated copolymers are subjected to high shear stresses. The dynamics and resulting morphology are dictated by coupling of hydrodynamic forces in the extruder, thermodynamic interactions between species, and reaction kinetics on a complex interfacial manifold. We use phase-field simulations to quantify the evolution of reactive blending under external shear flow for model systems of two homopolymers of equal length that react via end-coupling to produce a diblock copolymer. We compare morphology development in cylindrical thread and droplet geometries. Our results indicate that shear suppresses Rayleigh capillary instability in threads while accelerating reaction rates in drops by expanding the interfacial contact area.</div>
                     </div>
-                    <p class="pub-abstract" id="abstract-2" hidden>Reactive blending is an efficient method for synthesizing polymer blends. Industrially, this process is carried out in extruders where reacting polymers and generated copolymers are subjected to high shear stresses. The dynamics and resulting morphology are dictated by coupling of hydrodynamic forces in the extruder, thermodynamic interactions between species, and reaction kinetics on a complex interfacial manifold. We use phase-field simulations to quantify the evolution of reactive blending under external shear flow for model systems of two homopolymers of equal length that react via end-coupling to produce a diblock copolymer. We compare morphology development in cylindrical thread and droplet geometries. Our results indicate that shear suppresses Rayleigh capillary instability in threads while accelerating reaction rates in drops by expanding the interfacial contact area.</p>
-                </li>
-            </ol>
-            <p class="pubs-note">Manuscripts in preparation are listed in my <a href="cv.pdf">CV</a>.</p>
-
-            <h3 class="talks-head">Talks</h3>
-            <ul class="talks">
-                <li><span class="talk-date">Oct. 2026</span><span><span class="talk-title">Network structure shapes accessible solutions in physical learning.</span> Conference on Complex Systems (CCS 2026), Binghamton, NY.</span></li>
-                <li><span class="talk-date">Mar. 2026</span><span><span class="talk-title">Characterizing 3D-printed disordered metamaterials under static and oscillatory driving.</span> APS Global Physics Summit, Denver, CO. Presented by Karen Daniels.</span></li>
-                <li><span class="talk-date">Mar. 2025</span><span><span class="talk-title">Topological and transport properties of spatially embedded networks generated by hyperuniform point patterns.</span> APS March Meeting, Anaheim, CA.</span></li>
-            </ul>
+                </div>
+            </div>
         </section>
-
         <section id="personal">
             <h2>Personal</h2>
             <div class="personal-grid">
@@ -690,86 +534,59 @@
                 </div>
                 <div class="personal-item">
                     <h3>Music</h3>
-                    <p>Some of my favorite artists are yeule, Sufjan Stevens, Quadeca, Jane Remover, Porter Robinson, and Alex G. If I had to pick one album, it would be Sufjan Stevens' <i>Carrie &amp; Lowell</i>. If you haven't listened to it, I'd really recommend it. <a href="music.html">See more of my favorite songs</a>.</p>
+                    <p>Some of my favorite artists are yeule, Sufjan Stevens, Quadeca, Jane Remover, Porter Robinson, and Alex G. If I had to pick one album, it would be Sufjan Stevens' <i>Carrie & Lowell</i>. If you haven't listened to it, I'd really recommend it. <a href="music.html">See more of my favorite songs →</a></p>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="contact">
+
+        <section id="contact">
             <h2>Contact</h2>
-            <dl class="contact-list">
-                <dt>Email</dt>
-                <dd><a href="mailto:james@physics.ucla.edu">james@physics.ucla.edu</a></dd>
-                <dt>Office</dt>
-                <dd>Mathematical Sciences 7611, UCLA</dd>
-            </dl>
-            <ul class="pill-links">
-                <li><a href="cv.pdf">CV</a></li>
-                <li><a href="https://scholar.google.com/citations?hl=en&amp;user=wvoc6yIAAAAJ">Google Scholar</a></li>
-                <li><a href="https://github.com/JamesVonRaj">GitHub</a></li>
-                <li><a href="https://bsky.app/profile/jamesraj.bsky.social">Bluesky</a></li>
-                <li><a href="https://www.chess.com/member/jamesvonraj">Chess.com</a></li>
-            </ul>
+            <p><a href="mailto:james@physics.ucla.edu">james@physics.ucla.edu</a></p>
+            <p>Office: Mathematical Sciences (MS) 7611</p>
+            <div class="social-links">
+                <a href="https://github.com/JamesVonRaj">GitHub</a>
+                <a href="https://scholar.google.com/citations?hl=en&user=wvoc6yIAAAAJ">Google Scholar</a>
+                <a href="cv.pdf">CV</a>
+                <a href="https://www.chess.com/member/jamesvonraj">Chess.com</a>
+                <a href="https://bsky.app/profile/jamesraj.bsky.social">Bluesky</a>
+            </div>
         </section>
-
-        <footer>Last updated October 2026.</footer>
-    </main>
-
-    <button class="accessibility-toggle" type="button" aria-pressed="false" title="Higher contrast, no motion">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 7h-6l-1.41 7.41L16 22h-2l-2-5-2 5H8l2.41-5.59L9 9H3V7h18v2z"/></svg>
+    </div>
+    <button class="accessibility-toggle" aria-label="Toggle accessible view" title="Toggle accessible view">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 7h-6l-1.41 7.41L16 22h-2l-2-5-2 5H8l2.41-5.59L9 9H3V7h18v2z"/></svg>
         Accessibility
     </button>
     <script>
-        // Highlight the nav pill of the section in view
-        var navLinks = {};
-        document.querySelectorAll('.nav a').forEach(function(a) {
-            navLinks[a.getAttribute('href').slice(1)] = a;
-        });
-        if ('IntersectionObserver' in window) {
-            var observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (!entry.isIntersecting) return;
-                    Object.keys(navLinks).forEach(function(id) {
-                        navLinks[id].removeAttribute('aria-current');
-                    });
-                    var link = navLinks[entry.target.id];
-                    if (link) link.setAttribute('aria-current', 'location');
-                });
-            }, { rootMargin: '-35% 0px -60% 0px' });
-            Object.keys(navLinks).forEach(function(id) { observer.observe(document.getElementById(id)); });
-        }
-
-        // Publication abstracts
-        document.querySelectorAll('.toggle[aria-controls]').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var panel = document.getElementById(btn.getAttribute('aria-controls'));
-                var open = btn.getAttribute('aria-expanded') !== 'true';
-                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-                panel.hidden = !open;
+        document.querySelectorAll('.research-card').forEach(function(el) {
+            el.addEventListener('click', function() {
+                el.classList.toggle('expanded');
             });
         });
 
-        // Accessible mode: deeper colours on white, no motion, accessible versions of the figures
+        document.querySelectorAll('.pub-abstract-toggle').forEach(function(el) {
+            el.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var pub = el.closest('.publication');
+                var isShowing = pub.classList.toggle('show-abstract');
+                el.innerHTML = isShowing ? 'Abstract &#9650;' : 'Abstract &#9660;';
+            });
+        });
+
         var toggle = document.querySelector('.accessibility-toggle');
         function swapImages(isAccessible) {
             document.querySelectorAll('[data-normal][data-accessible]').forEach(function(img) {
                 img.src = isAccessible ? img.dataset.accessible : img.dataset.normal;
-                var link = img.closest('.figure-link');
-                if (link) link.href = img.src;
             });
         }
-        function setAccessible(isAccessible) {
-            document.body.classList.toggle('accessible', isAccessible);
-            toggle.setAttribute('aria-pressed', isAccessible ? 'true' : 'false');
-            swapImages(isAccessible);
+        if (localStorage.getItem('accessible') === 'true') {
+            document.body.classList.add('accessible');
+            swapImages(true);
         }
-        try {
-            if (localStorage.getItem('accessible') === 'true') setAccessible(true);
-        } catch (e) {}
         toggle.addEventListener('click', function() {
-            var isAccessible = !document.body.classList.contains('accessible');
-            setAccessible(isAccessible);
-            try { localStorage.setItem('accessible', isAccessible); } catch (e) {}
+            var isAccessible = document.body.classList.toggle('accessible');
+            localStorage.setItem('accessible', isAccessible);
+            swapImages(isAccessible);
         });
     </script>
 </body>
