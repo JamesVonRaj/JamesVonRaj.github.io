@@ -11,21 +11,38 @@
     <meta property="og:description" content="Some of James Raj's favorite music and artists.">
     <meta property="og:url" content="https://jamesraj.me/music.html">
     <meta property="og:type" content="website">
+    <meta name="theme-color" content="#007ca0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Same palette and tokens as index.html */
         :root {
-            --deep-blue: #2b1733;
-            --teal: #6b2c5c;
-            --cream: #faf2ee;
-            --peach: #f0d8d0;
-            --coral: #b73e5e;
+            --cerulean: #0081a7;
+            --band: #007ca0;
+            --cerulean-ink: #005f7d;
+            --teal: #00afb9;
+            --cream: #fdfcdc;
+            --peach: #fed9b7;
+            --coral: #f07167;
+            --coral-ink: #b8433a;
+            --ink: #1a2332;
+            --ink-2: #4d5d6e;
+            --surface: #ffffff;
+            --border: #e8d5c4;
         }
         body.accessible {
-            --deep-blue: #1a0826;
-            --teal: #5a1f4b;
+            --cerulean: #005f7d;
+            --band: #004a63;
+            --cerulean-ink: #003f55;
+            --teal: #7fd6dc;
             --cream: #ffffff;
-            --peach: #f5e6e0;
-            --coral: #9a2f4a;
+            --peach: #fed9b7;
+            --coral: #b8433a;
+            --coral-ink: #9a3029;
+            --ink: #0f1722;
+            --ink-2: #1a2332;
+            --border: #4d5d6e;
         }
         body.accessible *,
         body.accessible *::before,
@@ -36,7 +53,7 @@
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--cream);
-            color: var(--deep-blue);
+            color: var(--ink);
             line-height: 1.6;
             margin: 0;
             padding: 0;
@@ -47,31 +64,40 @@
             padding: 40px 20px;
         }
         a {
-            color: var(--deep-blue);
+            color: var(--cerulean-ink);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
         }
         a:hover {
-            color: var(--coral);
+            color: var(--coral-ink);
+        }
+        :focus-visible {
+            outline: 3px solid var(--cerulean-ink);
+            outline-offset: 3px;
+            border-radius: 4px;
         }
         .back-link {
             display: inline-block;
             margin-bottom: 20px;
             font-weight: 600;
             font-size: 0.95rem;
-            color: var(--teal);
+            color: var(--cerulean-ink);
+            text-decoration: underline;
+            text-decoration-color: var(--coral);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
         }
         .back-link:hover {
-            color: var(--coral);
+            color: var(--coral-ink);
         }
         h1 {
             font-size: 2.5rem;
-            color: var(--deep-blue);
+            color: var(--ink);
             margin-bottom: 10px;
             letter-spacing: -1px;
         }
         h2 {
-            color: var(--teal);
+            color: var(--cerulean-ink);
             font-size: 1.5rem;
             margin-top: 35px;
             margin-bottom: 15px;
@@ -97,17 +123,19 @@
             gap: 12px;
             padding: 8px 10px;
             border-radius: 10px;
-            background: var(--peach);
-            transition: background 0.2s ease;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            transition: background 0.2s ease, border-color 0.2s ease;
             cursor: default;
         }
         .track:hover {
-            background: color-mix(in srgb, var(--peach) 70%, var(--coral) 30%);
+            background: var(--peach);
+            border-color: var(--coral);
         }
         .track-num {
             font-size: 0.8rem;
             font-weight: 600;
-            color: var(--teal);
+            color: var(--ink-2);
             min-width: 22px;
             text-align: right;
         }
@@ -125,14 +153,14 @@
         .track-name {
             font-weight: 600;
             font-size: 0.92rem;
-            color: var(--deep-blue);
+            color: var(--ink);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
         .track-artist {
             font-size: 0.8rem;
-            color: var(--teal);
+            color: var(--ink-2);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -148,8 +176,8 @@
             height: 34px;
             border-radius: 50%;
             border: none;
-            background: var(--teal);
-            color: var(--cream);
+            background: var(--cerulean);
+            color: #ffffff;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -158,11 +186,12 @@
             padding: 0;
         }
         .play-btn:hover {
-            background: var(--deep-blue);
+            background: var(--cerulean-ink);
             transform: scale(1.1);
         }
         .play-btn.playing {
             background: var(--coral);
+            color: var(--ink);
         }
         .play-btn svg {
             width: 14px;
@@ -207,8 +236,8 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: var(--deep-blue);
-            color: var(--cream);
+            background: var(--band);
+            color: #ffffff;
             padding: 10px 20px;
             display: none;
             align-items: center;
@@ -252,7 +281,7 @@
         }
         .now-playing .np-progress-bar {
             height: 100%;
-            background: var(--coral);
+            background: var(--peach);
             border-radius: 2px;
             width: 0%;
         }
@@ -261,8 +290,8 @@
             height: 36px;
             border-radius: 50%;
             border: none;
-            background: var(--coral);
-            color: var(--cream);
+            background: var(--peach);
+            color: var(--ink);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -281,7 +310,7 @@
             border-radius: 50%;
             border: none;
             background: transparent;
-            color: var(--cream);
+            color: #ffffff;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -298,7 +327,7 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #2b1733;
+            background-color: var(--ink);
             color: #ffffff;
             border: 2px solid #ffffff;
             border-radius: 8px;
@@ -315,8 +344,7 @@
             z-index: 100;
         }
         .accessibility-toggle:hover {
-            transform: scale(1.05);
-            background-color: #6b2c5c;
+            background-color: var(--cerulean-ink);
         }
         .accessibility-toggle svg {
             width: 18px;
@@ -330,9 +358,8 @@
         }
 
         .no-preview {
-            font-size: 0.7rem;
-            color: var(--coral);
-            opacity: 0.7;
+            font-size: 0.75rem;
+            color: var(--ink-2);
         }
 
         @media (max-width: 600px) {
@@ -347,7 +374,7 @@
 </head>
 <body>
     <div class="container">
-        <a href="index.html#personal" class="back-link">&larr; Back to main page</a>
+        <a href="index.html#about" class="back-link">&larr; Back to main page</a>
         <h1>Music</h1>
         <h2>Top Artists</h2>
         <p>My most listened to track from each of my most listened to artists, according to Spotify data. This is roughly correct, I love all of these artists, but in the future I'd like to curate this more personally to better reflect what I actually consider my favorites.</p>
