@@ -104,6 +104,9 @@
             transition: background 0.2s ease;
             cursor: default;
         }
+        .track.has-preview {
+            cursor: pointer;
+        }
         .track:hover {
             background: color-mix(in srgb, var(--peach) 70%, var(--coral) 30%);
         }
@@ -221,6 +224,11 @@
         }
         .now-playing.visible {
             display: flex;
+        }
+        /* Room at the bottom so the last tracks can scroll clear of the player bar
+           and the accessibility button above it */
+        body.player-open .container {
+            padding-bottom: 150px;
         }
         .now-playing .np-art {
             width: 42px;
@@ -496,7 +504,7 @@
                 ? '<button class="play-btn" data-tid="' + tid + '" aria-label="Play ' + escHtml(t.n) + '">' + PLAY_SVG + '</button>'
                 : '<span class="no-preview">no preview</span>';
 
-            return '<div class="track" data-tid="' + tid + '">'
+            return '<div class="track' + (hasPreview ? ' has-preview' : '') + '" data-tid="' + tid + '">'
                 + numHtml
                 + '<img class="track-art" src="' + artSrc + '" alt="' + escHtml(t.n) + '" loading="lazy">'
                 + '<div class="track-info">'
@@ -547,6 +555,7 @@
             npName.textContent = t.n;
             npArtist.textContent = t.a;
             npBar.classList.add('visible');
+            document.body.classList.add('player-open');
 
             updatePlayButtons();
             updateNowPlaying();
@@ -574,13 +583,14 @@
             }
         }
 
-        // Click handlers via delegation
+        // Click handlers via delegation: the play button or anywhere on the row plays the track;
+        // the Spotify link keeps its own behaviour
         document.addEventListener('click', function(e) {
-            var playBtn = e.target.closest('.play-btn[data-tid]');
-            if (playBtn) {
+            if (e.target.closest('a')) return;
+            var row = e.target.closest('.track.has-preview[data-tid]');
+            if (row) {
                 e.preventDefault();
-                playTrack(playBtn.dataset.tid);
-                return;
+                playTrack(row.dataset.tid);
             }
         });
 
@@ -602,6 +612,7 @@
             isPlaying = false;
             currentTrackId = null;
             npBar.classList.remove('visible');
+            document.body.classList.remove('player-open');
             updatePlayButtons();
         });
 
