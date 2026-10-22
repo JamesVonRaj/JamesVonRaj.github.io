@@ -37,25 +37,24 @@
            cerulean or coral uses the darker -ink variants. */
         :root {
             --cerulean: #0081a7;      /* brand */
-            --band: #007ca0;          /* header and hero background: the brand hue, deep enough for white text (4.8:1) */
+            --band: #007ca0;          /* top bar background: the brand hue, deep enough for white text (4.8:1) */
             --cerulean-ink: #005f7d;  /* headings and links on light backgrounds (6.9:1 on cream) */
             --teal: #00afb9;          /* active state, accent rules */
             --cream: #fdfcdc;         /* page background */
-            --peach: #fed9b7;         /* soft fills, the name in the hero */
+            --peach: #fed9b7;         /* soft fills, the name in the top bar */
             --coral: #f07167;         /* accent rules, link underlines */
             --coral-ink: #b8433a;     /* coral as text (hover) */
             --ink: #1a2332;           /* body text */
             --ink-2: #4d5d6e;         /* secondary text (6.5:1 on cream) */
             --surface: #ffffff;       /* figure panels, publication cards */
             --border: #e8d5c4;
-            --agenda: #feeccb;        /* peach mixed into cream, behind the next-questions block */
             --radius: 10px;
             --radius-lg: 14px;
             --radius-full: 9999px;
             --shadow: 0 2px 4px rgba(26, 35, 50, 0.08);
             --shadow-md: 0 4px 10px rgba(26, 35, 50, 0.12);
         }
-        /* Accessible mode: the same roles, deepened, on pure white, with no motion and no hero drawing. */
+        /* Accessible mode: the same roles, deepened, on pure white, with no motion. */
         body.accessible {
             --cerulean: #005f7d;
             --band: #004a63;
@@ -68,7 +67,6 @@
             --ink: #0f1722;
             --ink-2: #1a2332;
             --border: #4d5d6e;
-            --agenda: #fff3e6;
             --shadow: none;
             --shadow-md: none;
         }
@@ -77,10 +75,6 @@
         body.accessible *::after {
             transition: none !important;
             animation: none !important;
-        }
-        body.accessible .hero-art,
-        body.accessible .hero::after {
-            display: none;
         }
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto !important; }
@@ -162,8 +156,7 @@
             white-space: nowrap;
         }
         .brand:hover { color: #ffffff; }
-        .topbar :focus-visible,
-        .hero :focus-visible { outline-color: var(--peach); }
+        .topbar :focus-visible { outline-color: var(--peach); }
         .nav {
             display: flex;
             gap: 4px;
@@ -191,76 +184,6 @@
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
-        /* Hero: one statement of the research, on a drawing of a trained spring network */
-        .hero {
-            position: relative;
-            overflow: hidden;
-            background-color: var(--band);
-            color: #ffffff;
-        }
-        .hero-art {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: right center;
-            opacity: 0.55;
-            pointer-events: none;
-            animation: art-in 1.6s ease-out both;
-        }
-        @keyframes art-in {
-            from { opacity: 0; }
-            to { opacity: 0.55; }
-        }
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            background: linear-gradient(90deg,
-                var(--band) 0%,
-                var(--band) 28%,
-                color-mix(in srgb, var(--band) 55%, transparent) 58%,
-                transparent 85%);
-        }
-        .hero-inner {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            align-items: center;
-            gap: 40px;
-            padding-top: 56px;
-            padding-bottom: 64px;
-        }
-        .hero h1 {
-            margin: 0 0 14px;
-            color: var(--peach);
-            font-size: clamp(2.25rem, 5vw, 3.25rem);
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-        }
-        .lede {
-            margin: 0 0 14px;
-            max-width: 32ch;
-            font-size: clamp(1.2rem, 2.4vw, 1.45rem);
-            font-weight: 500;
-            line-height: 1.45;
-        }
-        .hero-meta {
-            margin: 0 0 24px;
-            max-width: 52ch;
-            color: var(--cream);
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-        .hero-meta a {
-            color: #ffffff;
-            text-decoration-color: var(--peach);
-        }
-        .hero-meta a:hover { color: var(--peach); }
         .pill-links {
             display: flex;
             flex-wrap: wrap;
@@ -278,31 +201,19 @@
             text-decoration: none;
             transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
         }
-        .hero .pill-links a {
-            color: #ffffff;
-            border: 1.5px solid rgba(253, 252, 220, 0.75);
-        }
-        .hero .pill-links a:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: var(--peach);
-        }
-        .hero .pill-links a.primary {
-            background: var(--peach);
-            border-color: var(--peach);
-            color: var(--ink);
-            font-weight: 600;
-        }
-        .hero .pill-links a.primary:hover {
-            background: #ffffff;
-            border-color: #ffffff;
+        /* About: photo, name and links beside a prose bio */
+        .intro {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 40px;
+            align-items: start;
         }
         .headshot-wrapper {
             width: 200px;
             height: 200px;
             border-radius: var(--radius-lg);
-            border: 4px solid var(--peach);
             overflow: hidden;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+            box-shadow: var(--shadow-md);
             background: var(--peach);
         }
         .headshot {
@@ -312,6 +223,33 @@
             transform: scale(1.3);
             transform-origin: top center;
         }
+        .intro h1 {
+            margin: 18px 0 2px;
+            color: var(--ink);
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+        .role {
+            margin: 0 0 14px;
+            color: var(--ink-2);
+            font-size: 0.95rem;
+            line-height: 1.45;
+        }
+        .intro .pill-links { gap: 8px; }
+        .intro .pill-links a,
+        .contact .pill-links a {
+            color: var(--cerulean-ink);
+            border: 1.5px solid var(--cerulean);
+            background: var(--surface);
+        }
+        .intro .pill-links a { padding: 4px 14px; font-size: 0.88rem; }
+        .intro .pill-links a:hover,
+        .contact .pill-links a:hover {
+            background: var(--cerulean);
+            color: #ffffff;
+        }
+        .bio p:last-child { margin-bottom: 0; }
 
         /* Sections */
         main section { padding: 56px 0 8px; }
@@ -371,41 +309,6 @@
             left: 50%;
             width: min(960px, calc(100vw - 32px));
             transform: translateX(-50%);
-        }
-
-        /* Featured project */
-        .feature { margin-top: 36px; }
-
-        /* Next questions */
-        .agenda {
-            margin: 8px 0 12px;
-            padding: 24px 24px 26px;
-            background: var(--agenda);
-            border-radius: var(--radius-lg);
-        }
-        .agenda h3 { margin-bottom: 4px; }
-        .agenda > p {
-            margin-bottom: 18px;
-            color: var(--ink-2);
-            font-size: 0.95rem;
-        }
-        .questions {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-        .questions li {
-            padding-top: 12px;
-            border-top: 4px solid var(--teal);
-        }
-        .questions h4 { font-size: 1.02rem; }
-        .questions p {
-            margin: 0;
-            font-size: 0.95rem;
-            line-height: 1.6;
         }
 
         /* Other projects: thumbnail beside a short description; the figure opens below */
@@ -557,7 +460,7 @@
         }
         .talk-title { font-weight: 600; }
 
-        /* About */
+        /* Personal */
         .personal-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -591,15 +494,6 @@
         }
         .contact-list dt { color: var(--ink-2); font-weight: 500; }
         .contact-list dd { margin: 0; }
-        .contact .pill-links a {
-            color: var(--cerulean-ink);
-            border: 1.5px solid var(--cerulean);
-            background: var(--surface);
-        }
-        .contact .pill-links a:hover {
-            background: var(--cerulean);
-            color: #ffffff;
-        }
         footer {
             margin-top: 56px;
             padding: 22px 0 80px;
@@ -637,7 +531,6 @@
         .accessibility-toggle[aria-pressed="true"] { background-color: var(--cerulean-ink); }
 
         @media (max-width: 760px) {
-            .questions { grid-template-columns: 1fr; gap: 18px; }
             .personal-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 640px) {
@@ -648,21 +541,8 @@
             .nav { flex: 1; justify-content: space-between; }
             .nav a { padding: 5px 12px; font-size: 0.85rem; }
             html { scroll-padding-top: 64px; }
-            .hero-inner {
-                grid-template-columns: 1fr;
-                gap: 24px;
-                padding-top: 32px;
-                padding-bottom: 40px;
-            }
-            .headshot-wrapper { order: -1; width: 128px; height: 128px; }
-            .hero-art { opacity: 0.35; animation: none; }
-            .hero::after {
-                background: linear-gradient(180deg,
-                    transparent 0%,
-                    color-mix(in srgb, var(--band) 60%, transparent) 26%,
-                    var(--band) 44%,
-                    var(--band) 100%);
-            }
+            .intro { grid-template-columns: 1fr; gap: 24px; }
+            .headshot-wrapper { width: 140px; height: 140px; }
             h2 { font-size: 1.6rem; }
             .figure { padding: 10px; }
             .project { grid-template-columns: 1fr; gap: 14px; }
@@ -676,71 +556,52 @@
     </style>
 </head>
 <body>
-    <a class="skip-link" href="#research">Skip to content</a>
+    <a class="skip-link" href="#about">Skip to content</a>
     <header class="topbar">
         <div class="wrap topbar-inner">
-            <a class="brand" href="#top">James Raj</a>
+            <a class="brand" href="#about">James Raj</a>
             <nav class="nav" aria-label="Sections">
+                <a href="#about">About</a>
                 <a href="#research">Research</a>
                 <a href="#publications">Publications</a>
-                <a href="#about">About</a>
                 <a href="#contact">Contact</a>
             </nav>
         </div>
     </header>
 
-    <div class="hero" id="top">
-        <img class="hero-art" src="images/hero_network.svg" alt="">
-        <div class="wrap hero-inner">
+    <main class="wrap">
+        <section id="about" class="intro">
             <div>
-                <h1>Hi, I'm James Raj!</h1>
-                <p class="lede">I study how the structure of a network shapes what it can learn by local rules.</p>
-                <p class="hero-meta">Physics PhD student at UCLA, advised by <a href="https://www.math.ucla.edu/~mason/">Mason Porter</a>. I am looking for postdoctoral positions starting in 2027.</p>
+                <div class="headshot-wrapper"><img src="images/me.jpg" alt="James Raj" class="headshot" width="440" height="440"></div>
+                <h1>James Raj</h1>
+                <p class="role">Physics PhD candidate, UCLA</p>
                 <ul class="pill-links">
-                    <li><a class="primary" href="cv.pdf">CV</a></li>
                     <li><a href="mailto:james@physics.ucla.edu">Email</a></li>
-                    <li><a href="https://scholar.google.com/citations?hl=en&amp;user=wvoc6yIAAAAJ">Google Scholar</a></li>
+                    <li><a href="cv.pdf">CV</a></li>
+                    <li><a href="https://scholar.google.com/citations?hl=en&amp;user=wvoc6yIAAAAJ">Scholar</a></li>
                     <li><a href="https://github.com/JamesVonRaj">GitHub</a></li>
                 </ul>
             </div>
-            <div class="headshot-wrapper"><img src="images/me.jpg" alt="James Raj" class="headshot" width="440" height="440"></div>
-        </div>
-    </div>
+            <div class="bio">
+                <h2>About Me</h2>
+                <p>I am a fifth-year physics PhD student at UCLA, advised by <a href="https://www.math.ucla.edu/~mason/">Mason Porter</a>. My research is in complex systems and statistical physics, and most of it concerns networks. I am most interested in physical learning, in which networks of springs or resistors learn a task through local rules (each edge adjusts itself using only what it can measure), and in how the structure of a network limits what such rules can learn and how quickly.</p>
+                <p>I am also interested in living networks that adapt by similar local rules, such as slime molds and blood vessels that reorganize around the flow that they carry, and synapses that change with neural activity. Alongside physical learning, I work on topological data analysis and its connections to the statistical physics of clustering, and on spatial networks, including disordered metamaterials that our experimental collaborators 3D-print.</p>
+                <p>Before UCLA, I studied physics at Cal Poly, San Luis Obispo, where I worked on memory in sheared suspensions with Hilary Jacks and Nathan Keim, and I spent a year in Glenn Fredrickson's group at UC Santa Barbara simulating reactive polymer blending. I expect to finish my PhD in June 2027 and am looking for postdoctoral positions.</p>
+            </div>
+        </section>
 
-    <main class="wrap">
         <section id="research">
             <h2>Research</h2>
-            <p>Many living systems adapt by changing the edges of a network through local rules. A synapse strengthens or weakens with the timing of spikes in the two neurons that it connects, and a tube of a slime mold widens or narrows with the flow that it carries. Each edge sees only what it can measure, but through the physics of the network, what it measures depends on every other edge. <em>Physical learning</em> trains networks of springs, pipes, or resistors with the same kind of rule, and because such networks can be built with any structure, they can isolate the effect of structure. My research asks how the structure of a network controls what it can learn by local rules and how quickly, and how these mechanisms shape adaptation in biological networks.</p>
-
             <article class="feature">
                 <h3>Network structure shapes accessible solutions in physical learning</h3>
                 <p class="byline">With Pola Pietrzkowski, Linnéa Gyllingberg, Menachem Stern, and Mason Porter. Presented at the Conference on Complex Systems (CCS 2026).</p>
                 <p>To compare structures fairly, we use a task that is defined on the whole network, with no source or target nodes to choose: clearing a window of vibrational frequencies in a disordered spring network, so that none of its eigenfrequencies lies inside the window. In our local rule, random forces at frequencies inside the window drive the network, and each spring changes its stiffness using only the motion of its own two nodes. No step computes an eigenfrequency, so the same rule can train materials far too large for centralized design.</p>
-                <p>Whether the rule succeeds, and how quickly, depends strongly on the structure of the network. Delaunay and Watts-Strogatz networks typically clear the window, whereas many runs on Erdős-Rényi networks never do. Even rewiring a Watts-Strogatz network so that every node keeps its number of edges more than doubles the time that it takes to learn. (The drawing at the top of this page is a Delaunay spring network after training; thicker lines are stiffer springs.)</p>
+                <p>Whether the rule succeeds, and how quickly, depends strongly on the structure of the network. Delaunay and Watts-Strogatz networks typically clear the window, whereas many runs on Erdős-Rényi networks never do. Even rewiring a Watts-Strogatz network so that every node keeps its number of edges more than doubles the time that it takes to learn.</p>
                 <figure class="figure figure-wide">
                     <a class="figure-link" href="images/physical_learning_detail.png"><img src="images/physical_learning_detail.png" data-normal="images/physical_learning_detail.png" data-accessible="images/physical_learning_detail_accessible.png" alt="For Delaunay, Watts-Strogatz, Barabási-Albert, and Erdős-Rényi networks: a trained network beside its eigenfrequency histogram before and after training, with the target window shaded" loading="lazy"></a>
                     <figcaption>Eigenfrequency distributions before and after training for one representative run on each of four network families, with the target window shaded. Beside each histogram is the corresponding trained network, with each edge coloured by its learned weight.</figcaption>
                 </figure>
             </article>
-
-            <div class="agenda">
-                <h3>Next questions</h3>
-                <p>The directions I want to pursue as a postdoc.</p>
-                <ul class="questions">
-                    <li>
-                        <h4>How structure sets learning time</h4>
-                        <p>Which structural features, such as clustering, degree heterogeneity, or spatial constraints, set how quickly a network learns? I want a predictive theory that also covers the flow-driven rules by which blood vessels and slime molds adapt.</p>
-                    </li>
-                    <li>
-                        <h4>Memory and forgetting</h4>
-                        <p>When a network learns tasks in sequence, each new task can erase part of the earlier ones. How does structure set how much a network forgets, and how many tasks it can hold?</p>
-                    </li>
-                    <li>
-                        <h4>Networks that change their own structure</h4>
-                        <p>Neurons form and remove synapses, and slime molds grow new tubes and lose others. What does a network gain by changing its structure while it learns? I want to compare reconstructed slime-mold and vascular networks with randomized versions of themselves.</p>
-                    </li>
-                </ul>
-            </div>
 
             <h3 class="projects-head">Other projects</h3>
             <article class="project">
@@ -820,9 +681,8 @@
             </ul>
         </section>
 
-        <section id="about">
-            <h2>About</h2>
-            <p>I am a fifth-year physics PhD student at UCLA, working with <a href="https://www.math.ucla.edu/~mason/">Mason Porter</a>, and I expect to finish in June 2027. I studied physics as an undergraduate at Cal Poly, San Luis Obispo, where I worked on memory in sheared suspensions with Hilary Jacks and Nathan Keim. Before starting my PhD, I spent a year with Glenn Fredrickson's group at UC Santa Barbara, simulating reactive polymer blending under shear flow.</p>
+        <section id="personal">
+            <h2>Personal</h2>
             <div class="personal-grid">
                 <div class="personal-item">
                     <h3>Hobbies</h3>
@@ -876,7 +736,7 @@
                     if (link) link.setAttribute('aria-current', 'location');
                 });
             }, { rootMargin: '-35% 0px -60% 0px' });
-            document.querySelectorAll('main section[id]').forEach(function(s) { observer.observe(s); });
+            Object.keys(navLinks).forEach(function(id) { observer.observe(document.getElementById(id)); });
         }
 
         // Publication abstracts
