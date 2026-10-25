@@ -96,7 +96,8 @@
             font-size: 0.95rem;
             padding: 6px 14px;
             border-radius: 20px;
-            border: 2px solid var(--coral);
+            background-color: var(--teal);
+            border: 2px solid transparent;
             transition: all 0.3s ease;
         }
         nav a:hover {
@@ -134,6 +135,7 @@
         }
         h1 {
             font-size: 3rem;
+            line-height: 1.15;
             margin-bottom: 10px;
             letter-spacing: -1px;
             color: var(--peach);
@@ -175,14 +177,13 @@
             padding: 15px;
             background-color: var(--peach);
             border-left: 5px solid var(--coral);
-            border-radius: 5px;
+            border-radius: 8px;
             transition: all 0.3s ease;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .post:hover {
             transform: translateX(5px);
             border-left-color: var(--teal);
-            background-color: var(--cream);
         }
         .post-title {
             font-weight: 600;
@@ -264,19 +265,22 @@
             object-fit: cover;
         }
         .research-card-body {
-            padding: 15px;
+            padding: 18px 24px;
         }
         .research-card-title {
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.25rem;
+            line-height: 1.4;
             color: var(--deep-blue);
             display: flex;
-            align-items: center;
-            gap: 8px;
+            align-items: flex-start;
+            gap: 10px;
         }
         .research-card-title::before {
             content: '\25B6';
             font-size: 0.7rem;
+            line-height: 1;
+            margin-top: 0.5rem;
             transition: transform 0.3s ease;
             flex-shrink: 0;
         }
@@ -285,9 +289,9 @@
         }
         .research-card-details {
             display: none;
-            margin-top: 10px;
-            font-size: 0.95rem;
-            line-height: 1.5;
+            margin-top: 12px;
+            font-size: 1rem;
+            line-height: 1.6;
             color: var(--deep-blue);
         }
         .research-card.expanded .research-card-details {
@@ -299,14 +303,22 @@
             margin: 15px auto 8px;
             display: block;
             border-radius: 8px;
+            border: 1px solid rgba(26, 35, 50, 0.2);
+        }
+        body.accessible .research-detail-figure {
             border: 2px solid var(--deep-blue);
         }
+        .figure-link {
+            display: block;
+            cursor: zoom-in;
+        }
         .figure-caption {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
             color: var(--deep-blue);
-            opacity: 0.8;
-            text-align: center;
-            margin: 4px auto 10px;
+            opacity: 0.85;
+            text-align: left;
+            margin: 6px 0 14px;
             max-width: 800px;
         }
 
@@ -318,7 +330,7 @@
             margin-top: 20px;
         }
         .personal-item {
-            padding: 15px;
+            padding: 18px 24px;
             background-color: var(--peach);
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -330,7 +342,8 @@
         }
         .personal-item p {
             margin: 0;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            line-height: 1.6;
         }
         /* About figure */
         .about-figure {
@@ -376,8 +389,7 @@
             color: var(--deep-blue);
             padding: 12px;
             background-color: var(--cream);
-            border-radius: 5px;
-            border-left: 3px solid var(--teal);
+            border-radius: 6px;
         }
         .publication.show-abstract .pub-abstract {
             display: block;
@@ -422,14 +434,40 @@
             h1 {
                 font-size: 2rem;
             }
+            header {
+                padding: 7px 20px;
+            }
+            nav {
+                gap: 8px;
+            }
+            nav a {
+                padding: 5px 12px;
+                font-size: 0.9rem;
+            }
+            .research-card-image {
+                height: 140px;
+            }
+            .research-card-body {
+                padding: 16px 18px;
+            }
+            .accessibility-toggle {
+                right: 12px;
+                bottom: 12px;
+                padding: 10px;
+                border-radius: 50%;
+            }
+            .accessibility-toggle .toggle-label {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Hi, I'm James Raj!</h1>
-            <p>Physics PhD student at UCLA, advised by <a href="https://www.math.ucla.edu/~mason/" style="color: var(--cream); text-decoration: underline; text-decoration-color: var(--coral);">Mason Porter</a>.</p>
+            <h1>Hi, I'm James&nbsp;Raj!</h1>
+            <p>Fifth-year physics PhD student at UCLA, advised by <a href="https://www.math.ucla.edu/~mason/" style="color: var(--cream); text-decoration: underline; text-decoration-color: var(--coral);">Mason Porter</a>.</p>
+            <p>PhD expected June 2027; looking for postdoctoral positions.</p>
             <p class="header-contact">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.2.5 7.8 5.6L19.8 6H4.2ZM20 7.3l-7.4 5.3a1 1 0 0 1-1.2 0L4 7.3v11h16v-11Z"/></svg>
                 <a href="mailto:james@physics.ucla.edu">james@physics.ucla.edu</a>
@@ -446,44 +484,45 @@
         <section id="about">
             <h2>About Me</h2>
             <div class="headshot-wrapper"><img src="images/me.jpg" alt="James Raj" class="headshot"></div>
-            <p>I am a fifth-year physics PhD student at UCLA, advised by <a href="https://www.math.ucla.edu/~mason/">Mason Porter</a>. My research is in complex systems and statistical physics, with a focus on networks that arise from physical systems. I study both the dynamics on these networks and the dynamics of the networks themselves. I am most interested in physical learning, in which networks of springs or resistors learn a task through local rules (each edge adjusts itself using only what it can measure), and in how the structure of a network limits what such rules can learn and how quickly.</p>
-            <p>More broadly, I am interested in physical and biological networks that adapt and reorganize, and in how local changes at individual nodes and edges shape what the whole network can do. I am also interested in using topological data analysis (TDA) for statistical physics, and I developed a method that weights persistence diagrams to extract exact statistical physics observables from point patterns.</p>
+            <p>My research is in complex systems and statistical physics, with a focus on networks that arise from physical systems. I study both the dynamics on these networks and the dynamics of the networks themselves. I am most interested in physical learning, in which networks of springs or resistors learn a task through local rules (each edge adjusts itself using only what it can measure), and in how the structure of a network limits what such rules can learn and how quickly.</p>
+            <p>More broadly, I am interested in physical and biological networks that adapt and reorganize, from trainable materials to neural circuits, and in how local changes at individual nodes and edges shape what the whole network can do. I am also interested in using topological data analysis (TDA) for statistical physics, and I developed a weighted persistence method that gives cluster statistics of point patterns, such as the mean cluster size, exactly at every scale.</p>
         </section>
 
         <section id="research">
             <h2>Current Research</h2>
             <div class="research-card">
-                <img src="images/physical_learning_card.png" data-normal="images/physical_learning_card.png" data-accessible="images/physical_learning_card_accessible.png" alt="Trained conductances in a random geometric network showing learned edge weights" class="research-card-image">
+                <img src="images/physical_learning_card.png" data-normal="images/physical_learning_card.png" data-accessible="images/physical_learning_card_accessible.png" alt="A trained spring network, with each edge coloured by its learned stiffness" class="research-card-image">
                 <div class="research-card-body">
-                    <div class="research-card-title">Network structure shapes accessible solutions in physical learning</div>
+                    <div class="research-card-title">How network structure shapes physical learning</div>
                     <div class="research-card-details">
-                        <p>Many network-based physical systems, ranging from aging spring networks to electrical networks and mechanical metamaterials, adapt their internal structure through purely local interactions to produce a wide range of functional behaviors, with no centralized control and no global signal indicating the desired output. A variety of local rules and target functions have been studied extensively, but almost always on disordered networks that are derived from jammed packings. We argue that network structure strongly shapes the space of learned solutions.</p>
-                        <p>We examine this for the task of opening a phononic band gap on a disordered mass-spring network using a strictly local update rule. Unlike a regression task, in which the choice of source and target nodes has a big impact on the learned solution even on the same network, a band gap has no placement dependence: it is a property of the whole network. To our knowledge, our rule is the first physically realizable rule for adapting a global spectral property; all previous methods for opening band gaps have been global. Whether the system succeeds depends heavily on the network structure. For example, spatial networks and Watts-Strogatz networks typically succeed, whereas Erdős-Rényi networks mostly fail. These results identify the underlying network as a fundamental determinant of what local-rule physical learning can achieve.</p>
-                        <img src="images/physical_learning_detail.png" data-normal="images/physical_learning_detail.png" data-accessible="images/physical_learning_detail_accessible.png" alt="For Delaunay, Watts-Strogatz, Barabási-Albert, and Erdős-Rényi networks: a trained network beside its eigenfrequency histogram before and after training, with the target window shaded" class="research-detail-figure">
-                        <p class="figure-caption">Eigenfrequency distributions before and after training for one representative run on each of four network families, with the target window shaded. Beside each histogram is the corresponding trained network, with each edge coloured by its learned weight.</p>
+                        <p>In physical learning, a network of springs, resistors, or pipes adapts its edge weights (such as stiffnesses or conductances) through local rules, in which each edge changes using only quantities measured at that edge. Many physical-learning methods, such as coupled learning and equilibrium propagation, train a prescribed response between designated source and target nodes, and most studies of mechanical learning use disordered networks derived from jammed packings. We argue that network structure strongly shapes the space of learned solutions.</p>
+                        <p>We examine this for the task of opening a spectral gap (an interval of frequencies in which the network has no vibrational modes) in a disordered spring network. A gap is a property of the whole spectrum, so there are no input or output nodes to place. To our knowledge, gaps at chosen frequencies had been opened only by centralized inverse design or by training that computes the normal modes. I developed a local rule that opens them: random forces drive the network at frequencies in a chosen window, and, by reciprocity, each spring obtains its update from the motion of its own two ends, so no step computes a normal mode.</p>
+                        <p>Whether the rule succeeds depends heavily on the network structure. Delaunay and Watts-Strogatz networks cleared the window in every run, whereas Barabási-Albert and Erdős-Rényi networks did so in only about half of their runs. These results suggest that the structure of the underlying network, and not only the rule, determines much of what local physical learning can achieve. This is joint work with Pola Pietrzkowski, Linnéa Gyllingberg, Menachem Stern, and Mason Porter.</p>
+                        <a class="figure-link" href="images/physical_learning_detail.png" target="_blank" rel="noopener"><img src="images/physical_learning_detail.png" data-normal="images/physical_learning_detail.png" data-accessible="images/physical_learning_detail_accessible.png" alt="For Delaunay, Watts-Strogatz, Barabási-Albert, and Erdős-Rényi networks: a trained network beside its eigenfrequency histogram before and after training, with the target window shaded" class="research-detail-figure"></a>
+                        <p class="figure-caption">Eigenfrequency distributions before and after training, with the target window shaded; training succeeds when no eigenfrequencies remain in the window. Each panel shows one run: a successful run for Delaunay and Watts-Strogatz networks, which cleared the window in every run, and an unsuccessful run for Barabási-Albert and Erdős-Rényi networks, which cleared it in about half of their runs. Beside each histogram is the corresponding trained network, with each edge coloured by its learned weight.</p>
                     </div>
                 </div>
             </div>
             <div class="research-card">
                 <img src="images/sr_cells.png" data-normal="images/sr_cells.png" data-accessible="images/sr_cells_accessible.png" alt="Scale-rich metamaterial tessellation" class="research-card-image">
                 <div class="research-card-body">
-                    <div class="research-card-title">Understanding Network Properties of Scale-Rich Metamaterials</div>
+                    <div class="research-card-title">Understanding network properties of scale-rich metamaterials</div>
                     <div class="research-card-details">
-                        <p>In the <a href="https://arxiv.org/abs/2511.18108" target="_blank">scale-rich metamaterials</a> of Both et al. (2025), ligament thicknesses span orders of magnitude, and earlier work computed their network properties on a dual graph in which each ligament is a node. With Charles Emmett Maher, Katherine Newhall, and Mason Porter, I represent such a disordered beam material instead as a spatially embedded network whose edges are its beams, with nodes at the junctions of the beams, so that the network can be printed directly. The direction-dependent stiffness of the material can then be retrieved from transport on this network, without a mechanical simulation for each direction, although transport does not give the magnitude of the stiffness.</p>
-                        <img src="images/sr_anisotropy.png" data-normal="images/sr_anisotropy.png" data-accessible="images/sr_anisotropy_accessible.png" alt="A scale-rich network, a polar plot of its directional effective resistance, and the anisotropy ratio against the heterogeneity parameter alpha" class="research-detail-figure">
-                        <p class="figure-caption">Directional effective resistance R<sub>eff</sub> becomes more anisotropic as the heterogeneity parameter α grows. Left: an illustrative scale-rich network with α = 1. Middle: R<sub>eff</sub> along different directions for one realization with α = 1, whose largest and smallest values differ by a factor of about 15. Right: the ratio of the largest to the smallest R<sub>eff</sub>, averaged over 5,000 realizations for each α.</p>
+                        <p><a href="https://arxiv.org/abs/2511.18108" target="_blank">Scale-rich metamaterials</a> (Both et al., 2025) are disordered beam materials in which the thicknesses of the beams span orders of magnitude. Earlier work computed their network properties on a dual graph, in which each beam is a node. I represent such a material instead as a spatially embedded network whose edges are its beams and whose nodes sit at the junctions of the beams, so that the network can be printed directly. When I compare with finite-element simulations of the material, the effective resistance across this network in each direction tracks how the stiffness depends on the direction of loading, although it does not give the magnitude of the stiffness. I work on this with Charles Emmett Maher, Katherine Newhall, and Mason Porter.</p>
+                        <a class="figure-link" href="images/sr_anisotropy.png" target="_blank" rel="noopener"><img src="images/sr_anisotropy.png" data-normal="images/sr_anisotropy.png" data-accessible="images/sr_anisotropy_accessible.png" alt="A scale-rich network, a polar plot of its directional effective resistance, and the anisotropy ratio against the heterogeneity parameter alpha" class="research-detail-figure"></a>
+                        <p class="figure-caption">The effective resistance R<sub>eff</sub> between opposite sides of a circular sample, measured along different directions, becomes more anisotropic as the heterogeneity parameter α grows. Left: an illustrative scale-rich network with α = 1. Middle: R<sub>eff</sub> along different directions for one realization with α = 1, whose largest and smallest values differ by a factor of about 15. Right: the ratio of the largest to the smallest R<sub>eff</sub>, averaged over 5,000 realizations for each α.</p>
                     </div>
                 </div>
             </div>
             <div class="research-card">
                 <img src="images/tda_card.png" data-normal="images/tda_card.png" data-accessible="images/tda_card_accessible.png" alt="Simplicial complex on a clustered point pattern" class="research-card-image">
                 <div class="research-card-body">
-                    <div class="research-card-title">TDA for Statistical Physics</div>
+                    <div class="research-card-title">TDA for statistical physics</div>
                     <div class="research-card-details">
-                        <p>Both topological data analysis (TDA) and statistical physics can be used to study how spatial point patterns connect across length scales, but they describe this in different ways. The standard summaries of persistent homology do not record the number of points in a merger event or the area of an enclosed hole, whereas many observables in statistical physics depend directly on this information, such as the number of points in a cluster or the area of a void.</p>
-                        <p>I developed a weighted persistence method that bridges this gap for clustering, and I am writing it up with Charles Emmett Maher, Katherine Newhall, and Mason Porter. By choosing the weights, we obtain quantities that are direct observables of statistical physics, rather than descriptors that one must interpret after computing them. For example, weighting each merger by the sizes of the two merging clusters determines the mean cluster size exactly at every scale. Weighted persistence also distinguishes point patterns whose pair correlation functions and structure factors coincide.</p>
-                        <img src="images/tda_simplicial.png" data-normal="images/tda_simplicial.png" data-accessible="images/tda_simplicial_accessible.png" alt="Vietoris-Rips simplicial complexes of a clustered point pattern at three filtration scales" class="research-detail-figure">
-                        <p class="figure-caption">A clustered pattern of 92 points and its Vietoris-Rips simplicial complex at three values of the filtration radius ε (points within 2ε of each other are joined). As ε grows, the six clusters connect into a loop, which then fills in. Persistent homology records the scales at which such features appear and disappear; weighted persistence also records how many points each merger joins.</p>
+                        <p>Both topological data analysis (TDA) and statistical physics can be used to study how spatial point patterns connect across length scales, but they describe this in different ways. Persistent homology, a central tool of TDA, records the scales at which clusters of points merge and holes appear and fill in, but its standard summaries do not record the number of points in a merger or the area of a hole. Many observables in statistical physics, by contrast, depend directly on this information, such as the number of points in a cluster or the area of a void.</p>
+                        <p>I developed a weighted persistence method that bridges this gap for clustering, and I am writing it up with Charles Emmett Maher, Katherine Newhall, and Mason Porter. By choosing the weights, we obtain quantities that are direct observables of statistical physics, rather than descriptors that one must interpret after computing them. For example, weighting each merger by the sizes of the two merging clusters determines the mean cluster size exactly at every scale. Weighted persistence also distinguishes point patterns that have the same pair correlation function (and therefore the same structure factor).</p>
+                        <a class="figure-link" href="images/tda_simplicial.png" target="_blank" rel="noopener"><img src="images/tda_simplicial.png" data-normal="images/tda_simplicial.png" data-accessible="images/tda_simplicial_accessible.png" alt="Vietoris-Rips complexes of a clustered point pattern at two filtration scales, and its mean cluster size against the filtration scale computed in two ways" class="research-detail-figure"></a>
+                        <p class="figure-caption">Left and middle: a clustered pattern of 92 points and its Vietoris-Rips simplicial complex at two values of the filtration radius ε (points within 2ε of each other are joined), first as six separate clusters and then as a loop. Right: the mean cluster size against ε, from the weighted H<sub>0</sub> merge history (line) and from a direct count of cluster sizes (dots), which agree exactly at every scale.</p>
                     </div>
                 </div>
             </div>
@@ -492,9 +531,9 @@
                 <div class="research-card-body">
                     <div class="research-card-title">Disordered networks from hyperuniform point patterns</div>
                     <div class="research-card-details">
-                        <p>Hyperuniformity is a type of order that is characterized by the suppression of long-range density fluctuations, and hyperuniform point patterns appear in settings ranging from <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.133.028401">leaf vein networks</a> to the <a href="https://doi.org/10.1103/PhysRevX.13.011038">large-scale distribution of galaxies</a>. We harness them to generate disordered, spatially embedded networks that are distinct from both perfectly ordered lattices and uniformly random spatial networks, which we call hyperuniform-point-pattern-induced (HuPPI) networks, and we compare them to counterpart Poisson-point-pattern-induced (PoPPI) networks. HuPPI networks have smaller mean normalized total effective resistances than PoPPI networks for three of the four network-generation methods that we examine, and the network-generation method provides an additional design lever for spatial networks beyond the choice of their underlying point pattern.</p>
-                        <p>Through an NSF DMREF collaboration, I chose the point patterns and the network-generation methods for disordered networks that Christopher Rock's group at NC State 3D-prints and Karen Daniels's group measures. I am one of the theorists working out why their specific modulus changes as the disorder increases.</p>
-                        <img src="images/huppi_comparison.png" data-normal="images/huppi_comparison.png" data-accessible="images/huppi_comparison_accessible.png" alt="Poisson and hyperuniform point patterns, their Delaunay networks, and their structure factors" class="research-detail-figure">
+                        <p>Hyperuniform point patterns look disordered up close, but they suppress density fluctuations at large length scales: the number of points in a large window varies much less from place to place than it does for points scattered at random. Such patterns appear in settings ranging from <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.133.028401">leaf vein networks</a> to the <a href="https://doi.org/10.1103/PhysRevX.13.011038">large-scale distribution of galaxies</a>. We harness them to generate disordered, spatially embedded networks that are distinct from both perfectly ordered lattices and uniformly random spatial networks, which we call hyperuniform-point-pattern-induced (HuPPI) networks, and we compare them to counterpart Poisson-point-pattern-induced (PoPPI) networks. HuPPI networks have smaller mean normalized total effective resistances (lower values mean that current flows more easily through the network) than PoPPI networks for three of the four network-generation methods that we examine, and the network-generation method provides an additional design lever for spatial networks beyond the choice of their underlying point pattern.</p>
+                        <p>Through an NSF-funded collaboration (DMREF), I chose the point patterns and the network-generation methods for disordered networks that Christopher Rock's group at NC State 3D-prints and Karen Daniels's group measures. I am one of the theorists working out why their specific modulus (stiffness per unit mass) changes as the disorder increases.</p>
+                        <a class="figure-link" href="images/huppi_comparison.png" target="_blank" rel="noopener"><img src="images/huppi_comparison.png" data-normal="images/huppi_comparison.png" data-accessible="images/huppi_comparison_accessible.png" alt="Poisson and hyperuniform point patterns, their Delaunay networks, and their structure factors" class="research-detail-figure"></a>
                         <p class="figure-caption">Poisson (top) and hyperuniform (bottom) point patterns, their Delaunay networks, and their structure factors S(k). Hyperuniform patterns suppress long-wavelength density fluctuations, so S(k) → 0 as k → 0.</p>
                     </div>
                 </div>
@@ -509,7 +548,7 @@
                         <span class="post-title">
                             <a href="https://arxiv.org/abs/2511.21082" onclick="event.stopPropagation();">Local Geometric and Transport Properties of Networks that are Generated from Hyperuniform Point Patterns</a>
                         </span>
-                        <div class="pub-authors">J. V. Raj, X. Sun, C. E. Maher, K. A. Newhall, M. A. Porter. arXiv:2511.21082 (2025); resubmitted to <i>Physical Review E</i>.</div>
+                        <div class="pub-authors"><strong>J. V. Raj</strong>, X. Sun, C. E. Maher, K. A. Newhall, M. A. Porter. arXiv:2511.21082 (2025); under review at <i>Physical&nbsp;Review&nbsp;E</i>.</div>
                         <div class="pub-abstract-toggle">Abstract &#9660;</div>
                         <div class="pub-abstract">Hyperuniformity, which is a type of order that is characterized by the suppression of long-range density fluctuations in comparison to the fluctuations in standard disordered systems, has emerged as a powerful concept in many natural and engineered phenomena. In this paper, we harness hyperuniform point patterns to generate disordered, spatially-embedded networks that are distinct from both perfectly ordered lattices and uniformly random spatial networks. We refer to this class of disordered networks as hyperuniform-point-pattern-induced (HuPPI) networks, and we compare them to counterpart Poisson-point-pattern-induced (PoPPI) networks and networks that we generate from random-sequential-adsorption (RSA) packings (which have local order but are not hyperuniform). We examine HuPPI, PoPPI, and RSA networks that we generate using Gabriel, Delaunay, Delaunay-centroidal, and Voronoi network-generation methods. We show that HuPPI networks have smaller mean normalized total effective resistances (TERs) than PoPPI networks in Gabriel, Delaunay-centroidal, and Voronoi networks and have shorter mean random-walk mixing times than PoPPI networks in Gabriel, Delaunay, and Delaunay-centroidal networks. For all four network-generation methods and for both HuPPI and PoPPI networks, we find that the Ollivier&ndash;Ricci curvature (ORC) of an edge is negatively correlated with its TER edge contribution (i.e., the increase in TER that results from removing that edge). Additionally, PoPPI networks have wider distributions of TER edge contributions than their counterpart HuPPI networks. The edges in PoPPI networks with the largest TER edge contributions have negative ORCs and act as critical bridges; removing them severely disrupts global transport. The scarcity of such bridging edges in HuPPI networks helps explain why they have smaller mean normalized TERs than their PoPPI counterparts in Gabriel, Delaunay-centroidal, and Voronoi networks, including the counterintuitive observation that Delaunay-centroidal and Voronoi HuPPI networks have smaller mean normalized TERs despite having more-negative mean ORCs. Our comparison of HuPPI networks and PoPPI networks with RSA networks reveals some similarities between HuPPI and RSA networks in mean normalized TER and mean ORC, and it demonstrates that local order impacts the observed differences between HuPPI and PoPPI networks. For all four network-generation methods, both HuPPI and PoPPI networks are less robust (i.e., the size of their largest connected component decays more rapidly) when we remove edges in the order of their ORC values, starting with the most-negative ORCs, than when we remove edges uniformly at random. In Gabriel networks, the HuPPI networks are more robust than their PoPPI counterparts for both edge-removal strategies. Collectively, our results (1) illustrate how the local network geometry that ORC measures is related to transport and network connectivity and (2) demonstrate that the network-generation method provides an additional design lever for spatial networks beyond the choice of their underlying point pattern.</div>
                     </div>
@@ -519,7 +558,7 @@
                         <span class="post-title">
                             <a href="https://doi.org/10.1122/8.0000523" onclick="event.stopPropagation();">Phase-field simulations of morphology development in reactive polymer blending</a>
                         </span>
-                        <div class="pub-authors">R. Sengupta, M. D. Tikekar, J. V. Raj, K. T. Delaney, M. C. Villet, G. H. Fredrickson. Journal of Rheology 67(1), 1-14 (2023).</div>
+                        <div class="pub-authors">R. Sengupta, M. D. Tikekar, <strong>J. V. Raj</strong>, K. T. Delaney, M. C. Villet, G. H. Fredrickson. Journal of Rheology 67(1), 1-14 (2023).</div>
                         <div class="pub-abstract-toggle">Abstract &#9660;</div>
                         <div class="pub-abstract">Reactive blending is an efficient method for synthesizing polymer blends. Industrially, this process is carried out in extruders where reacting polymers and generated copolymers are subjected to high shear stresses. The dynamics and resulting morphology are dictated by coupling of hydrodynamic forces in the extruder, thermodynamic interactions between species, and reaction kinetics on a complex interfacial manifold. We use phase-field simulations to quantify the evolution of reactive blending under external shear flow for model systems of two homopolymers of equal length that react via end-coupling to produce a diblock copolymer. We compare morphology development in cylindrical thread and droplet geometries. Our results indicate that shear suppresses Rayleigh capillary instability in threads while accelerating reaction rates in drops by expanding the interfacial contact area.</div>
                     </div>
@@ -546,22 +585,27 @@
             <p><a href="mailto:james@physics.ucla.edu">james@physics.ucla.edu</a></p>
             <p>Office: Mathematical Sciences (MS) 7611</p>
             <div class="social-links">
-                <a href="https://github.com/JamesVonRaj">GitHub</a>
-                <a href="https://scholar.google.com/citations?hl=en&user=wvoc6yIAAAAJ">Google Scholar</a>
                 <a href="cv.pdf">CV</a>
-                <a href="https://www.chess.com/member/jamesvonraj">Chess.com</a>
+                <a href="https://scholar.google.com/citations?hl=en&user=wvoc6yIAAAAJ">Google Scholar</a>
+                <a href="https://github.com/JamesVonRaj">GitHub</a>
                 <a href="https://bsky.app/profile/jamesraj.bsky.social">Bluesky</a>
+                <a href="https://www.chess.com/member/jamesvonraj">Chess.com</a>
             </div>
         </section>
     </div>
     <button class="accessibility-toggle" aria-label="Toggle accessible view" title="Toggle accessible view">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 7h-6l-1.41 7.41L16 22h-2l-2-5-2 5H8l2.41-5.59L9 9H3V7h18v2z"/></svg>
-        Accessibility
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 7h-6l-1.41 7.41L16 22h-2l-2-5-2 5H8l2.41-5.59L9 9H3V7h18v2z"/></svg>
+        <span class="toggle-label">Accessibility</span>
     </button>
     <script>
         document.querySelectorAll('.research-card').forEach(function(el) {
             el.addEventListener('click', function() {
                 el.classList.toggle('expanded');
+            });
+        });
+        document.querySelectorAll('.research-card a').forEach(function(a) {
+            a.addEventListener('click', function(e) {
+                e.stopPropagation();
             });
         });
 
@@ -578,6 +622,8 @@
         function swapImages(isAccessible) {
             document.querySelectorAll('[data-normal][data-accessible]').forEach(function(img) {
                 img.src = isAccessible ? img.dataset.accessible : img.dataset.normal;
+                var link = img.closest('.figure-link');
+                if (link) link.href = img.getAttribute('src');
             });
         }
         if (localStorage.getItem('accessible') === 'true') {
