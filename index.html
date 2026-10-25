@@ -308,6 +308,36 @@
         body.accessible .research-detail-figure {
             border: 2px solid var(--deep-blue);
         }
+        video.research-detail-figure {
+            height: auto;
+            background-color: var(--cream);
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+        .video-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border: none;
+            border-radius: 20px;
+            background-color: var(--teal);
+            color: var(--cream);
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .video-toggle:hover {
+            background-color: var(--deep-blue);
+        }
+        .video-toggle:focus-visible {
+            outline: 3px solid var(--coral);
+            outline-offset: 2px;
+        }
+        .video-toggle-icon {
+            font-size: 0.7rem;
+        }
         .figure-link {
             display: block;
             cursor: zoom-in;
@@ -496,6 +526,9 @@
                     <div class="research-card-details">
                         <p>In physical learning, a network of springs, resistors, or pipes adapts its edge weights (such as stiffnesses or conductances) through local rules, in which each edge changes using only quantities measured at that edge. Many physical-learning methods, such as coupled learning and equilibrium propagation, train a prescribed response between designated source and target nodes, and most studies of mechanical learning use disordered networks derived from jammed packings. We argue that network structure strongly shapes the space of learned solutions.</p>
                         <p>We examine this for the task of opening a spectral gap (an interval of frequencies in which the network has no vibrational modes) in a disordered spring network. A gap is a property of the whole spectrum, so there are no input or output nodes to place. To our knowledge, gaps at chosen frequencies had been opened only by centralized inverse design or by training that computes the normal modes. I developed a local rule that opens them: random forces drive the network at frequencies in a chosen window, and, by reciprocity, each spring obtains its update from the motion of its own two ends, so no step computes a normal mode.</p>
+                        <video class="research-detail-figure" src="images/physical_learning_sweep.mp4" data-normal="images/physical_learning_sweep.mp4" data-accessible="images/physical_learning_sweep_accessible.mp4" poster="images/physical_learning_sweep_poster.png" data-poster-normal="images/physical_learning_sweep_poster.png" data-poster-accessible="images/physical_learning_sweep_poster_accessible.png" muted loop playsinline preload="none" aria-label="A trained spring network shaken at a drive frequency that rises across the target window; it stays nearly still inside the window"></video>
+                        <button class="video-toggle" type="button" aria-label="Play animation"><span class="video-toggle-icon" aria-hidden="true">&#9654;</span> <span class="video-toggle-text">Play</span></button>
+                        <p class="figure-caption">A trained spring network, driven by a random force whose frequency rises across the target window. Outside the window the network shakes; inside it the network stays nearly still, because training left no vibrational modes there. Edges are coloured by their trained stiffness, darker for stiffer. Right: the trained eigenfrequencies (top) and the response amplitude of the network against the drive frequency (bottom).</p>
                         <p>Whether the rule succeeds depends heavily on the network structure. Delaunay and Watts-Strogatz networks cleared the window in every run, whereas Barabási-Albert and Erdős-Rényi networks did so in only about half of their runs. These results suggest that the structure of the underlying network, and not only the rule, determines much of what local physical learning can achieve. This is joint work with Pola Pietrzkowski, Linnéa Gyllingberg, Menachem Stern, and Mason Porter.</p>
                         <a class="figure-link" href="images/physical_learning_detail.png" target="_blank" rel="noopener"><img src="images/physical_learning_detail.png" data-normal="images/physical_learning_detail.png" data-accessible="images/physical_learning_detail_accessible.png" alt="For Delaunay, Watts-Strogatz, Barabási-Albert, and Erdős-Rényi networks: a trained network beside its eigenfrequency histogram before and after training, with the target window shaded" class="research-detail-figure"></a>
                         <p class="figure-caption">Eigenfrequency distributions before and after training, with the target window shaded; training succeeds when no eigenfrequencies remain in the window. Each panel shows one run: a successful run for Delaunay and Watts-Strogatz networks, which cleared the window in every run, and an unsuccessful run for Barabási-Albert and Erdős-Rényi networks, which cleared it in about half of their runs. Beside each histogram is the corresponding trained network, with each edge coloured by its learned weight.</p>
@@ -520,8 +553,9 @@
                     <div class="research-card-details">
                         <p>Both topological data analysis (TDA) and statistical physics can be used to study how spatial point patterns connect across length scales, but they describe this in different ways. Persistent homology, a central tool of TDA, records the scales at which clusters of points merge and holes appear and fill in, but its standard summaries do not record the number of points in a merger or the area of a hole. Many observables in statistical physics, by contrast, depend directly on this information, such as the number of points in a cluster or the area of a void.</p>
                         <p>I developed a weighted persistence method that bridges this gap for clustering, and I am writing it up with Charles Emmett Maher, Katherine Newhall, and Mason Porter. By choosing the weights, we obtain quantities that are direct observables of statistical physics, rather than descriptors that one must interpret after computing them. For example, weighting each merger by the sizes of the two merging clusters determines the mean cluster size exactly at every scale. Weighted persistence also distinguishes point patterns that have the same pair correlation function (and therefore the same structure factor).</p>
-                        <a class="figure-link" href="images/tda_simplicial.png" target="_blank" rel="noopener"><img src="images/tda_simplicial.png" data-normal="images/tda_simplicial.png" data-accessible="images/tda_simplicial_accessible.png" alt="Vietoris-Rips complexes of a clustered point pattern at two filtration scales, and its mean cluster size against the filtration scale computed in two ways" class="research-detail-figure"></a>
-                        <p class="figure-caption">Left and middle: a clustered pattern of 92 points and its Vietoris-Rips simplicial complex at two values of the filtration radius ε (points within 2ε of each other are joined), first as six separate clusters and then as a loop. Right: the mean cluster size against ε, from the weighted H<sub>0</sub> merge history (line) and from a direct count of cluster sizes (dots), which agree exactly at every scale.</p>
+                        <video class="research-detail-figure" src="images/tda_filtration.mp4" data-normal="images/tda_filtration.mp4" data-accessible="images/tda_filtration_accessible.mp4" poster="images/tda_filtration_poster.png" data-poster-normal="images/tda_filtration_poster.png" data-poster-accessible="images/tda_filtration_poster_accessible.png" muted loop playsinline preload="none" aria-label="A filamentary point pattern and its simplicial complex as the scale grows, beside its weighted merge history and mean cluster size"></video>
+                        <button class="video-toggle" type="button" aria-label="Play animation"><span class="video-toggle-icon" aria-hidden="true">&#9654;</span> <span class="video-toggle-text">Play</span></button>
+                        <p class="figure-caption">A point pattern and its simplicial complex as the scale ε grows (points within 2ε of each other are joined). Triangles are shaded by the scale at which they appear, darker for earlier, and enclosed voids are coloured by their area as they open and fill in. Right: each merger of two clusters, drawn as a stem whose height is the product of the two cluster sizes (top), and the mean cluster size that these weighted mergers determine exactly at every scale, which matches a direct count (dots, bottom).</p>
                     </div>
                 </div>
             </div>
@@ -597,15 +631,55 @@
         <span class="toggle-label">Accessibility</span>
     </button>
     <script>
+        // Videos play when their card opens, unless motion is reduced or accessible mode is on
+        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        function motionAllowed() {
+            return !reduceMotion.matches && !document.body.classList.contains('accessible');
+        }
+        function updateVideos(card) {
+            card.querySelectorAll('video').forEach(function(v) {
+                if (card.classList.contains('expanded') && motionAllowed()) {
+                    var p = v.play();
+                    if (p && p.catch) p.catch(function() {});
+                } else {
+                    v.pause();
+                }
+            });
+        }
         document.querySelectorAll('.research-card').forEach(function(el) {
             el.addEventListener('click', function() {
                 el.classList.toggle('expanded');
+                updateVideos(el);
             });
         });
         document.querySelectorAll('.research-card a').forEach(function(a) {
             a.addEventListener('click', function(e) {
                 e.stopPropagation();
             });
+        });
+        // Play/Pause buttons (and clicks on the video itself) without collapsing the card
+        document.querySelectorAll('.research-card video').forEach(function(v) {
+            var btn = v.nextElementSibling;
+            function sync() {
+                var playing = !v.paused;
+                btn.querySelector('.video-toggle-icon').innerHTML = playing ? '&#10074;&#10074;' : '&#9654;';
+                btn.querySelector('.video-toggle-text').textContent = playing ? 'Pause' : 'Play';
+                btn.setAttribute('aria-label', playing ? 'Pause animation' : 'Play animation');
+            }
+            function toggle(e) {
+                e.stopPropagation();
+                if (v.paused) {
+                    var p = v.play();
+                    if (p && p.catch) p.catch(function() {});
+                } else {
+                    v.pause();
+                }
+            }
+            v.syncToggle = sync;
+            v.addEventListener('play', sync);
+            v.addEventListener('pause', sync);
+            v.addEventListener('click', toggle);
+            btn.addEventListener('click', toggle);
         });
 
         document.querySelectorAll('.pub-abstract-toggle').forEach(function(el) {
@@ -621,8 +695,15 @@
         function swapImages(isAccessible) {
             document.querySelectorAll('[data-normal][data-accessible]').forEach(function(img) {
                 img.src = isAccessible ? img.dataset.accessible : img.dataset.normal;
+                if (img.tagName === 'VIDEO' && img.dataset.posterNormal) {
+                    img.poster = isAccessible ? img.dataset.posterAccessible : img.dataset.posterNormal;
+                }
                 var link = img.closest('.figure-link');
                 if (link) link.href = img.getAttribute('src');
+            });
+            document.querySelectorAll('.research-card').forEach(updateVideos);
+            document.querySelectorAll('.research-card video').forEach(function(v) {
+                if (v.syncToggle) v.syncToggle();
             });
         }
         if (localStorage.getItem('accessible') === 'true') {
