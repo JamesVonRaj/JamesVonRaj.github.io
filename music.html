@@ -12,24 +12,8 @@
     <meta property="og:url" content="https://jamesraj.me/music.html">
     <meta property="og:type" content="website">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/theme.css">
     <style>
-        /* Same palette as index.html */
-        :root {
-            --deep-blue: #1a2332;
-            --teal: #005f7d;
-            --cream: #fdfcdc;
-            --peach: #fed9b7;
-            --coral: #f07167;
-            --coral-ink: #b8433a;
-        }
-        body.accessible {
-            --deep-blue: #0f1722;
-            --teal: #003f55;
-            --cream: #ffffff;
-            --peach: #fde6d2;
-            --coral: #b8433a;
-            --coral-ink: #9a3029;
-        }
         body.accessible *,
         body.accessible *::before,
         body.accessible *::after {
@@ -38,8 +22,8 @@
         }
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--cream);
-            color: var(--deep-blue);
+            background-color: var(--page-background);
+            color: var(--text);
             line-height: 1.6;
             margin: 0;
             padding: 0;
@@ -50,35 +34,35 @@
             padding: 40px 20px;
         }
         a {
-            color: var(--deep-blue);
+            color: var(--text);
             text-decoration: none;
             transition: color 0.3s ease;
         }
         a:hover {
-            color: var(--coral-ink);
+            color: var(--link-hover);
         }
         .back-link {
             display: inline-block;
             margin-bottom: 20px;
             font-weight: 600;
             font-size: 0.95rem;
-            color: var(--teal);
+            color: var(--heading);
         }
         .back-link:hover {
-            color: var(--coral-ink);
+            color: var(--link-hover);
         }
         h1 {
             font-size: 2.5rem;
-            color: var(--deep-blue);
+            color: var(--text);
             margin-bottom: 10px;
             letter-spacing: -1px;
         }
         h2 {
-            color: var(--teal);
+            color: var(--heading);
             font-size: 1.8rem;
             margin-top: 35px;
             margin-bottom: 15px;
-            border-bottom: 3px solid var(--coral);
+            border-bottom: 3px solid var(--heading-rule);
             padding-bottom: 8px;
         }
         p {
@@ -100,7 +84,7 @@
             gap: 12px;
             padding: 8px 10px;
             border-radius: 10px;
-            background: var(--peach);
+            background: var(--track-background);
             transition: background 0.2s ease;
             cursor: default;
         }
@@ -108,12 +92,12 @@
             cursor: pointer;
         }
         .track:hover {
-            background: color-mix(in srgb, var(--peach) 70%, var(--coral) 30%);
+            background: color-mix(in srgb, var(--track-background) 70%, var(--track-hover-accent) 30%);
         }
         .track-num {
             font-size: 0.8rem;
             font-weight: 600;
-            color: var(--teal);
+            color: var(--heading);
             min-width: 22px;
             text-align: right;
         }
@@ -131,14 +115,14 @@
         .track-name {
             font-weight: 600;
             font-size: 0.92rem;
-            color: var(--deep-blue);
+            color: var(--text);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
         .track-artist {
             font-size: 0.8rem;
-            color: var(--teal);
+            color: var(--heading);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -154,8 +138,8 @@
             height: 34px;
             border-radius: 50%;
             border: none;
-            background: var(--teal);
-            color: var(--cream);
+            background: var(--play-button-background);
+            color: var(--play-button-text);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -164,11 +148,11 @@
             padding: 0;
         }
         .play-btn:hover {
-            background: var(--deep-blue);
+            background: var(--play-button-hover);
             transform: scale(1.1);
         }
         .play-btn.playing {
-            background: var(--coral);
+            background: var(--play-button-active);
         }
         .play-btn svg {
             width: 14px;
@@ -178,7 +162,7 @@
         .spotify-link {
             width: 20px;
             height: 20px;
-            color: var(--teal);
+            color: var(--heading);
             opacity: 0.85;
             transition: opacity 0.2s ease;
             flex-shrink: 0;
@@ -195,14 +179,14 @@
         .progress-wrap {
             width: 60px;
             height: 4px;
-            background: rgba(0,0,0,0.1);
+            background: var(--progress-track);
             border-radius: 2px;
             cursor: pointer;
             position: relative;
         }
         .progress-bar {
             height: 100%;
-            background: var(--coral);
+            background: var(--progress-fill);
             border-radius: 2px;
             width: 0%;
             transition: width 0.1s linear;
@@ -214,14 +198,14 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: var(--deep-blue);
-            color: var(--cream);
+            background: var(--player-background);
+            color: var(--player-text);
             padding: 10px 20px;
             display: none;
             align-items: center;
             gap: 12px;
             z-index: 50;
-            box-shadow: 0 -2px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 -2px 12px var(--player-shadow);
         }
         .now-playing.visible {
             display: flex;
@@ -258,13 +242,13 @@
         .now-playing .np-progress {
             flex: 0 0 120px;
             height: 4px;
-            background: rgba(255,255,255,0.2);
+            background: var(--player-progress-track);
             border-radius: 2px;
             cursor: pointer;
         }
         .now-playing .np-progress-bar {
             height: 100%;
-            background: var(--coral);
+            background: var(--progress-fill);
             border-radius: 2px;
             width: 0%;
         }
@@ -273,8 +257,8 @@
             height: 36px;
             border-radius: 50%;
             border: none;
-            background: var(--coral);
-            color: var(--cream);
+            background: var(--player-button-background);
+            color: var(--player-button-text);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -293,7 +277,7 @@
             border-radius: 50%;
             border: none;
             background: transparent;
-            color: var(--cream);
+            color: var(--player-close-text);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -310,16 +294,16 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #1a2332;
-            color: #ffffff;
-            border: 2px solid #ffffff;
+            background-color: var(--toggle-background);
+            color: var(--toggle-text);
+            border: 2px solid var(--toggle-text);
             border-radius: 8px;
             padding: 8px 14px;
             font-size: 0.85rem;
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 8px var(--shadow-strong);
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -328,7 +312,7 @@
         }
         .accessibility-toggle:hover {
             transform: scale(1.05);
-            background-color: #005f7d;
+            background-color: var(--toggle-hover-background);
         }
         .accessibility-toggle svg {
             width: 18px;
@@ -343,7 +327,7 @@
 
         .no-preview {
             font-size: 0.7rem;
-            color: var(--coral);
+            color: var(--unavailable-text);
             opacity: 0.7;
         }
 

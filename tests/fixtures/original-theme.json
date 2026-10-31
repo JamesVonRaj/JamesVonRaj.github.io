@@ -1,0 +1,385 @@
+{
+  "schema_version": 1,
+  "name": "Life Planner",
+  "palettes": {
+    "normal": {
+      "ink": "#1a2332",
+      "muted": "#4d5d6e",
+      "cerulean": "#0081a7",
+      "deep-cerulean": "#005f7d",
+      "teal": "#00afb9",
+      "coral": "#f07167",
+      "peach": "#fed9b7",
+      "cream": "#fdfcdc",
+      "card-peach": "#fed9b7",
+      "header-blue": "#007ca0",
+      "link-coral": "#b8433a",
+      "white": "#ffffff",
+      "black": "#000000",
+      "stiffness-light": "#d6eef3",
+      "stiffness-dark": "#0b3a50",
+      "length-light": "#a9dde3",
+      "decorative-light": "#a9d8e3",
+      "beam-light": "#8ccbdc",
+      "warm-rule": "#e8d5c4",
+      "floor": "#f7f5d1",
+      "void-middle": "#f7a68f",
+      "toggle-ink": "#1a2332",
+      "toggle-blue": "#005f7d",
+      "pale-cell": "#fdfcdc",
+      "merge-light": "#a9dde3",
+      "merge-dark": "#005f7d"
+    },
+    "accessible": {
+      "ink": "#0f1722",
+      "muted": "#1a2332",
+      "cerulean": "#005f7d",
+      "deep-cerulean": "#003f55",
+      "teal": "#00808a",
+      "coral": "#b8433a",
+      "peach": "#f7c08f",
+      "cream": "#ffffff",
+      "card-peach": "#fde6d2",
+      "header-blue": "#004a63",
+      "link-coral": "#9a3029",
+      "white": "#ffffff",
+      "black": "#000000",
+      "stiffness-light": "#a9d8e3",
+      "stiffness-dark": "#06283a",
+      "length-light": "#7fc4cf",
+      "decorative-light": "#a9d8e3",
+      "beam-light": "#5fa9bf",
+      "warm-rule": "#1a2332",
+      "floor": "#f4f6f7",
+      "void-middle": "#e0876d",
+      "toggle-ink": "#1a2332",
+      "toggle-blue": "#005f7d",
+      "pale-cell": "#f7c08f",
+      "merge-light": "#a9d8e3",
+      "merge-dark": "#06283a"
+    }
+  },
+  "roles": {
+    "web": {
+      "publication-background": "@palette.card-peach",
+      "publication-border": "@palette.coral",
+      "page-background": "@palette.cream",
+      "text": "@palette.ink",
+      "nav-text": "@palette.cream",
+      "nav-background": "@palette.deep-cerulean",
+      "nav-hover-background": "@palette.coral",
+      "nav-hover-text": "@palette.ink",
+      "header-background": "@palette.header-blue",
+      "header-text": "@palette.cream",
+      "shadow-soft": {
+        "alpha": "@palette.black",
+        "opacity": 0.1
+      },
+      "header-highlight": "@palette.card-peach",
+      "header-link": "@palette.cream",
+      "header-link-underline": "@palette.coral",
+      "header-title": "@palette.card-peach",
+      "heading": "@palette.deep-cerulean",
+      "heading-rule": "@palette.coral",
+      "link-hover": "@palette.link-coral",
+      "link-underline": "@palette.coral",
+      "publication-hover-border": "@palette.deep-cerulean",
+      "social-background": "@palette.deep-cerulean",
+      "social-text": "@palette.cream",
+      "social-hover-background": "@palette.coral",
+      "social-hover-text": "@palette.ink",
+      "shadow-medium": {
+        "alpha": "@palette.black",
+        "opacity": 0.15
+      },
+      "research-card-background": "@palette.card-peach",
+      "figure-border": {
+        "alpha": "@palette.toggle-ink",
+        "opacity": 0.2
+      },
+      "figure-border-accessible": "@palette.ink",
+      "video-background": "@palette.cream",
+      "video-button-background": "@palette.deep-cerulean",
+      "video-button-text": "@palette.cream",
+      "video-button-hover": "@palette.ink",
+      "focus-ring": "@palette.coral",
+      "personal-background": "@palette.card-peach",
+      "about-figure-border": "@palette.ink",
+      "abstract-background": "@palette.cream",
+      "toggle-background": "@palette.toggle-ink",
+      "toggle-text": "@palette.white",
+      "shadow-strong": {
+        "alpha": "@palette.black",
+        "opacity": 0.3
+      },
+      "toggle-hover-background": "@palette.toggle-blue",
+      "track-background": "@palette.card-peach",
+      "track-hover-accent": "@palette.coral",
+      "play-button-background": "@palette.deep-cerulean",
+      "play-button-text": "@palette.cream",
+      "play-button-hover": "@palette.ink",
+      "play-button-active": "@palette.coral",
+      "progress-track": {
+        "alpha": "@palette.black",
+        "opacity": 0.1
+      },
+      "progress-fill": "@palette.coral",
+      "player-background": "@palette.ink",
+      "player-text": "@palette.cream",
+      "player-shadow": {
+        "alpha": "@palette.black",
+        "opacity": 0.2
+      },
+      "player-progress-track": {
+        "alpha": "@palette.white",
+        "opacity": 0.2
+      },
+      "player-button-background": "@palette.coral",
+      "player-button-text": "@palette.cream",
+      "player-close-text": "@palette.cream",
+      "unavailable-text": "@palette.coral"
+    },
+    "media": {
+      "figure-background": "@palette.white",
+      "banner-background": "@palette.cream",
+      "video-background": "@palette.cream",
+      "text": "@palette.ink",
+      "axes": "@palette.muted",
+      "node": "@palette.ink",
+      "series-primary": "@palette.cerulean",
+      "series-secondary": "@palette.coral",
+      "curve": "@palette.deep-cerulean",
+      "highlight-fill": "@palette.peach",
+      "highlight-edge": "@palette.coral",
+      "stiffness-ramp": [
+        "@palette.stiffness-light",
+        "@palette.teal",
+        "@palette.cerulean",
+        "@palette.stiffness-dark"
+      ],
+      "length-ramp": [
+        "@palette.length-light",
+        "@palette.teal",
+        "@palette.cerulean",
+        "@palette.deep-cerulean"
+      ],
+      "entry-ramp": [
+        "@palette.deep-cerulean",
+        "@palette.cerulean",
+        "@palette.teal",
+        "@palette.length-light"
+      ],
+      "void-area-ramp": [
+        "@palette.peach",
+        "@palette.void-middle",
+        "@palette.coral"
+      ],
+      "beam-thickness-ramp": [
+        "@palette.beam-light",
+        "@palette.cerulean",
+        "@palette.deep-cerulean",
+        "@palette.ink"
+      ]
+    }
+  },
+  "assets": {
+    "physical_learning_card": {
+      "bg": "@roles.media.banner-background",
+      "node": "@roles.media.node",
+      "lw": 1.0,
+      "ramp": "@roles.media.stiffness-ramp"
+    },
+    "physical_learning_detail": {
+      "bg": "@roles.media.figure-background",
+      "text": "@roles.media.text",
+      "axis": "@roles.media.axes",
+      "before": {
+        "mix": [
+          "@roles.media.series-secondary",
+          "@assets.physical_learning_detail.bg"
+        ],
+        "weight": 0.42
+      },
+      "after_line": "@roles.media.series-primary",
+      "after_fill": {
+        "mix": [
+          "@assets.physical_learning_detail.after_line",
+          "@assets.physical_learning_detail.bg"
+        ],
+        "weight": 0.16
+      },
+      "window": "@roles.media.highlight-fill",
+      "window_edge": null,
+      "window_hatch": null,
+      "node": "@roles.media.node",
+      "node_edge": "@assets.physical_learning_detail.bg",
+      "lw": 1.0,
+      "edge_ramp": "@roles.media.stiffness-ramp"
+    },
+    "physical_learning_sweep": {
+      "suffix": "",
+      "bg": "@roles.media.video-background",
+      "floor": "@palette.floor",
+      "ink": "@roles.media.text",
+      "ink2": "@roles.media.axes",
+      "seq": "@roles.media.stiffness-ramp",
+      "node": "@roles.media.node",
+      "bar": "@palette.muted",
+      "bar_alpha": 0.55,
+      "window": "@roles.media.highlight-fill",
+      "window_edge": "@roles.media.highlight-edge",
+      "drive": "@roles.media.series-secondary",
+      "curve": "@roles.media.curve",
+      "dot": "@roles.media.series-secondary",
+      "status": "@roles.media.curve",
+      "lw": 1.0
+    },
+    "sr_cells": {
+      "fills": [
+        "@palette.cerulean",
+        "@palette.decorative-light",
+        "@palette.deep-cerulean",
+        "@palette.teal",
+        "@palette.stiffness-dark",
+        "@palette.peach",
+        "@palette.coral",
+        "@palette.pale-cell"
+      ],
+      "line": "@palette.white",
+      "line_width": 1.0
+    },
+    "sr_anisotropy": {
+      "bg": "@roles.media.figure-background",
+      "ink": "@roles.media.text",
+      "ink_2": "@roles.media.axes",
+      "main": "@roles.media.series-primary",
+      "accent": "@roles.media.series-secondary",
+      "rule": "@palette.warm-rule",
+      "beam_ramp": "@roles.media.beam-thickness-ramp",
+      "beam_lw_min": 0.6,
+      "beam_lw_scale": 70,
+      "data_lw": 2.2,
+      "spine_lw": 0.8,
+      "frame_lw": 1.0,
+      "ms": 6.5,
+      "mew": 1.0
+    },
+    "tda_card": {
+      "bg": "@roles.media.banner-background",
+      "gap_lw": 0.6,
+      "tri_ramp": "@roles.media.entry-ramp",
+      "void_ramp": "@roles.media.void-area-ramp"
+    },
+    "tda_filtration": {
+      "suffix": "",
+      "bg": "@roles.media.video-background",
+      "ink": "@roles.media.text",
+      "ink_2": "@roles.media.axes",
+      "curve": "@roles.media.curve",
+      "count": "@roles.media.series-secondary",
+      "stem_ramp": [
+        "@palette.merge-light",
+        "@palette.teal",
+        "@palette.cerulean",
+        "@palette.merge-dark"
+      ],
+      "tri_ramp": "@roles.media.entry-ramp",
+      "void_ramp": "@roles.media.void-area-ramp",
+      "scale": 1.0
+    },
+    "huppi_card": {
+      "bg": "@roles.media.banner-background",
+      "ramp": "@roles.media.length-ramp",
+      "lw": [
+        0.9,
+        2.3
+      ],
+      "node": "@roles.media.node",
+      "node_size": 4.0
+    },
+    "huppi_comparison": {
+      "surface": "@roles.media.figure-background",
+      "ink": "@roles.media.text",
+      "ink_2": "@roles.media.axes",
+      "hu": "@roles.media.series-primary",
+      "hu_dark": "@palette.deep-cerulean",
+      "poisson": "@roles.media.series-secondary",
+      "lw": 1.0,
+      "point_size": 9.0,
+      "node_size": 7.0,
+      "edge_alpha": 0.55,
+      "band_alpha": 0.18
+    },
+    "favicon": {
+      "background": "@palette.cerulean",
+      "cookie": "@palette.card-peach",
+      "chip": "@palette.ink",
+      "accent": "@palette.coral"
+    }
+  },
+  "overrides": {
+    "accessible": {
+      "assets": {
+        "physical_learning_card": {
+          "lw": 1.4
+        },
+        "physical_learning_detail": {
+          "window_edge": "@roles.media.axes",
+          "window_hatch": {
+            "mix": [
+              "@roles.media.axes",
+              "@assets.physical_learning_detail.window"
+            ],
+            "weight": 0.35
+          },
+          "lw": 1.4,
+          "before": {
+            "mix": [
+              "@roles.media.series-secondary",
+              "@assets.physical_learning_detail.bg"
+            ],
+            "weight": 0.5
+          }
+        },
+        "physical_learning_sweep": {
+          "bar_alpha": 0.7,
+          "lw": 1.4,
+          "suffix": "_accessible"
+        },
+        "sr_cells": {
+          "line_width": 1.4
+        },
+        "sr_anisotropy": {
+          "beam_lw_min": 0.85,
+          "beam_lw_scale": 98,
+          "data_lw": 3.1,
+          "spine_lw": 1.1,
+          "frame_lw": 1.4,
+          "ms": 7.5,
+          "mew": 1.4
+        },
+        "tda_card": {
+          "gap_lw": 0.8
+        },
+        "tda_filtration": {
+          "scale": 1.4,
+          "suffix": "_accessible"
+        },
+        "huppi_card": {
+          "node_size": 6.0,
+          "lw": [
+            1.26,
+            3.22
+          ]
+        },
+        "huppi_comparison": {
+          "lw": 1.4,
+          "point_size": 12.0,
+          "node_size": 10.0,
+          "edge_alpha": 0.8,
+          "band_alpha": 0.22
+        }
+      }
+    }
+  }
+}

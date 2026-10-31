@@ -1,0 +1,31 @@
+{
+  "asset": "huppi_card",
+  "source": "~/HuPPI-Network-Analysis/archive/website_figure/make_card_figure.py",
+  "source_sha256": "6c9b9340e18646207639e845affc80e6310744eee2a9167f861768caa1a882aa",
+  "research_commit": "5c03cd07474176d14fae3f33b56854bfc4e6afe6",
+  "inputs": [],
+  "snapshot_sha256": "8c85724b891bc5be62d4ee958853d3ec0ec65e99062f0b41f97fa1b52c3e0e7e",
+  "arrays": {
+    "points": {
+      "shape": [
+        1156,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "nodes": {
+      "shape": [
+        2293,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "edges": {
+      "shape": [
+        668,
+        2
+      ],
+      "dtype": "int64"
+    }
+  }
+}

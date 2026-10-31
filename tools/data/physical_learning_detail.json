@@ -1,0 +1,259 @@
+{
+  "asset": "physical_learning_detail",
+  "source": "~/archive/physical-learning-network-topologies/make_website_figure.py",
+  "source_sha256": "a46fe34a83d5578255c9b8eda5cf44190278ca6729d23d93ccd765dabacc1e13",
+  "research_commit": "ced7501f1a508a476645014ed1903b14f3e816f0",
+  "inputs": [
+    {
+      "path": "~/archive/physical-learning-network-topologies/experiments/phononic_bandgap/sweep/outputs/full_sweep/rand-del/rad-L1/net014_train2.npz",
+      "sha256": "be761d0873613822c6c36fd885671101019a6f105c5dbe42d0178de8b5ed6ef8"
+    },
+    {
+      "path": "~/archive/physical-learning-network-topologies/experiments/phononic_bandgap/sweep/outputs/nonspatial_sweep/ws/rad-L1/net007_train2.npz",
+      "sha256": "5be0bc74d7fe43e9f4789dfd716116b70aa282f053488924f4d54b710e7d3fc7"
+    },
+    {
+      "path": "~/archive/physical-learning-network-topologies/experiments/phononic_bandgap/sweep/outputs/nonspatial_sweep/ba/rad-L1/net011_train1.npz",
+      "sha256": "a95c643cb9a0608b93c2fb12890ea9184305e0391b0cf4b608557b94abfce60d"
+    },
+    {
+      "path": "~/archive/physical-learning-network-topologies/experiments/phononic_bandgap/sweep/outputs/nonspatial_sweep/er/rad-L1/net010_train2.npz",
+      "sha256": "c660234691501bc8d8222c37b28ceed1b86f99b2b911d7d987d24bbf79cb4c2a"
+    }
+  ],
+  "snapshot_sha256": "acd20075c0e10885baeefca3158a655fb4b6f57cfcc47908aeeec39678ef444c",
+  "arrays": {
+    "ytop": {
+      "shape": [],
+      "dtype": "int64"
+    },
+    "rand-del_f0": {
+      "shape": [
+        400
+      ],
+      "dtype": "float64"
+    },
+    "rand-del_ff": {
+      "shape": [
+        400
+      ],
+      "dtype": "float64"
+    },
+    "rand-del_wlo": {
+      "shape": [],
+      "dtype": "float64"
+    },
+    "rand-del_whi": {
+      "shape": [],
+      "dtype": "float64"
+    },
+    "rand-del_n_in_final": {
+      "shape": [],
+      "dtype": "int64"
+    },
+    "rand-del_pos": {
+      "shape": [
+        48,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "rand-del_segs": {
+      "shape": [
+        173,
+        2,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "rand-del_weights": {
+      "shape": [
+        173
+      ],
+      "dtype": "float64"
+    },
+    "rand-del_top": {
+      "shape": [
+        0
+      ],
+      "dtype": "bool"
+    },
+    "rand-del_success": {
+      "shape": [
+        2
+      ],
+      "dtype": "int64"
+    },
+    "ws_f0": {
+      "shape": [
+        400
+      ],
+      "dtype": "float64"
+    },
+    "ws_ff": {
+      "shape": [
+        400
+      ],
+      "dtype": "float64"
+    },
+    "ws_wlo": {
+      "shape": [],
+      "dtype": "float64"
+    },
+    "ws_whi": {
+      "shape": [],
+      "dtype": "float64"
+    },
+    "ws_n_in_final": {
+      "shape": [],
+      "dtype": "int64"
+    },
+    "ws_pos": {
+      "shape": [
+        48,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "ws_segs": {
+      "shape": [
+        96,
+        2,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "ws_weights": {
+      "shape": [
+        96
+      ],
+      "dtype": "float64"
+    },
+    "ws_top": {
+      "shape": [
+        0
+      ],
+      "dtype": "bool"
+    },
+    "ws_success": {
+      "shape": [
+        2
+      ],
+      "dtype": "int64"
+    },
+    "ba_f0": {
+      "shape": [
+        400
+      ],
+      "dtype": "float64"
+    },
+    "ba_ff": {
+      "shape": [
+        400
+      ],
+      "dtype": "float64"
+    },
+    "ba_wlo": {
+      "shape": [],
+      "dtype": "float64"
+    },
+    "ba_whi": {
+      "shape": [],
+      "dtype": "float64"
+    },
+    "ba_n_in_final": {
+      "shape": [],
+      "dtype": "int64"
+    },
+    "ba_pos": {
+      "shape": [
+        36,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "ba_segs": {
+      "shape": [
+        68,
+        2,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "ba_weights": {
+      "shape": [
+        68
+      ],
+      "dtype": "float64"
+    },
+    "ba_top": {
+      "shape": [
+        68
+      ],
+      "dtype": "bool"
+    },
+    "ba_success": {
+      "shape": [
+        2
+      ],
+      "dtype": "int64"
+    },
+    "er_f0": {
+      "shape": [
+        400
+      ],
+      "dtype": "float64"
+    },
+    "er_ff": {
+      "shape": [
+        400
+      ],
+      "dtype": "float64"
+    },
+    "er_wlo": {
+      "shape": [],
+      "dtype": "float64"
+    },
+    "er_whi": {
+      "shape": [],
+      "dtype": "float64"
+    },
+    "er_n_in_final": {
+      "shape": [],
+      "dtype": "int64"
+    },
+    "er_pos": {
+      "shape": [
+        36,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "er_segs": {
+      "shape": [
+        83,
+        2,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "er_weights": {
+      "shape": [
+        83
+      ],
+      "dtype": "float64"
+    },
+    "er_top": {
+      "shape": [
+        0
+      ],
+      "dtype": "bool"
+    },
+    "er_success": {
+      "shape": [
+        2
+      ],
+      "dtype": "int64"
+    }
+  }
+}

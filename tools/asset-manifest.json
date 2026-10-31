@@ -1,0 +1,474 @@
+{
+  "physical_learning_card": {
+    "script": "tools/renderers/physical_learning_card.py",
+    "outputs": [
+      "images/physical_learning_card.png",
+      "images/physical_learning_card_accessible.png"
+    ],
+    "video": false,
+    "style_keys": [
+      "bg",
+      "ramp",
+      "node",
+      "lw"
+    ],
+    "style_types": {
+      "bg": [
+        "color"
+      ],
+      "ramp": [
+        "colors"
+      ],
+      "node": [
+        "color"
+      ],
+      "lw": [
+        "number"
+      ]
+    },
+    "dimensions": [
+      1600,
+      400
+    ]
+  },
+  "physical_learning_detail": {
+    "script": "tools/renderers/physical_learning_detail.py",
+    "outputs": [
+      "images/physical_learning_detail.png",
+      "images/physical_learning_detail_accessible.png"
+    ],
+    "video": false,
+    "style_keys": [
+      "bg",
+      "text",
+      "axis",
+      "before",
+      "after_line",
+      "after_fill",
+      "window",
+      "window_edge",
+      "window_hatch",
+      "edge_ramp",
+      "node",
+      "node_edge",
+      "lw"
+    ],
+    "style_types": {
+      "bg": [
+        "color"
+      ],
+      "text": [
+        "color"
+      ],
+      "axis": [
+        "color"
+      ],
+      "before": [
+        "color"
+      ],
+      "after_line": [
+        "color"
+      ],
+      "after_fill": [
+        "color"
+      ],
+      "window": [
+        "color"
+      ],
+      "window_edge": [
+        "color",
+        "null"
+      ],
+      "window_hatch": [
+        "color",
+        "null"
+      ],
+      "edge_ramp": [
+        "colors"
+      ],
+      "node": [
+        "color"
+      ],
+      "node_edge": [
+        "color"
+      ],
+      "lw": [
+        "number"
+      ]
+    },
+    "dimensions": [
+      2300,
+      1391
+    ]
+  },
+  "physical_learning_sweep": {
+    "script": "tools/renderers/physical_learning_sweep.py",
+    "outputs": [
+      "images/physical_learning_sweep.mp4",
+      "images/physical_learning_sweep_accessible.mp4",
+      "images/physical_learning_sweep_poster.png",
+      "images/physical_learning_sweep_poster_accessible.png"
+    ],
+    "video": true,
+    "style_keys": [
+      "suffix",
+      "bg",
+      "floor",
+      "ink",
+      "ink2",
+      "seq",
+      "node",
+      "bar",
+      "bar_alpha",
+      "window",
+      "window_edge",
+      "drive",
+      "curve",
+      "dot",
+      "status",
+      "lw"
+    ],
+    "style_types": {
+      "suffix": [
+        "string"
+      ],
+      "bg": [
+        "color"
+      ],
+      "floor": [
+        "color"
+      ],
+      "ink": [
+        "color"
+      ],
+      "ink2": [
+        "color"
+      ],
+      "seq": [
+        "colors"
+      ],
+      "node": [
+        "color"
+      ],
+      "bar": [
+        "color"
+      ],
+      "bar_alpha": [
+        "number"
+      ],
+      "window": [
+        "color"
+      ],
+      "window_edge": [
+        "color"
+      ],
+      "drive": [
+        "color"
+      ],
+      "curve": [
+        "color"
+      ],
+      "dot": [
+        "color"
+      ],
+      "status": [
+        "color"
+      ],
+      "lw": [
+        "number"
+      ]
+    },
+    "dimensions": [
+      1600,
+      800
+    ],
+    "duration": 16.5
+  },
+  "sr_cells": {
+    "script": "tools/renderers/sr_cells.py",
+    "outputs": [
+      "images/sr_cells.png",
+      "images/sr_cells_accessible.png"
+    ],
+    "video": false,
+    "style_keys": [
+      "fills",
+      "line",
+      "line_width"
+    ],
+    "style_types": {
+      "fills": [
+        "colors"
+      ],
+      "line": [
+        "color"
+      ],
+      "line_width": [
+        "number"
+      ]
+    },
+    "dimensions": [
+      1600,
+      400
+    ]
+  },
+  "sr_anisotropy": {
+    "script": "tools/renderers/sr_anisotropy.py",
+    "outputs": [
+      "images/sr_anisotropy.png",
+      "images/sr_anisotropy_accessible.png"
+    ],
+    "video": false,
+    "style_keys": [
+      "bg",
+      "ink",
+      "ink_2",
+      "main",
+      "accent",
+      "rule",
+      "beam_ramp",
+      "beam_lw_min",
+      "beam_lw_scale",
+      "data_lw",
+      "spine_lw",
+      "frame_lw",
+      "ms",
+      "mew"
+    ],
+    "style_types": {
+      "bg": [
+        "color"
+      ],
+      "ink": [
+        "color"
+      ],
+      "ink_2": [
+        "color"
+      ],
+      "main": [
+        "color"
+      ],
+      "accent": [
+        "color"
+      ],
+      "rule": [
+        "color"
+      ],
+      "beam_ramp": [
+        "colors"
+      ],
+      "beam_lw_min": [
+        "number"
+      ],
+      "beam_lw_scale": [
+        "number"
+      ],
+      "data_lw": [
+        "number"
+      ],
+      "spine_lw": [
+        "number"
+      ],
+      "frame_lw": [
+        "number"
+      ],
+      "ms": [
+        "number"
+      ],
+      "mew": [
+        "number"
+      ]
+    },
+    "dimensions": [
+      2300,
+      989
+    ]
+  },
+  "tda_card": {
+    "script": "tools/renderers/tda_card.py",
+    "outputs": [
+      "images/tda_card.png",
+      "images/tda_card_accessible.png"
+    ],
+    "video": false,
+    "style_keys": [
+      "bg",
+      "gap_lw",
+      "tri_ramp",
+      "void_ramp"
+    ],
+    "style_types": {
+      "bg": [
+        "color"
+      ],
+      "gap_lw": [
+        "number"
+      ],
+      "tri_ramp": [
+        "colors"
+      ],
+      "void_ramp": [
+        "colors"
+      ]
+    },
+    "dimensions": [
+      1600,
+      400
+    ]
+  },
+  "tda_filtration": {
+    "script": "tools/renderers/tda_filtration.py",
+    "outputs": [
+      "images/tda_filtration.mp4",
+      "images/tda_filtration_accessible.mp4",
+      "images/tda_filtration_poster.png",
+      "images/tda_filtration_poster_accessible.png"
+    ],
+    "video": true,
+    "style_keys": [
+      "suffix",
+      "bg",
+      "ink",
+      "ink_2",
+      "curve",
+      "count",
+      "stem_ramp",
+      "tri_ramp",
+      "void_ramp",
+      "scale"
+    ],
+    "style_types": {
+      "suffix": [
+        "string"
+      ],
+      "bg": [
+        "color"
+      ],
+      "ink": [
+        "color"
+      ],
+      "ink_2": [
+        "color"
+      ],
+      "curve": [
+        "color"
+      ],
+      "count": [
+        "color"
+      ],
+      "stem_ramp": [
+        "colors"
+      ],
+      "tri_ramp": [
+        "colors"
+      ],
+      "void_ramp": [
+        "colors"
+      ],
+      "scale": [
+        "number"
+      ]
+    },
+    "dimensions": [
+      1600,
+      800
+    ],
+    "duration": 15.0
+  },
+  "huppi_card": {
+    "script": "tools/renderers/huppi_card.py",
+    "outputs": [
+      "images/huppi_card.png",
+      "images/huppi_card_accessible.png"
+    ],
+    "video": false,
+    "style_keys": [
+      "bg",
+      "ramp",
+      "lw",
+      "node",
+      "node_size"
+    ],
+    "style_types": {
+      "bg": [
+        "color"
+      ],
+      "ramp": [
+        "colors"
+      ],
+      "lw": [
+        "numbers"
+      ],
+      "node": [
+        "color"
+      ],
+      "node_size": [
+        "number"
+      ]
+    },
+    "dimensions": [
+      1600,
+      400
+    ]
+  },
+  "huppi_comparison": {
+    "script": "tools/renderers/huppi_comparison.py",
+    "outputs": [
+      "images/huppi_comparison.png",
+      "images/huppi_comparison_accessible.png"
+    ],
+    "video": false,
+    "style_keys": [
+      "surface",
+      "ink",
+      "ink_2",
+      "hu",
+      "hu_dark",
+      "poisson",
+      "lw",
+      "point_size",
+      "node_size",
+      "edge_alpha",
+      "band_alpha"
+    ],
+    "style_types": {
+      "surface": [
+        "color"
+      ],
+      "ink": [
+        "color"
+      ],
+      "ink_2": [
+        "color"
+      ],
+      "hu": [
+        "color"
+      ],
+      "hu_dark": [
+        "color"
+      ],
+      "poisson": [
+        "color"
+      ],
+      "lw": [
+        "number"
+      ],
+      "point_size": [
+        "number"
+      ],
+      "node_size": [
+        "number"
+      ],
+      "edge_alpha": [
+        "number"
+      ],
+      "band_alpha": [
+        "number"
+      ]
+    },
+    "dimensions": [
+      2300,
+      1481
+    ]
+  }
+}

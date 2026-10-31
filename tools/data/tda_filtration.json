@@ -1,0 +1,17 @@
+{
+  "asset": "tda_filtration",
+  "source": "~/tda-statphys-code/tools/website/make_filtration_movie.py",
+  "source_sha256": "bcc84dae0b4387e6a0036a2ed9b4abe2df59ad2442fd7b22c675b6da589642b9",
+  "research_commit": "8bd399194ffc6e6d60bd0888e28ed4fe9aef4308",
+  "inputs": [],
+  "snapshot_sha256": "57dbb310cd194a93f9e7181aed23468b26976439f04236e6652f17e26b134dc7",
+  "arrays": {
+    "points": {
+      "shape": [
+        475,
+        2
+      ],
+      "dtype": "float64"
+    }
+  }
+}

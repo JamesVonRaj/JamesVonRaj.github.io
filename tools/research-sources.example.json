@@ -1,0 +1,11 @@
+{
+  "physical_learning_card": "~/archive/physical-learning-network-topologies/make_card_figure.py",
+  "physical_learning_detail": "~/archive/physical-learning-network-topologies/make_website_figure.py",
+  "physical_learning_sweep": "~/physical-spectral-learning/paper/slides/ccs_2026-10-16/video/make_website_sweep.py",
+  "sr_cells": "~/sr_huppi_project/archive/pre_revamp_exploratory/make_cells_figure.py",
+  "sr_anisotropy": "~/sr_huppi_project/archive/pre_revamp_exploratory/make_anisotropy_figure.py",
+  "tda_card": "~/tda-statphys-code/tools/website/make_card_figure.py",
+  "tda_filtration": "~/tda-statphys-code/tools/website/make_filtration_movie.py",
+  "huppi_card": "~/HuPPI-Network-Analysis/archive/website_figure/make_card_figure.py",
+  "huppi_comparison": "~/HuPPI-Network-Analysis/archive/website_figure/make_website_figure.py"
+}

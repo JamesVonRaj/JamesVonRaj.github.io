@@ -1,0 +1,5 @@
+-r requirements-theme.txt
+# Chromium 136 supports the Ubuntu 20.04 workstation used for verification.
+playwright==1.52.0
+pyee==13.0.1
+greenlet==3.5.6

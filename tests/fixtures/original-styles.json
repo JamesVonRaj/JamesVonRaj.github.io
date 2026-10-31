@@ -1,0 +1,336 @@
+{
+  "physical_learning_card": {
+    "normal": {
+      "bg": "#fdfcdc",
+      "node": "#1a2332",
+      "lw": 1.0,
+      "ramp": [
+        "#d6eef3",
+        "#00afb9",
+        "#0081a7",
+        "#0b3a50"
+      ]
+    },
+    "accessible": {
+      "bg": "#ffffff",
+      "node": "#0f1722",
+      "lw": 1.4,
+      "ramp": [
+        "#a9d8e3",
+        "#00808a",
+        "#005f7d",
+        "#06283a"
+      ]
+    }
+  },
+  "physical_learning_detail": {
+    "normal": {
+      "bg": "#ffffff",
+      "text": "#1a2332",
+      "axis": "#4d5d6e",
+      "before": "#f9c3bf",
+      "after_line": "#0081a7",
+      "after_fill": "#d6ebf1",
+      "window": "#fed9b7",
+      "window_edge": null,
+      "window_hatch": null,
+      "node": "#1a2332",
+      "node_edge": "#ffffff",
+      "lw": 1.0,
+      "edge_ramp": [
+        "#d6eef3",
+        "#00afb9",
+        "#0081a7",
+        "#0b3a50"
+      ]
+    },
+    "accessible": {
+      "bg": "#ffffff",
+      "text": "#0f1722",
+      "axis": "#1a2332",
+      "before": "#dca19c",
+      "after_line": "#005f7d",
+      "after_fill": "#d6e5ea",
+      "window": "#f7c08f",
+      "window_edge": "#1a2332",
+      "window_hatch": "#aa896e",
+      "node": "#0f1722",
+      "node_edge": "#ffffff",
+      "lw": 1.4,
+      "edge_ramp": [
+        "#a9d8e3",
+        "#00808a",
+        "#005f7d",
+        "#06283a"
+      ]
+    }
+  },
+  "physical_learning_sweep": {
+    "normal": {
+      "suffix": "",
+      "bg": "#fdfcdc",
+      "floor": "#f7f5d1",
+      "ink": "#1a2332",
+      "ink2": "#4d5d6e",
+      "seq": [
+        "#d6eef3",
+        "#00afb9",
+        "#0081a7",
+        "#0b3a50"
+      ],
+      "node": "#1a2332",
+      "bar": "#4d5d6e",
+      "bar_alpha": 0.55,
+      "window": "#fed9b7",
+      "window_edge": "#f07167",
+      "drive": "#f07167",
+      "curve": "#005f7d",
+      "dot": "#f07167",
+      "status": "#005f7d",
+      "lw": 1.0
+    },
+    "accessible": {
+      "suffix": "_accessible",
+      "bg": "#ffffff",
+      "floor": "#f4f6f7",
+      "ink": "#0f1722",
+      "ink2": "#1a2332",
+      "seq": [
+        "#a9d8e3",
+        "#00808a",
+        "#005f7d",
+        "#06283a"
+      ],
+      "node": "#0f1722",
+      "bar": "#1a2332",
+      "bar_alpha": 0.7,
+      "window": "#f7c08f",
+      "window_edge": "#b8433a",
+      "drive": "#b8433a",
+      "curve": "#003f55",
+      "dot": "#b8433a",
+      "status": "#003f55",
+      "lw": 1.4
+    }
+  },
+  "sr_cells": {
+    "normal": {
+      "fills": [
+        "#0081a7",
+        "#a9d8e3",
+        "#005f7d",
+        "#00afb9",
+        "#0b3a50",
+        "#fed9b7",
+        "#f07167",
+        "#fdfcdc"
+      ],
+      "line": "#ffffff",
+      "line_width": 1.0
+    },
+    "accessible": {
+      "fills": [
+        "#005f7d",
+        "#a9d8e3",
+        "#003f55",
+        "#00808a",
+        "#06283a",
+        "#f7c08f",
+        "#b8433a",
+        "#f7c08f"
+      ],
+      "line": "#ffffff",
+      "line_width": 1.4
+    }
+  },
+  "sr_anisotropy": {
+    "normal": {
+      "bg": "#ffffff",
+      "ink": "#1a2332",
+      "ink_2": "#4d5d6e",
+      "main": "#0081a7",
+      "accent": "#f07167",
+      "rule": "#e8d5c4",
+      "beam_ramp": [
+        "#8ccbdc",
+        "#0081a7",
+        "#005f7d",
+        "#1a2332"
+      ],
+      "beam_lw_min": 0.6,
+      "beam_lw_scale": 70,
+      "data_lw": 2.2,
+      "spine_lw": 0.8,
+      "frame_lw": 1.0,
+      "ms": 6.5,
+      "mew": 1.0
+    },
+    "accessible": {
+      "bg": "#ffffff",
+      "ink": "#0f1722",
+      "ink_2": "#1a2332",
+      "main": "#005f7d",
+      "accent": "#b8433a",
+      "rule": "#1a2332",
+      "beam_ramp": [
+        "#5fa9bf",
+        "#005f7d",
+        "#003f55",
+        "#0f1722"
+      ],
+      "beam_lw_min": 0.85,
+      "beam_lw_scale": 98,
+      "data_lw": 3.1,
+      "spine_lw": 1.1,
+      "frame_lw": 1.4,
+      "ms": 7.5,
+      "mew": 1.4
+    }
+  },
+  "tda_card": {
+    "normal": {
+      "bg": "#fdfcdc",
+      "gap_lw": 0.6,
+      "tri_ramp": [
+        "#005f7d",
+        "#0081a7",
+        "#00afb9",
+        "#a9dde3"
+      ],
+      "void_ramp": [
+        "#fed9b7",
+        "#f7a68f",
+        "#f07167"
+      ]
+    },
+    "accessible": {
+      "bg": "#ffffff",
+      "gap_lw": 0.8,
+      "tri_ramp": [
+        "#003f55",
+        "#005f7d",
+        "#00808a",
+        "#7fc4cf"
+      ],
+      "void_ramp": [
+        "#f7c08f",
+        "#e0876d",
+        "#b8433a"
+      ]
+    }
+  },
+  "tda_filtration": {
+    "normal": {
+      "suffix": "",
+      "bg": "#fdfcdc",
+      "ink": "#1a2332",
+      "ink_2": "#4d5d6e",
+      "curve": "#005f7d",
+      "count": "#f07167",
+      "stem_ramp": [
+        "#a9dde3",
+        "#00afb9",
+        "#0081a7",
+        "#005f7d"
+      ],
+      "tri_ramp": [
+        "#005f7d",
+        "#0081a7",
+        "#00afb9",
+        "#a9dde3"
+      ],
+      "void_ramp": [
+        "#fed9b7",
+        "#f7a68f",
+        "#f07167"
+      ],
+      "scale": 1.0
+    },
+    "accessible": {
+      "suffix": "_accessible",
+      "bg": "#ffffff",
+      "ink": "#0f1722",
+      "ink_2": "#1a2332",
+      "curve": "#003f55",
+      "count": "#b8433a",
+      "stem_ramp": [
+        "#a9d8e3",
+        "#00808a",
+        "#005f7d",
+        "#06283a"
+      ],
+      "tri_ramp": [
+        "#003f55",
+        "#005f7d",
+        "#00808a",
+        "#7fc4cf"
+      ],
+      "void_ramp": [
+        "#f7c08f",
+        "#e0876d",
+        "#b8433a"
+      ],
+      "scale": 1.4
+    }
+  },
+  "huppi_card": {
+    "normal": {
+      "bg": "#fdfcdc",
+      "ramp": [
+        "#a9dde3",
+        "#00afb9",
+        "#0081a7",
+        "#005f7d"
+      ],
+      "lw": [
+        0.9,
+        2.3
+      ],
+      "node": "#1a2332",
+      "node_size": 4.0
+    },
+    "accessible": {
+      "bg": "#ffffff",
+      "ramp": [
+        "#7fc4cf",
+        "#00808a",
+        "#005f7d",
+        "#003f55"
+      ],
+      "lw": [
+        1.26,
+        3.22
+      ],
+      "node": "#0f1722",
+      "node_size": 6.0
+    }
+  },
+  "huppi_comparison": {
+    "normal": {
+      "surface": "#ffffff",
+      "ink": "#1a2332",
+      "ink_2": "#4d5d6e",
+      "hu": "#0081a7",
+      "hu_dark": "#005f7d",
+      "poisson": "#f07167",
+      "lw": 1.0,
+      "point_size": 9.0,
+      "node_size": 7.0,
+      "edge_alpha": 0.55,
+      "band_alpha": 0.18
+    },
+    "accessible": {
+      "surface": "#ffffff",
+      "ink": "#0f1722",
+      "ink_2": "#1a2332",
+      "hu": "#005f7d",
+      "hu_dark": "#003f55",
+      "poisson": "#b8433a",
+      "lw": 1.4,
+      "point_size": 12.0,
+      "node_size": 10.0,
+      "edge_alpha": 0.8,
+      "band_alpha": 0.22
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "asset": "tda_card",
+  "source": "~/tda-statphys-code/tools/website/make_card_figure.py",
+  "source_sha256": "2514dff245a3e6ed9fe44ec298bc92810f8d4744013f510c92a8ce4d483e9c59",
+  "research_commit": "8bd399194ffc6e6d60bd0888e28ed4fe9aef4308",
+  "inputs": [],
+  "snapshot_sha256": "8ba0cbdf795bb40b0f543cb115156221b991b0bfd11985aa22028380d4d4329f",
+  "arrays": {
+    "points": {
+      "shape": [
+        2354,
+        2
+      ],
+      "dtype": "float64"
+    }
+  }
+}

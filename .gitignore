@@ -1,2 +1,7 @@
 CLAUDE.md
 .claude/
+.theme-build/
+.venv-theme/
+__pycache__/
+*.pyc
+_site/

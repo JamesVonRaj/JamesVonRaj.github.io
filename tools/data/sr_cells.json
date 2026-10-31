@@ -1,0 +1,56 @@
+{
+  "asset": "sr_cells",
+  "source": "~/sr_huppi_project/archive/pre_revamp_exploratory/make_cells_figure.py",
+  "source_sha256": "11e0afc35992e9a109c67da54b4d758546c04cb1e54dd23fc94c1247f0cb483e",
+  "research_commit": "b850b0312384fc2359c68a25d27c3c5f55fbe06d",
+  "inputs": [],
+  "snapshot_sha256": "237d1a9f499069b006041691d8ab5a7c92c9c675cefdb7a27c7bb9fa268c3f5b",
+  "arrays": {
+    "ligaments": {
+      "shape": [
+        3201,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "ligaments_offsets": {
+      "shape": [
+        801
+      ],
+      "dtype": "int64"
+    },
+    "cells": {
+      "shape": [
+        3203,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "cells_offsets": {
+      "shape": [
+        802
+      ],
+      "dtype": "int64"
+    },
+    "centres": {
+      "shape": [
+        800,
+        2,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "color_indices": {
+      "shape": [
+        801
+      ],
+      "dtype": "int64"
+    },
+    "color_weights": {
+      "shape": [
+        8
+      ],
+      "dtype": "float64"
+    }
+  }
+}

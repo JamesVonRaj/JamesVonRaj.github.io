@@ -1,0 +1,55 @@
+{
+  "asset": "sr_anisotropy",
+  "source": "~/sr_huppi_project/archive/pre_revamp_exploratory/make_anisotropy_figure.py",
+  "source_sha256": "5909b0a11b32a44c96148fc65ef74e13c2906b4602c7c48181d59a1b51f52a11",
+  "research_commit": "b850b0312384fc2359c68a25d27c3c5f55fbe06d",
+  "inputs": [
+    {
+      "path": "~/sr_huppi_project/archive/pre_revamp_exploratory/hypotheses/h1_ter_stiffness/data/h1_min_path_ensemble_results_sizes100_200_400.csv",
+      "sha256": "0ee81ac9d8674bfbfacf381434dab4c1dc2097efb6642dfae4a98836c8d5968f"
+    }
+  ],
+  "snapshot_sha256": "f7dfac3b236fb50a6bcd0196b5ff5e6f60df92ebc133b3362030ead41180a539",
+  "arrays": {
+    "segments": {
+      "shape": [
+        80,
+        2,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "thicknesses": {
+      "shape": [
+        80
+      ],
+      "dtype": "float64"
+    },
+    "geometry_seed": {
+      "shape": [],
+      "dtype": "int64"
+    },
+    "alpha": {
+      "shape": [
+        50000
+      ],
+      "dtype": "float64"
+    },
+    "ratio": {
+      "shape": [
+        50000
+      ],
+      "dtype": "float64"
+    },
+    "polar": {
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    },
+    "polar_ratio": {
+      "shape": [],
+      "dtype": "float64"
+    }
+  }
+}

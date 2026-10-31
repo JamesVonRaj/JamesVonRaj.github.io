@@ -1,0 +1,42 @@
+{
+  "asset": "physical_learning_card",
+  "source": "~/archive/physical-learning-network-topologies/make_card_figure.py",
+  "source_sha256": "b155a4ea10732c240ca1ed7fe6bb509f96ada34ef95a90ea6565c4086b539729",
+  "research_commit": "ced7501f1a508a476645014ed1903b14f3e816f0",
+  "inputs": [
+    {
+      "path": "~/archive/physical-learning-network-topologies/outputs/exemplar_damped_continuous_20260922.npz",
+      "sha256": "d775883aa4e02dc8addfb485d981d0f3a9e56c61c36a15ecfd3925eafc158ef2"
+    }
+  ],
+  "snapshot_sha256": "a21fc28118e2d2fab5f8c1ba202c189d6dd35ccafd2700cb9eb1a2fd4d0e79fe",
+  "arrays": {
+    "pos": {
+      "shape": [
+        400,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "edges": {
+      "shape": [
+        1200,
+        2
+      ],
+      "dtype": "int64"
+    },
+    "radii": {
+      "shape": [
+        1200
+      ],
+      "dtype": "float64"
+    },
+    "disp": {
+      "shape": [
+        1200,
+        2
+      ],
+      "dtype": "float64"
+    }
+  }
+}

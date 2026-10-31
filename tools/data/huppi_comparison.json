@@ -1,0 +1,103 @@
+{
+  "asset": "huppi_comparison",
+  "source": "~/HuPPI-Network-Analysis/archive/website_figure/make_website_figure.py",
+  "source_sha256": "ecc73f0680753cc4df57a940c66826cd440143724c4f409cfc6159b19d999661",
+  "research_commit": "5c03cd07474176d14fae3f33b56854bfc4e6afe6",
+  "inputs": [
+    {
+      "path": "~/HuPPI-Network-Analysis/archive/website_figure/data/sk_ensemble.npz",
+      "sha256": "ad2f38a37f5a48b8c19a7870f390463e5024685381aa6decd531ad978c862d09"
+    }
+  ],
+  "snapshot_sha256": "ea8304d3be29738f1ed38ac6b854ce6b0eceb40e379a9b7ae2ab225f53658a99",
+  "arrays": {
+    "box_size": {
+      "shape": [],
+      "dtype": "float64"
+    },
+    "hu_points": {
+      "shape": [
+        400,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "hu_nodes": {
+      "shape": [
+        400,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "hu_edges": {
+      "shape": [
+        1200,
+        3
+      ],
+      "dtype": "float64"
+    },
+    "po_points": {
+      "shape": [
+        400,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "po_nodes": {
+      "shape": [
+        400,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "po_edges": {
+      "shape": [
+        1200,
+        3
+      ],
+      "dtype": "float64"
+    },
+    "sk_k_hu": {
+      "shape": [
+        197
+      ],
+      "dtype": "float64"
+    },
+    "sk_S_hu": {
+      "shape": [
+        197
+      ],
+      "dtype": "float64"
+    },
+    "sk_S_hu_std": {
+      "shape": [
+        197
+      ],
+      "dtype": "float64"
+    },
+    "sk_k_po": {
+      "shape": [
+        197
+      ],
+      "dtype": "float64"
+    },
+    "sk_S_po": {
+      "shape": [
+        197
+      ],
+      "dtype": "float64"
+    },
+    "sk_S_po_std": {
+      "shape": [
+        197
+      ],
+      "dtype": "float64"
+    },
+    "sk_params": {
+      "shape": [
+        6
+      ],
+      "dtype": "float64"
+    }
+  }
+}

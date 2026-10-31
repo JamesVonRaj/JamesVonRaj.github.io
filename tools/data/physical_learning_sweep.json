@@ -1,0 +1,142 @@
+{
+  "asset": "physical_learning_sweep",
+  "source": "~/physical-spectral-learning/paper/slides/ccs_2026-10-16/video/make_website_sweep.py",
+  "source_sha256": "c35b0a3f2fc5740bf64b2f0f602f7358b1660de33fcb6d73994dd242d3b4cd8d",
+  "research_commit": "d9f967b1b439741f7c48ef16673db8f161178c35",
+  "inputs": [
+    {
+      "path": "~/physical-spectral-learning/paper/slides/ccs_2026-10-16/video/data/randdel_run.npz",
+      "sha256": "d6890000e6f9c7dd78c80fbf17dadd4e2621e840728fb0a7a742e82bc25ac211"
+    }
+  ],
+  "snapshot_sha256": "7ac136a4392140e8753992e46464e3a4d613a6b2ebfe26b6852df863e6d4e3c1",
+  "arrays": {
+    "pos": {
+      "shape": [
+        400,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "box": {
+      "shape": [
+        2
+      ],
+      "dtype": "float64"
+    },
+    "lo": {
+      "shape": [],
+      "dtype": "float64"
+    },
+    "hi": {
+      "shape": [],
+      "dtype": "float64"
+    },
+    "f1": {
+      "shape": [
+        400
+      ],
+      "dtype": "float64"
+    },
+    "grid": {
+      "shape": [
+        900
+      ],
+      "dtype": "float64"
+    },
+    "r1": {
+      "shape": [
+        900
+      ],
+      "dtype": "float64"
+    },
+    "ws": {
+      "shape": [
+        495
+      ],
+      "dtype": "float64"
+    },
+    "Z": {
+      "shape": [
+        495,
+        400
+      ],
+      "dtype": "float64"
+    },
+    "amp": {
+      "shape": [
+        495
+      ],
+      "dtype": "float64"
+    },
+    "azs": {
+      "shape": [
+        495
+      ],
+      "dtype": "float64"
+    },
+    "az0": {
+      "shape": [],
+      "dtype": "float64"
+    },
+    "az1": {
+      "shape": [],
+      "dtype": "float64"
+    },
+    "mid": {
+      "shape": [],
+      "dtype": "float64"
+    },
+    "z_mid": {
+      "shape": [
+        400
+      ],
+      "dtype": "float64"
+    },
+    "amp_mid": {
+      "shape": [],
+      "dtype": "float64"
+    },
+    "stiff": {
+      "shape": [
+        1200
+      ],
+      "dtype": "float64"
+    },
+    "piece_stiff": {
+      "shape": [
+        1283
+      ],
+      "dtype": "float64"
+    },
+    "lim": {
+      "shape": [
+        4
+      ],
+      "dtype": "float64"
+    },
+    "edges": {
+      "shape": [
+        1200,
+        2
+      ],
+      "dtype": "int64"
+    },
+    "wlo": {
+      "shape": [],
+      "dtype": "float64"
+    },
+    "whi": {
+      "shape": [],
+      "dtype": "float64"
+    },
+    "n_nodes": {
+      "shape": [],
+      "dtype": "int64"
+    },
+    "elevation": {
+      "shape": [],
+      "dtype": "float64"
+    }
+  }
+}
