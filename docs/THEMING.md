@@ -129,7 +129,7 @@ The palette has three existing text-pair warnings: the normal music play control
 | Physical-learning detail | `tools/renderers/physical_learning_detail.py` | Four selected spectra and schematic layouts |
 | Physical-learning animation | `tools/renderers/physical_learning_sweep.py` | Frozen network, displacements, drive schedule, response curve |
 | Scale-rich banner | `tools/renderers/sr_cells.py` | Ligament/cell polygons and decorative fill assignments |
-| Scale-rich anisotropy | `tools/renderers/sr_anisotropy.py` | Geometry, selected polar measurement, ensemble values |
+| Scale-rich transport and stiffness | `tools/renderers/sr_transport_stiffness.py` | Master and sample geometry, angle marker, beam currents, FEM mesh and nodal stress, angular profiles, ensemble anisotropy quartiles |
 | TDA banner | `tools/renderers/tda_card.py` | Filamentary point pattern |
 | TDA animation | `tools/renderers/tda_filtration.py` | Point pattern; filtration and exact checks remain in the renderer |
 | Hyperuniform banner | `tools/renderers/huppi_card.py` | Centroidal network geometry |

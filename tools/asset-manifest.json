@@ -212,11 +212,11 @@
       400
     ]
   },
-  "sr_anisotropy": {
-    "script": "tools/renderers/sr_anisotropy.py",
+  "sr_transport_stiffness": {
+    "script": "tools/renderers/sr_transport_stiffness.py",
     "outputs": [
-      "images/sr_anisotropy.png",
-      "images/sr_anisotropy_accessible.png"
+      "images/sr_transport_stiffness.png",
+      "images/sr_transport_stiffness_accessible.png"
     ],
     "video": false,
     "style_keys": [
@@ -225,10 +225,15 @@
       "ink_2",
       "main",
       "accent",
-      "rule",
-      "beam_ramp",
-      "beam_lw_min",
-      "beam_lw_scale",
+      "beam",
+      "faded",
+      "faded_frame",
+      "field_ramp",
+      "decades_floor",
+      "min_lw",
+      "bar_h",
+      "bar_lw_cut",
+      "band_alpha",
       "data_lw",
       "spine_lw",
       "frame_lw",
@@ -251,16 +256,31 @@
       "accent": [
         "color"
       ],
-      "rule": [
+      "beam": [
         "color"
       ],
-      "beam_ramp": [
+      "faded": [
+        "color"
+      ],
+      "faded_frame": [
+        "color"
+      ],
+      "field_ramp": [
         "colors"
       ],
-      "beam_lw_min": [
+      "decades_floor": [
         "number"
       ],
-      "beam_lw_scale": [
+      "min_lw": [
+        "number"
+      ],
+      "bar_h": [
+        "number"
+      ],
+      "bar_lw_cut": [
+        "number"
+      ],
+      "band_alpha": [
         "number"
       ],
       "data_lw": [
@@ -281,7 +301,7 @@
     },
     "dimensions": [
       2300,
-      989
+      1817
     ]
   },
   "tda_card": {

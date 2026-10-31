@@ -1,0 +1,204 @@
+{
+  "asset": "sr_transport_stiffness",
+  "source": "~/sr_huppi_project/archive/pre_revamp_exploratory/make_measurement_figure.py",
+  "source_sha256": "d8c887b5dd916b795e02a9c35638e73125b2fb72911300949d5dfc75ba75f437",
+  "research_commit": "b850b0312384fc2359c68a25d27c3c5f55fbe06d",
+  "inputs": [
+    {
+      "path": "~/sr_huppi_project/supporting_analyses/fem_analysis/results/fem_vs_reff_alpha0.2_size200.json",
+      "sha256": "fdfc36b551e9d14855bfa64a0d78c515be5db42003ef863e63100461f649dade"
+    },
+    {
+      "path": "~/sr_huppi_project/supporting_analyses/fem_analysis/results/fem_vs_reff_alpha0.5_size200.json",
+      "sha256": "1c4fa41561d0127289aa22ed73d753b0fd49bffcb45c1a0c805c90d7fd4fec32"
+    },
+    {
+      "path": "~/sr_huppi_project/supporting_analyses/fem_analysis/results/fem_vs_reff_alpha0.7_size200.json",
+      "sha256": "0844ffd242a9ea4f068c8936072fd9b785723800abd8b47e2c8d9a2c01162bc3"
+    },
+    {
+      "path": "~/sr_huppi_project/supporting_analyses/fem_analysis/results/fem_vs_reff_alpha1.0_size200.json",
+      "sha256": "580ed6ce23d0631e634ce61d682224b5dff797e798833356ad3c144818f94f0a"
+    }
+  ],
+  "snapshot_sha256": "ccfac5ab57b16ad140b216097a7ae02da0fd3116cf992da4d851b398ac82b3da",
+  "arrays": {
+    "angles": {
+      "shape": [
+        12
+      ],
+      "dtype": "int64"
+    },
+    "stiffness": {
+      "shape": [
+        12
+      ],
+      "dtype": "float64"
+    },
+    "conductance": {
+      "shape": [
+        12
+      ],
+      "dtype": "float64"
+    },
+    "shown_angle": {
+      "shape": [],
+      "dtype": "int64"
+    },
+    "alphas": {
+      "shape": [
+        4
+      ],
+      "dtype": "float64"
+    },
+    "stiffness_ratio_quartiles": {
+      "shape": [
+        4,
+        3
+      ],
+      "dtype": "float64"
+    },
+    "conductance_ratio_quartiles": {
+      "shape": [
+        4,
+        3
+      ],
+      "dtype": "float64"
+    },
+    "networks_per_alpha": {
+      "shape": [
+        4
+      ],
+      "dtype": "int64"
+    },
+    "example_alpha": {
+      "shape": [],
+      "dtype": "float64"
+    },
+    "example_size": {
+      "shape": [],
+      "dtype": "int64"
+    },
+    "example_seed": {
+      "shape": [],
+      "dtype": "int64"
+    },
+    "master_side": {
+      "shape": [],
+      "dtype": "float64"
+    },
+    "master_vertices": {
+      "shape": [
+        935,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "master_codes": {
+      "shape": [
+        935
+      ],
+      "dtype": "uint8"
+    },
+    "sample_vertices": {
+      "shape": [
+        493,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "sample_codes": {
+      "shape": [
+        493
+      ],
+      "dtype": "uint8"
+    },
+    "window": {
+      "shape": [
+        5,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "segments": {
+      "shape": [
+        293,
+        2,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "current": {
+      "shape": [
+        293
+      ],
+      "dtype": "float64"
+    },
+    "thickness": {
+      "shape": [
+        293
+      ],
+      "dtype": "float64"
+    },
+    "mesh_nodes": {
+      "shape": [
+        12650,
+        2
+      ],
+      "dtype": "float32"
+    },
+    "mesh_elements": {
+      "shape": [
+        19113,
+        3
+      ],
+      "dtype": "int32"
+    },
+    "stress": {
+      "shape": [
+        12650
+      ],
+      "dtype": "float32"
+    },
+    "faces": {
+      "shape": [
+        2,
+        2,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "marker_corner": {
+      "shape": [
+        2
+      ],
+      "dtype": "float64"
+    },
+    "marker_arc": {
+      "shape": [
+        40,
+        2
+      ],
+      "dtype": "float64"
+    },
+    "marker_reference": {
+      "shape": [
+        2
+      ],
+      "dtype": "float64"
+    },
+    "marker_label": {
+      "shape": [
+        2
+      ],
+      "dtype": "float64"
+    },
+    "cut_limits": {
+      "shape": [
+        2,
+        2
+      ],
+      "dtype": "float64"
+    }
+  }
+}

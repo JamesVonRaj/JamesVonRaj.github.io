@@ -155,7 +155,7 @@ class ThemeTests(unittest.TestCase):
         expected = {p for p in command.GENERATED if '_accessible' in p}
         expected.update(command.GENERATED[1:4])
         expected.update(f'images/{name}.png' for name in (
-            'physical_learning_detail', 'sr_anisotropy', 'huppi_comparison'))
+            'physical_learning_detail', 'sr_transport_stiffness', 'huppi_comparison'))
         self.assertEqual(set(preserved), expected)
         for path, digest in preserved.items():
             self.assertEqual(digest, command.sha(site / path))

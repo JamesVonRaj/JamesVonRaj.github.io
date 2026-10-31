@@ -1,5 +1,5 @@
 {
-  "theme": "ca7bf73f3c8e7761de5c49f9628f552dd91db7319ca76fe82dbad57a46e4f10c",
+  "theme": "ad8a5753fb38a2cf694f8d42192c117a2566711c123bbcec517373cc0cf71bcb",
   "kind": "rendered",
   "outputs": {
     "assets/theme.css": "d3780ea4277931420dac75c5be9f7fb06335bf4fb9c552bc0adc8bc3d4a9397a",
@@ -16,8 +16,8 @@
     "images/physical_learning_sweep_poster_accessible.png": "9fb132924659ef74a26b345c1d53485ade2cba6f3523567ff388d32925538778",
     "images/sr_cells.png": "33e12e997808a477a1193fc2080f838f662b3a32c5058e7f20aca426cddeaeeb",
     "images/sr_cells_accessible.png": "35c653c5874fd0e6a7927cd1f30e18946e3635d12a3544813af53e7343d06889",
-    "images/sr_anisotropy.png": "8218eb11ae7ed8b2506ab103f03dc9d0b307a5af45c44c0a55efe6d8545ca4dc",
-    "images/sr_anisotropy_accessible.png": "b3526ec0407dd65e83698f2b4a272ed8f524612c5587c7ff91a8c4d17775308e",
+    "images/sr_transport_stiffness.png": "add2b8e50558878fb382b8a1ef44c0feacab162e98eaf4a5c9c667edee1e38ce",
+    "images/sr_transport_stiffness_accessible.png": "6a1063115773923e44eb8704ad23807e63898ea9ef2390b7a465b052387084a8",
     "images/tda_card.png": "6e2fd2530e325751ac6a71275ba9bc42aee67a2a820cb5c2c2c87c1d75ae9a8a",
     "images/tda_card_accessible.png": "45192d89c4c1d92222eaf3fd7979ffac7c1feff73968693eaacc1f5509d2ea52",
     "images/tda_filtration.mp4": "9ef2d9844fba8c8b0b81312e8e9632be6788b16289b3a720f5daa1bba1ab1697",
@@ -38,8 +38,6 @@
       "images/physical_learning_sweep_accessible.mp4": "4e0999849ee57fa251ff1fa8b1c5c5ba71c85e0723a94fa1afde830d15bb3a7e",
       "images/physical_learning_sweep_poster_accessible.png": "9fb132924659ef74a26b345c1d53485ade2cba6f3523567ff388d32925538778",
       "images/sr_cells_accessible.png": "35c653c5874fd0e6a7927cd1f30e18946e3635d12a3544813af53e7343d06889",
-      "images/sr_anisotropy.png": "8218eb11ae7ed8b2506ab103f03dc9d0b307a5af45c44c0a55efe6d8545ca4dc",
-      "images/sr_anisotropy_accessible.png": "b3526ec0407dd65e83698f2b4a272ed8f524612c5587c7ff91a8c4d17775308e",
       "images/tda_card_accessible.png": "45192d89c4c1d92222eaf3fd7979ffac7c1feff73968693eaacc1f5509d2ea52",
       "images/tda_filtration_accessible.mp4": "6530956ed425ed28d79d51b86a5015daf527182a7824e443a4eba2b816df043c",
       "images/tda_filtration_poster_accessible.png": "1961f2ec3ada709e09b969b131c6a16db1dbbd245d0961538675f7b4713295a3",

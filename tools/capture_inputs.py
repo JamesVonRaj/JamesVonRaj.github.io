@@ -61,28 +61,9 @@ def capture(name, source, output):
         arrays['centres'] = np.asarray(centres)
         arrays['color_indices'] = indices
         arrays['color_weights'] = m.WEIGHTS
-    elif name == 'sr_anisotropy':
-        data = m.load_data()
-        selected = data[(data.reff_anisotropy_ratio >= 12) & (data.reff_anisotropy_ratio <= 20)
-                        & (data.alpha == 1.0)].iloc[0]
+    elif name == 'sr_transport_stiffness':
         with contextlib.redirect_stdout(io.StringIO()):
-            seed = m.find_high_anisotropy_seed(n_tries = 50)
-            geometry = m.generate_geometry(seed)
-        segments, thicknesses = [], []
-        for poly in geometry.values():
-            middle = poly.middle_segment
-            start, end = np.asarray(middle.start), np.asarray(middle.end)
-            length = np.linalg.norm(end - start)
-            if length > 0:
-                centre = m.BOX_SIZE / 2
-                rotate = lambda point: np.array([centre + (point[1] - centre), centre - (point[0] - centre)])
-                segments.append([rotate(start), rotate(end)])
-                thicknesses.append(poly.area() / length)
-        arrays = {'segments': np.asarray(segments), 'thicknesses': np.asarray(thicknesses), 'geometry_seed': seed,
-                  'alpha': data.alpha.to_numpy(), 'ratio': data.reff_anisotropy_ratio.to_numpy(),
-                  'polar': selected[m.REFF_COLS].to_numpy(dtype = float),
-                  'polar_ratio': selected.reff_anisotropy_ratio}
-        inputs = [m.DATA_PATH]
+            arrays, inputs = m.website_inputs()
     elif name == 'huppi_comparison':
         arrays = m.make_patterns()
         with np.load(m.DEFAULT_CACHE, allow_pickle = False) as data:
